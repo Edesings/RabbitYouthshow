@@ -623,7 +623,7 @@
       <h3 data-t="aboutH2">Where the content comes from</h3>
       <p data-t="aboutP3">Questions are drawn from all eight chapters of the handbook: what a rabbit is, housing and sanitation, food and nutrition, breeding, health and disease, breeds, show preparation, and the show itself — including the practical judging checklist real judges use.</p>
       <h3 data-t="aboutH3">A note on the pictures</h3>
-      <p data-t="aboutP4">Breed-identification questions use simple original illustrations rather than photographs, so nothing here runs into copyright trouble. If you'd like real photos, see the code comments near BREED_IMAGES for a two-line swap using your own licensed images.</p>
+      <p data-t="aboutP4">Breed-identification questions use real photos of each breed rather than illustrations.</p>
     </div>
   </section>
 
@@ -661,11 +661,9 @@
 /* =========================================================================
    KONYNKENNIS / RABBIT WISE — quiz engine
    -------------------------------------------------------------------------
-   To add real breed photos instead of the illustrated silhouettes:
-   find BREED_SVG() below and, in a question object of type:'image', replace
-   img: BREED_SVG(...) with img: '<img src="https://your-licensed-image-url" alt="">'
-   Always check the image licence (Wikimedia Commons file pages list this)
-   and keep an attribution note on the About page if required by the licence.
+   Breed-identification questions now use real photos (img: '<img src="breed-xxx.jpg" alt="...">')
+   instead of the old BREED_SVG() illustrations. BREED_SVG() is left below, unused, in case
+   it's ever needed again for a breed without a photo yet.
    ========================================================================= */
 
 /* ---------------- UI STRINGS (site chrome) ---------------- */
@@ -750,7 +748,7 @@ en: {
   aboutH2:"Where the content comes from",
   aboutP3:"Questions are drawn from all eight chapters of the handbook: what a rabbit is, housing and sanitation, food and nutrition, breeding, health and disease, breeds, show preparation, and the show itself — including the practical judging checklist real judges use.",
   aboutH3:"A note on the pictures",
-  aboutP4:"Breed-identification questions use simple original illustrations rather than photographs, so nothing here runs into copyright trouble. If you'd like real photos, see the code comments near BREED_IMAGES for a two-line swap using your own licensed images.",
+  aboutP4:"Breed-identification questions use real photos of each breed rather than illustrations.",
   privTitle:"Privacy Policy",
   privIntro:"Last updated: 2026. This page explains, plainly, what happens with information on this site.",
   priv1h:"What we collect", priv1p:"This site does not require an account, a name, or an email address to play. Your quiz progress (score history and which questions you've recently seen) is stored only in your own browser's local storage, never on a server, and never shared with us or anyone else.",
@@ -1098,16 +1096,41 @@ add('s',5,"What does the handbook recommend as the most effective response to a 
 /* ===== CHAPTER 6 — Breeds (some illustrated) ===== */
 add('jj',6,"Which breed is famous for having a very fluffy, woolly coat?","Watter ras is bekend vir 'n baie donsige, wollerige pels?",
   ["Angora","Rex","Californian","New Zealand"],["Angora","Rex","Kaliforniese","Nieu-Seeland"],0,
-  "The Angora is known for its long, fluffy wool coat.","Die Angora is bekend vir sy lang, donsige wolpels.",'image',BREED_SVG({ear:'short',pattern:'furry',color:'#F2E9D8',accent:'#8a6b3d'}));
+  "The Angora is known for its long, fluffy wool coat.","Die Angora is bekend vir sy lang, donsige wolpels.",'image','<img src="breed-angora.jpg" alt="An Angora rabbit with a long, fluffy wool coat">');
 add('jj',6,"Which breed is one of the smallest, weighing just over 1kg?","Watter ras is een van die kleinstes, net oor 1kg?",
   ["Flemish Giant","Netherland Dwarf","Vlaamse Reus","Belgian Hare"],["Vlaamse Reus","Nederlandse Dwerg","Vlaamse Reus","Belgiese Haas"],1,
-  "The Netherland Dwarf has a maximum weight of about 1.12kg.","Die Nederlandse Dwerg het 'n maksimum gewig van omtrent 1,12kg.",'image',BREED_SVG({ear:'short',body:'small',pattern:'solid',color:'#EAD9C4',accent:'#6b4b2a'}));
+  "The Netherland Dwarf has a maximum weight of about 1.12kg.","Die Nederlandse Dwerg het 'n maksimum gewig van omtrent 1,12kg.",'image','<img src="breed-netherland-dwarf.jpg" alt="A small Netherland Dwarf rabbit">');
 add('jj',6,"Which breed is famous for its huge floppy ears?","Watter ras is bekend vir sy reuse-hangore?",
   ["English Lop","Netherland Dwarf","Himalayan","Rex"],["Engelse Flapoor","Nederlandse Dwerg","Himalaja","Rex"],0,
-  "The English Lop (Flapoor) is known for its exceptionally large, floppy ears.","Die Engelse Flapoor is bekend vir sy buitengewoon groot, hangende ore.",'image',BREED_SVG({ear:'lop',pattern:'solid',color:'#F5EFE2',accent:'#5b4632'}));
+  "The English Lop (Flapoor) is known for its exceptionally large, floppy ears.","Die Engelse Flapoor is bekend vir sy buitengewoon groot, hangende ore.",'image','<img src="breed-english-lop.jpg" alt="An English Lop rabbit with very large, floppy ears">');
 add('jj',6,"Which breed is white with dark points on its nose, ears, feet and tail?","Watter ras is wit met donker kolle op sy neus, ore, pote en stert?",
   ["Himalayan","Chinchilla Giganta","Flemish Giant","Belgian Hare"],["Himalaja","Chinchilla Giganta","Vlaamse Reus","Belgiese Haas"],0,
-  "The Himalayan is white with black points on nose, ears, feet and tail.","Die Himalaja is wit met swart kolle op neus, ore, pote en stert.",'image',BREED_SVG({ear:'short',pattern:'points',color:'#FBF6EC',accent:'#2a2a2a'}));
+  "The Himalayan is white with black points on nose, ears, feet and tail.","Die Himalaja is wit met swart kolle op neus, ore, pote en stert.",'image','<img src="breed-himalayan.jpg" alt="A white Himalayan rabbit with dark points on nose, ears, feet and tail">');
+
+add('jj',6,"Which breed is this?","Watter ras is dit?",
+  ["Rex","Angora","English Lop","Himalayan"],["Rex","Angora","Engelse Flapoor","Himalaja"],0,
+  "This is a Rex, known for its short, dense, velvet-like coat.","Dit is 'n Rex, bekend vir sy kort, digte, fluweelagtige pels.",'image','<img src="breed-rex.jpg" alt="A Rex rabbit with a short, dense, velvet-like coat">');
+add('jj',6,"Which breed is this?","Watter ras is dit?",
+  ["Californian","Himalayan","Dutch","Beige"],["Kaliforniese","Himalaja","Hollandse","Beige"],0,
+  "This is a Californian, a white breed with dark points on the nose, ears, feet and tail.","Dit is 'n Kaliforniese, 'n wit ras met donker kolle op die neus, ore, pote en stert.",'image','<img src="breed-californian.jpg" alt="A Californian rabbit, white with dark points">');
+add('jj',6,"Which breed is this?","Watter ras is dit?",
+  ["New Zealand","Californian","Flemish Giant","Chinchilla Giganta"],["Nieu-Seeland","Kaliforniese","Vlaamse Reus","Chinchilla Giganta"],0,
+  "This is a New Zealand, a popular commercial breed often seen with a solid white coat.","Dit is 'n Nieu-Seeland, 'n gewilde kommersiële ras dikwels met 'n solied wit pels.",'image','<img src="breed-new-zealand.jpg" alt="A New Zealand White rabbit">');
+add('jj',6,"Which breed is this?","Watter ras is dit?",
+  ["Flemish Giant","Netherland Dwarf","Rex","Dutch"],["Vlaamse Reus","Nederlandse Dwerg","Rex","Hollandse"],0,
+  "This is a Flemish Giant, one of the largest rabbit breeds.","Dit is 'n Vlaamse Reus, een van die grootste konynrasse.",'image','<img src="breed-flemish-giant.jpg" alt="A large Flemish Giant rabbit">');
+add('jj',6,"Which breed is this?","Watter ras is dit?",
+  ["Chinchilla Giganta","Rex","Satin","Beige"],["Chinchilla Giganta","Rex","Satyn","Beige"],0,
+  "This is a Chinchilla Giganta, named for its banded blue-grey, white and black coat.","Dit is 'n Chinchilla Giganta, vernoem na sy gebande blougrys, wit en swart pels.",'image','<img src="breed-chinchilla-giganta.jpg" alt="A Chinchilla Giganta rabbit with banded grey coat">');
+add('jj',6,"Which breed is this?","Watter ras is dit?",
+  ["Dutch","Californian","Himalayan","Beige"],["Hollandse","Kaliforniese","Himalaja","Beige"],0,
+  "This is a Dutch, recognised by its distinctive colour pattern rather than its size.","Dit is 'n Hollandse, uitgeken aan sy kenmerkende kleurpatroon eerder as sy grootte.",'image','<img src="breed-dutch.jpg" alt="A Dutch rabbit">');
+add('jj',6,"Which breed is this?","Watter ras is dit?",
+  ["Satin","Rex","New Zealand","Beige"],["Satyn","Rex","Nieu-Seeland","Beige"],0,
+  "This is a Satin, recognisable by its unusually glossy, sheen-like coat.","Dit is 'n Satyn, uitgeken aan sy ongewoon blink, glansende pels.",'image','<img src="breed-satin.jpg" alt="A Satin rabbit with a glossy coat">');
+add('jj',6,"Which breed is this?","Watter ras is dit?",
+  ["Beige","Californian","Himalayan","Dutch"],["Beige","Kaliforniese","Himalaja","Hollandse"],0,
+  "This is a Beige, with a sandy coat and a bluish-tinted undercoat underneath.","Dit is 'n Beige, met 'n sandkleurige pels en 'n blouagtig-getinte onderpels.",'image','<img src="breed-beige.jpg" alt="A Beige rabbit with a sandy coat">');
 
 add('j',6,"Which breed is judged largely on its distinctive colour pattern rather than just size?","Watter ras word grotendeels op sy kenmerkende kleurpatroon beoordeel eerder as net grootte?",
   ["Dutch","New Zealand White","Californian","Chinchilla"],["Hollandse konyn","Nieu-Seeland Wit","Kaliforniese","Chinchilla"],0,
@@ -1142,6 +1165,16 @@ add('s',6,"How does the British standard for Rex differ in popularity outcome fr
   ["Narrow heads and lack of density limit how many Rexes are shown despite the breed's appeal","Rex is the most shown breed in Britain by far","Rex cannot be shown under the British standard","There is no such issue reported"],
   ["Nou koppe en gebrek aan digtheid beperk hoeveel Rexe gewys word ondanks die ras se aantreklikheid","Rex is verreweg die mees gewysde ras in Brittanje","Rex kan glad nie onder die Britse standaard gewys word nie","Geen sodanige probleem word gerapporteer nie"],0,
   "Despite the Rex's appeal, narrow heads and lack of coat density in many specimens limit how many are seen at British shows.","Ondanks die Rex se aantreklikheid, beperk nou koppe en gebrek aan pelsdigtheid in baie eksemplare hoeveel by Britse skoue gesien word.");
+
+add('s',6,"This breed shown here is the most popular commercial cross of a wider breed group, typically bred for a solid white coat. Which breed is it?","Hierdie ras wat hier gewys word is die gewildste kommersiële kruisteling van 'n breër rasgroep, tipies vir 'n solied wit pels geteel. Watter ras is dit?",
+  ["New Zealand","Californian","Chinchilla Giganta","Satin"],["Nieu-Seeland","Kaliforniese","Chinchilla Giganta","Satyn"],0,
+  "The New Zealand White is the most popular commercial variety of the New Zealand breed.","Die Nieu-Seeland Wit is die gewildste kommersiële variëteit van die Nieu-Seeland-ras.",'image','<img src="breed-new-zealand.jpg" alt="A New Zealand White rabbit">');
+add('s',6,"This breed's coat is judged on an unusually glossy, sheen-like finish rather than density or colour pattern alone. Which breed is shown?","Hierdie ras se pels word beoordeel op 'n ongewoon blink, glansende voorkoms eerder as digtheid of kleurpatroon alleen. Watter ras word gewys?",
+  ["Satin","Rex","Angora","Chinchilla Giganta"],["Satyn","Rex","Angora","Chinchilla Giganta"],0,
+  "The Satin is judged specifically on its distinctive glossy sheen, a separate coat trait from the Rex's density.","Die Satyn word spesifiek beoordeel op sy kenmerkende blink glans, 'n aparte pelseienskap van die Rex se digtheid.",'image','<img src="breed-satin.jpg" alt="A Satin rabbit with a glossy coat">');
+add('s',6,"This breed's coat colour is judged on a sand tone with a bluish-tinted undercoat beneath it. Which breed is shown?","Hierdie ras se pelskleur word beoordeel op 'n sandtoon met 'n blouerig-getinte onderpels daaronder. Watter ras word gewys?",
+  ["Beige","Californian","Dutch","Himalayan"],["Beige","Kaliforniese","Hollandse","Himalaja"],0,
+  "The Beige is judged on its sand-coloured top coat with a distinctive bluish undercoat.","Die Beige word beoordeel op sy sandkleurige boonste pels met 'n kenmerkende blouerige onderpels.",'image','<img src="breed-beige.jpg" alt="A Beige rabbit with a sandy coat">');
 
 /* ===== CHAPTER 7 — Show preparation ===== */
 add('jj',7,"When should a rabbit's toenails be trimmed before a show?","Wanneer moet 'n konyn se toonnaels voor 'n skou geknip word?",
@@ -1438,6 +1471,16 @@ add('j',6,"What colour is the Beige breed's undercoat, giving it its distinctive
 add('j',6,"Which breed is described as having a coat with banded blue, white and black hairs, like a chinchilla?","Watter ras word beskryf as 'n pels met gebande blou, wit en swart hare, soos 'n tjinsjilla?",
   ["Chinchilla Giganta","Californian","Himalayan","Deilenaar"],["Chinchilla Giganta","Kaliforniese","Himalaja","Deilenaar"],0,
   "The Chinchilla Giganta has banded hair colouring similar to a chinchilla's natural coat.","Die Chinchilla Giganta het gebande haarkleuring soortgelyk aan 'n tjinsjilla se natuurlike pels.");
+
+add('j',6,"This breed is judged largely on its short, dense, velvet-like coat rather than size. Which breed is shown here?","Hierdie ras word grotendeels beoordeel op sy kort, digte, fluweelagtige pels eerder as grootte. Watter ras word hier gewys?",
+  ["Rex","Angora","Flemish Giant","Netherland Dwarf"],["Rex","Angora","Vlaamse Reus","Nederlandse Dwerg"],0,
+  "The Rex is prized specifically for its short, dense, velvet-textured coat.","Die Rex word spesifiek waardeer vir sy kort, digte, fluweelagtige pels.",'image','<img src="breed-rex.jpg" alt="A Rex rabbit with a short, dense, velvet-like coat">');
+add('j',6,"This is one of the largest rabbit breeds, often mistaken for a meat-only breed despite also being shown. Which breed is it?","Dit is een van die grootste konynrasse, dikwels verkeerdelik as slegs 'n vleisras beskou al word dit ook geskou. Watter ras is dit?",
+  ["Flemish Giant","Netherland Dwarf","Himalayan","Polish"],["Vlaamse Reus","Nederlandse Dwerg","Himalaja","Poolse"],0,
+  "The Flemish Giant is a very large breed that is also shown, not just farmed for meat.","Die Vlaamse Reus is 'n baie groot ras wat ook geskou word, nie net vir vleis geboer nie.",'image','<img src="breed-flemish-giant.jpg" alt="A large Flemish Giant rabbit">');
+add('j',6,"This breed is white with dark points, but is a different, larger commercial breed to the Himalayan. Which breed is it?","Hierdie ras is wit met donker kolle, maar is 'n ander, groter kommersiële ras as die Himalaja. Watter ras is dit?",
+  ["Californian","Himalayan","Dutch","Satin"],["Kaliforniese","Himalaja","Hollandse","Satyn"],0,
+  "The Californian shares the pointed pattern with the Himalayan but is a larger, commercially-bred breed.","Die Kaliforniese deel die gekolde patroon met die Himalaja maar is 'n groter, kommersieel-geteelde ras.",'image','<img src="breed-californian.jpg" alt="A Californian rabbit, white with dark points">');
 
 add('s',6,"What specific weight-related challenge affects breeding the Deilenaar to standard?","Watter spesifieke gewigsverwante uitdaging affekteer die teling van die Deilenaar tot standaard?",
   ["Adults commonly exceed the 3.5kg maximum","Adults never reach minimum weight","There is no weight standard","The breed has no weight issues"],
