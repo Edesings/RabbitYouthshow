@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8516299605192544"
+     crossorigin="anonymous"></script> 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rabbit Wise — Youth Show Rabbit Quiz</title>
-<meta name="description" content="A knowledge quiz for Youth Show rabbit exhibitors, built from the official rabbit handleiding — Junior Junior, Junior and Senior divisions.">
+<meta name="description" content="A knowledge quiz for Youth Show rabbit exhibitors, built from the official rabbit handbook — Junior Junior, Junior and Senior divisions.">
 <link rel="icon" type="image/png" href="favicon-field.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -76,11 +78,11 @@
   .brand{display:flex;align-items:center;gap:12px;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.4rem;color:var(--paper);}
   .brand .badge{
     width:38px;height:38px;border-radius:50%;
-    background:conic-gradient(var(--carrot) 0 25%, var(--gold) 25% 50%, var(--forest-light) 50% 75%, var(--sky) 75% 100%);
+    background:var(--paper);
     display:grid;place-items:center;box-shadow:var(--shadow);
-    flex:none;border:2px solid var(--paper);
+    flex:none;border:2px solid var(--gold);padding:3px;overflow:hidden;
   }
-  .brand .badge span{width:18px;height:18px;border-radius:50%;background:var(--forest);}
+  .brand .badge img{width:100%;height:100%;display:block;object-fit:cover;}
   nav.top{display:flex;gap:6px;align-items:center;}
   .navbtn{
     background:transparent;border:none;color:var(--paper);
@@ -88,6 +90,24 @@
   }
   .navbtn:hover, .navbtn:focus-visible{background:rgba(255,255,255,0.12);outline:none;opacity:1;}
   .navbtn.active{background:var(--carrot);color:#fff;opacity:1;}
+  .nav-toggle{
+    display:none;flex-direction:column;justify-content:center;gap:5px;
+    width:40px;height:40px;background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.35);
+    border-radius:10px;flex:none;
+  }
+  .nav-toggle span{display:block;width:20px;height:2px;background:var(--paper);margin:0 auto;border-radius:2px;}
+  @media (max-width:760px){
+    .nav-toggle{display:flex;}
+    nav.top{
+      display:none;position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;align-items:stretch;gap:2px;
+      background:var(--forest-deep);padding:10px 16px 18px;
+      box-shadow:0 14px 20px -10px rgba(0,0,0,0.4);z-index:20;
+    }
+    nav.top.open{display:flex;}
+    .navbtn{width:100%;text-align:left;padding:12px 14px;font-size:1rem;}
+    header.site{position:relative;}
+  }
 
 
   main{max-width:1080px;margin:0 auto;padding:12px 24px 80px;}
@@ -124,32 +144,17 @@
 
   /* boho-baroque medallion hero art */
   .hero-art{display:flex;justify-content:center;position:relative;}
-  .rosette{position:relative;width:270px;height:270px;filter:drop-shadow(0 16px 26px rgba(74,55,40,.28));}
-  .rosette .flourish{
-    position:absolute;width:56px;height:56px;opacity:.85;
-    background-repeat:no-repeat;background-size:contain;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56'%3E%3Cpath d='M4 40 C4 20 20 4 40 4 M40 4c-4 6-2 12 4 14 M40 4c-8 0-12 6-11 13' fill='none' stroke='%23C98A16' stroke-width='2.6' stroke-linecap='round'/%3E%3Ccircle cx='6' cy='42' r='3' fill='%2317A6A0'/%3E%3C/svg%3E");
-  }
-  .rosette .flourish.tl{top:-14px;left:-14px;}
-  .rosette .flourish.tr{top:-14px;right:-14px;transform:scaleX(-1);}
-  .rosette .flourish.bl{bottom:-14px;left:-14px;transform:scaleY(-1);}
-  .rosette .flourish.br{bottom:-14px;right:-14px;transform:scale(-1,-1);}
+  .rosette{position:relative;width:260px;height:260px;filter:drop-shadow(0 14px 22px rgba(74,55,40,.25));}
   .rosette .ring{
-    position:absolute;inset:14px;border-radius:50%;
-    background:
-      repeating-conic-gradient(from 0deg, var(--clover) 0deg 14deg, var(--emerald) 14deg 20deg, var(--gold) 20deg 26deg, var(--clover) 26deg 40deg);
+    position:absolute;inset:0;border-radius:50%;
+    background:var(--gold);
     box-shadow:
-      inset 0 0 0 6px var(--cream),
-      0 0 0 3px var(--paper),
-      0 0 0 6px var(--gold),
-      0 0 0 7px var(--paper);
+      inset 0 0 0 11px var(--paper),
+      0 0 0 4px var(--carrot);
   }
-  .rosette .disc{position:absolute;inset:36px;border-radius:50%;background:var(--clover);display:grid;place-items:center;border:5px solid var(--paper);overflow:hidden;}
-  .rosette .disc img{width:100%;height:100%;object-fit:cover;display:block;}
+  .rosette .disc{position:absolute;inset:26px;border-radius:50%;background:var(--clover);display:grid;place-items:center;overflow:hidden;}
+  .rosette .disc img{width:130%;height:130%;object-fit:cover;object-position:50% 38%;display:block;}
   .rosette .disc span{font-family:'Fraunces',serif;color:#fff;font-size:2.6rem;}
-  .rosette .tails{position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);display:flex;gap:12px;}
-  .rosette .tail{width:24px;height:64px;background:var(--plum);clip-path:polygon(0 0,100% 0,50% 100%);}
-  .rosette .tail:nth-child(2){background:var(--gold-deep);height:74px;}
 
   /* ---------- SECTION CARDS ---------- */
   .section-title{display:flex;align-items:baseline;gap:12px;margin:52px 0 18px;}
@@ -219,6 +224,15 @@
     background:var(--paper);border:1.5px solid var(--line);border-radius:24px;padding:32px;
     box-shadow:var(--shadow), inset 0 0 0 5px var(--paper), inset 0 0 0 6px rgba(201,154,61,0.3);
   }
+  @media (max-width:600px){
+    .quizcard{padding:20px 16px;}
+    .hero{padding:28px 18px 36px;}
+    main{padding:12px 16px 60px;}
+    .rosette, .bigrosette{width:200px;height:200px;}
+    .qtext{font-size:1.08rem;}
+    .options{gap:9px;}
+    .opt{padding:12px 13px;font-size:.94rem;}
+  }
   .chaptag{
     display:inline-block;background:var(--cream-2);color:var(--clover-dark);font-weight:700;font-size:.76rem;
     padding:5px 12px;border-radius:999px;margin-bottom:14px;letter-spacing:.02em;
@@ -258,41 +272,50 @@
 
   /* ---------- RESULTS ---------- */
   .results{text-align:center;padding:30px 0;}
-  .bigrosette{position:relative;width:250px;height:250px;margin:0 auto 46px;filter:drop-shadow(0 18px 26px rgba(74,55,40,.28));}
+  .bigrosette{position:relative;width:250px;height:250px;margin:0 auto 60px;filter:drop-shadow(0 18px 26px rgba(74,55,40,.28));}
   .bigrosette .ring{
     position:absolute;inset:0;border-radius:50%;
     background:repeating-conic-gradient(from 0deg, var(--gold) 0deg 14deg, var(--carrot-dark) 14deg 20deg, var(--clover) 20deg 26deg, var(--gold) 26deg 40deg);
     box-shadow:inset 0 0 0 6px var(--cream), 0 0 0 3px var(--paper), 0 0 0 6px var(--gold-deep);
   }
-  .bigrosette .disc{position:absolute;inset:22px;border-radius:50%;background:var(--clover);border:6px solid var(--paper);overflow:hidden;display:grid;place-items:center;}
-  .bigrosette .disc img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .4s ease;}
+  .bigrosette .disc{position:absolute;inset:22px;border-radius:50%;background:var(--paper);border:6px solid var(--paper);overflow:hidden;display:grid;place-items:center;}
+  .bigrosette .disc img{width:100%;height:100%;object-fit:cover;display:block;}
   .scorebadge{
     position:absolute;left:50%;bottom:-20px;transform:translateX(-50%);
     background:var(--paper);border:3px solid var(--gold-deep);border-radius:999px;
     padding:7px 18px;font-family:'JetBrains Mono';font-weight:700;font-size:1.05rem;color:var(--navy);
-    box-shadow:var(--shadow);white-space:nowrap;
+    box-shadow:var(--shadow);white-space:nowrap;z-index:3;
   }
   .scorebadge .outof{color:#8a7a63;font-weight:500;font-size:.85em;margin-left:2px;}
-  .sparkle{position:absolute;font-size:1.3rem;opacity:0;pointer-events:none;}
+
+  /* HAPPY: an elegant pleated "won the show" ribbon rosette, with hanging tails */
+  .bigrosette .ribbon-tails{position:absolute;bottom:-38px;left:50%;transform:translateX(-50%);display:none;gap:10px;z-index:1;}
+  .bigrosette .ribbon-tails .tail{width:22px;height:56px;clip-path:polygon(0 0,100% 0,50% 100%);}
+  .bigrosette .ribbon-tails .tail:nth-child(1){background:var(--gold-deep);}
+  .bigrosette .ribbon-tails .tail:nth-child(2){background:var(--carrot);height:66px;}
+  .bigrosette.mood-happy .ring{
+    background:repeating-conic-gradient(from 0deg, var(--gold) 0deg 9deg, var(--gold-deep) 9deg 18deg);
+    box-shadow:inset 0 0 0 8px var(--paper), 0 0 0 3px var(--gold-deep);
+  }
+  .bigrosette.mood-happy .ribbon-tails{display:flex;}
+
+  /* SAD: a plain, humble wooden circle frame — no ribbon, no fuss */
+  .bigrosette.mood-sad .ring{
+    background:
+      repeating-linear-gradient(100deg, #8a5a34 0 3px, #7a4d2b 3px 6px, #93613a 6px 10px),
+      radial-gradient(circle at 30% 20%, rgba(255,255,255,0.12), transparent 60%);
+    box-shadow:inset 0 0 0 10px var(--paper), 0 0 0 3px #5b3b22;
+  }
+
   .bigrosette.mood-happy .disc img{animation:happyBounce 1.8s ease-in-out infinite;}
   .bigrosette.mood-happy .ring{animation:happyGlow 2.4s ease-in-out infinite;}
-  .bigrosette.mood-happy .sparkle{animation:sparkleFloat 2.2s ease-in-out infinite;}
-  .bigrosette.mood-happy .sparkle:nth-child(1){top:-6px;left:6px;animation-delay:0s;}
-  .bigrosette.mood-happy .sparkle:nth-child(2){top:20px;right:-10px;animation-delay:.5s;}
-  .bigrosette.mood-happy .sparkle:nth-child(3){bottom:36px;left:-14px;animation-delay:1s;}
-  .bigrosette.mood-sad .disc img{animation:sadDroop 3.2s ease-in-out infinite;filter:saturate(.85);}
-  .bigrosette.mood-sad .sparkle{animation:raindropFall 2.6s ease-in infinite;}
-  .bigrosette.mood-sad .sparkle:nth-child(1){top:-10px;left:30%;animation-delay:0s;}
-  .bigrosette.mood-sad .sparkle:nth-child(2){top:-10px;left:60%;animation-delay:1.1s;}
-  .bigrosette.mood-sad .sparkle:nth-child(3){display:none;}
+  .bigrosette.mood-sad .disc img{animation:sadDroop 3.2s ease-in-out infinite;}
   @keyframes happyBounce{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-7px) scale(1.035);}}
   @keyframes happyGlow{0%,100%{filter:brightness(1) saturate(1);}50%{filter:brightness(1.14) saturate(1.15);}}
-  @keyframes sparkleFloat{0%{opacity:0;transform:translateY(4px) scale(.6) rotate(0deg);}30%{opacity:1;}100%{opacity:0;transform:translateY(-22px) scale(1.1) rotate(50deg);}}
   @keyframes sadDroop{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(4px) rotate(-2deg);}}
-  @keyframes raindropFall{0%{opacity:0;transform:translateY(-6px);}20%{opacity:.9;}100%{opacity:0;transform:translateY(34px);}}
   @media (prefers-reduced-motion: reduce){
-    .bigrosette.mood-happy .disc img, .bigrosette.mood-happy .ring, .bigrosette.mood-happy .sparkle,
-    .bigrosette.mood-sad .disc img, .bigrosette.mood-sad .sparkle{animation:none;}
+    .bigrosette.mood-happy .disc img, .bigrosette.mood-happy .ring,
+    .bigrosette.mood-sad .disc img{animation:none;}
   }
   .results h2{font-size:1.9rem;margin-bottom:6px;}
   .results p.sub{color:#6b5d47;max-width:50ch;margin:0 auto 28px;line-height:1.6;}
@@ -307,6 +330,24 @@
   .prose h2{color:var(--navy);margin-top:36px;}
   .prose h3{color:var(--navy);margin-top:24px;font-size:1.15rem;}
   .prose ul{padding-left:22px;}
+  .anatomy-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center;margin:20px 0 32px;background:var(--paper);border:2px solid var(--line);border-radius:18px;padding:24px;}
+  @media (max-width:720px){.anatomy-wrap{grid-template-columns:1fr;}}
+  .anatomy-art{display:flex;justify-content:center;}
+  .anatomy-legend{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px;}
+  .anatomy-legend li{font-size:.95rem;line-height:1.5;}
+  .anatomy-legend li::marker{color:var(--carrot);font-weight:700;}
+  .anatomy-wrap-single, .deeper-wrap{text-align:center;background:var(--paper);border:2px solid var(--line);border-radius:18px;padding:24px;margin:20px 0 32px;}
+  .anatomy-img, .deeper-img{max-width:100%;border-radius:12px;border:1px solid var(--line);}
+  .download-btn{margin-top:16px;display:inline-flex;text-decoration:none;}
+  .facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin:20px 0 32px;list-style:none;padding:0;}
+  @media (max-width:640px){.facts-grid{grid-template-columns:1fr;}}
+  .facts-grid li{background:var(--paper);border:2px solid var(--line);border-radius:14px;padding:14px 16px;font-size:.94rem;line-height:1.5;}
+  .facts-grid li::before{content:"✦ ";color:var(--carrot);font-weight:700;}
+  .gallery-grid{columns:3 220px;column-gap:14px;margin-top:20px;}
+  @media (max-width:640px){.gallery-grid{columns:2 160px;}}
+  .gallery-grid figure{margin:0 0 14px;break-inside:avoid;border-radius:14px;overflow:hidden;border:2px solid var(--line);box-shadow:var(--shadow);background:var(--paper);}
+  .gallery-grid img{width:100%;display:block;}
+
 
   .focus-ring:focus-visible{outline:3px solid var(--carrot);outline-offset:2px;}
 </style>
@@ -317,12 +358,18 @@
 <div class="dark-panel header-panel">
 <header class="site">
   <div class="brand">
-    <div class="badge"><span></span></div>
+    <div class="badge"><img src="logo-badge.png" alt="Rabbit Wise logo"></div>
     <span id="brandtext">Rabbit Wise</span>
   </div>
-  <nav class="top">
+  <button class="nav-toggle focus-ring" id="navToggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="top" id="navTop">
     <button class="navbtn active focus-ring" data-nav="home">Home</button>
     <button class="navbtn focus-ring" data-nav="about">About</button>
+    <button class="navbtn focus-ring" data-nav="tips">Show Day Guide</button>
+    <button class="navbtn focus-ring" data-nav="deeper">Deeper Studies</button>
+    <button class="navbtn focus-ring" data-nav="gallery">Gallery</button>
     <button class="navbtn focus-ring" data-nav="privacy">Privacy</button>
   </nav>
 </header>
@@ -338,7 +385,7 @@
         <div>
           <span class="eyebrow" data-t="eyebrow">Youth Show · Rabbit Division</span>
           <h1 data-t="heroTitle">Know your rabbit. <em>Win the ribbon.</em></h1>
-          <p class="lead" data-t="heroLead">A knowledge quiz built straight from the official rabbit handleiding — for exhibitors preparing for the show bench, in three age divisions.</p>
+          <p class="lead" data-t="heroLead">A knowledge quiz built straight from the official rabbit handbook — for exhibitors preparing for the show bench, in three age divisions.</p>
           <div class="cta-row">
             <button class="btn btn-primary focus-ring" data-nav="divisions" data-t="heroCta">Choose your division</button>
             <button class="btn btn-ghost focus-ring" data-nav="about" data-t="heroCta2">How it works</button>
@@ -346,13 +393,8 @@
         </div>
         <div class="hero-art">
           <div class="rosette">
-            <span class="flourish tl"></span>
-            <span class="flourish tr"></span>
-            <span class="flourish bl"></span>
-            <span class="flourish br"></span>
             <div class="ring"></div>
             <div class="disc"><img src="bunny-field.jpg" alt="A black and white spotted show rabbit sitting in a painted meadow of wildflowers"></div>
-            <div class="tails"><div class="tail"></div><div class="tail"></div></div>
           </div>
         </div>
       </div>
@@ -361,21 +403,18 @@
     <div class="section-title"><h2 data-t="pickDivision">Pick your division</h2><div class="rule"></div></div>
     <div class="divisions">
       <div class="divcard jj">
-        <span class="agepill">6 – 8</span>
         <h3 data-t="jjName">Junior Junior</h3>
         <p data-t="jjDesc">Easy questions with simple words, made for the youngest exhibitors just starting to learn about their rabbits.</p>
         <button class="btn btn-primary focus-ring" data-start="jj" data-t="playBtn">Start quiz</button>
       </div>
       <div class="divcard j">
-        <span class="agepill">9 – 14</span>
         <h3 data-t="jName">Junior</h3>
         <p data-t="jDesc">A step up in detail — housing, feeding, breeding and health, worded for confident young readers.</p>
         <button class="btn btn-primary focus-ring" data-start="j" data-t="playBtn">Start quiz</button>
       </div>
       <div class="divcard s">
-        <span class="agepill">15 – 18</span>
         <h3 data-t="sName">Senior</h3>
-        <p data-t="sDesc">The full technical depth of the handleiding — for exhibitors who should know their craft cold.</p>
+        <p data-t="sDesc">The full technical depth of the handbook — for exhibitors who should know their craft cold.</p>
         <button class="btn btn-primary focus-ring" data-start="s" data-t="playBtn">Start quiz</button>
       </div>
     </div>
@@ -384,7 +423,7 @@
     <div class="infogrid">
       <div class="infocard"><span class="num">01</span><h4 data-t="how1h">20 questions, every time</h4><p data-t="how1p">Each attempt draws 20 fresh questions from the full rotating question bank covering all eight chapters, so no two quizzes feel the same.</p></div>
       <div class="infocard"><span class="num">02</span><h4 data-t="how2h">Matched to your division</h4><p data-t="how2p">Junior Junior, Junior, and Senior each get their own wording and depth — simple language for the youngest exhibitors, full technical detail for Seniors.</p></div>
-      <div class="infocard"><span class="num">03</span><h4 data-t="how3h">Learn as you go</h4><p data-t="how3p">The correct answer and a short explanation appear right after you answer, so every question is a small lesson from the handleiding.</p></div>
+      <div class="infocard"><span class="num">03</span><h4 data-t="how3h">Learn as you go</h4><p data-t="how3p">The correct answer and a short explanation appear right after you answer, so every question is a small lesson from the handbook.</p></div>
     </div>
   </section>
 
@@ -417,7 +456,7 @@
       <div class="bigrosette" id="moodRosette">
         <div class="ring"></div>
         <div class="disc"><img id="moodImg" src="bunny-field.jpg" alt=""></div>
-        <span class="sparkle">✨</span><span class="sparkle">✨</span><span class="sparkle">✨</span>
+        <div class="ribbon-tails"><div class="tail"></div><div class="tail"></div></div>
         <div class="scorebadge"><span id="finalScore">0</span><span class="outof">/ 20</span></div>
       </div>
       <h2 id="resultTitle">Well done!</h2>
@@ -438,23 +477,120 @@
     <div class="section-title"><h2 data-t="pickDivision">Pick your division</h2><div class="rule"></div></div>
     <div class="divisions">
       <div class="divcard jj">
-        <span class="agepill">6 – 8</span>
         <h3 data-t="jjName">Junior Junior</h3>
         <p data-t="jjDesc">Easy questions with simple words, made for the youngest exhibitors just starting to learn about their rabbits.</p>
         <button class="btn btn-primary focus-ring" data-start="jj" data-t="playBtn">Start quiz</button>
       </div>
       <div class="divcard j">
-        <span class="agepill">9 – 14</span>
         <h3 data-t="jName">Junior</h3>
         <p data-t="jDesc">A step up in detail — housing, feeding, breeding and health, worded for confident young readers.</p>
         <button class="btn btn-primary focus-ring" data-start="j" data-t="playBtn">Start quiz</button>
       </div>
       <div class="divcard s">
-        <span class="agepill">15 – 18</span>
         <h3 data-t="sName">Senior</h3>
-        <p data-t="sDesc">The full technical depth of the handleiding — for exhibitors who should know their craft cold.</p>
+        <p data-t="sDesc">The full technical depth of the handbook — for exhibitors who should know their craft cold.</p>
         <button class="btn btn-primary focus-ring" data-start="s" data-t="playBtn">Start quiz</button>
       </div>
+    </div>
+  </section>
+
+  <!-- ================= TIPS / ANATOMY ================= -->
+  <section class="screen" id="screen-tips">
+    <div class="prose">
+      <h2 data-t="tipsTitle">Show Day Guide</h2>
+      <p data-t="tipsIntro">Whether you're grooming for your first show or your fiftieth, here's a plain-English guide to your rabbit's key features and what actually happens on show day — pulled straight from the handbook's show-preparation and judging chapters.</p>
+
+      <h3 data-t="tipsAnatomyH">Know your rabbit</h3>
+      <div class="anatomy-wrap-single">
+        <img src="anatomy-labelled.jpg" alt="Labelled skeletal and muscular diagram of a rabbit" class="anatomy-img">
+        <a href="anatomy-labelled.jpg" download class="btn btn-ghost focus-ring download-btn">⬇ Download this diagram</a>
+      </div>
+
+      <h3 data-t="tipsBeforeH">Before the show</h3>
+      <ul>
+        <li data-t="tipsBefore1">Trim toenails about two weeks ahead, never the same day — freshly cut nails are sharper than long ones.</li>
+        <li data-t="tipsBefore2">Brush out loose hair with a damp cloth or chamois so it doesn't shed on the show table.</li>
+        <li data-t="tipsBefore3">Check ears for canker, and the nose and front paws for any signs of snuffles.</li>
+        <li data-t="tipsBefore4">Confirm your rabbit sits correctly for its breed's posture, and that its ears sit the way the standard expects.</li>
+      </ul>
+
+      <h3 data-t="tipsNightH">The night before</h3>
+      <ul>
+        <li data-t="tipsNight1">Some exhibitors rub a little cornflour or mielie meal into the coat to lift out dirt, then brush it all out completely — any leftover powder makes the coat look dull.</li>
+        <li data-t="tipsNight2">Pack your show box: pellets, a water bowl, a small towel or cloth, nail clippers, and a little cabbage or carrot.</li>
+        <li data-t="tipsNight3">Make sure your travel carrier keeps your rabbit dry even if it urinates on the way, and skip newspaper bedding under white rabbits — wet ink can stain the coat.</li>
+      </ul>
+
+      <h3 data-t="tipsDayH">On show day</h3>
+      <ul>
+        <li data-t="tipsDay1">Rabbits are checked for health, tagged with a hutch number, and weighed on arrival.</li>
+        <li data-t="tipsDay2">No further preparation may be done once the judge has entered the hall.</li>
+        <li data-t="tipsDay3">Handle your rabbit exactly the way it will be handled during judging — taken from its hutch, placed calmly on a table, sitting quietly beside others.</li>
+      </ul>
+
+      <h3 data-t="tipsJudgeH">During judging</h3>
+      <ul>
+        <li data-t="tipsJudge1">Judges look at type and posture, coat density and condition, head/ears/eyes, toenails and paws, leg and bone structure, and general health.</li>
+        <li data-t="tipsJudge2">No discussion is allowed at the judging table, except at a training-purpose "tafelskou."</li>
+        <li data-t="tipsJudge3">Winners progress from Best of Breed through higher groupings up to Best in Show.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY ================= -->
+  <section class="screen" id="screen-gallery">
+    <div class="prose">
+      <h2 data-t="galleryTitle">Rabbit Gallery</h2>
+      <p data-t="galleryIntro">A few photos of rabbits from around the world, showing just how much variety there is between breeds, colours, and coat types.</p>
+      <div class="gallery-grid">
+          <figure><img src="gallery/bunny-01.jpg" alt="A pet rabbit" loading="lazy"></figure>
+          <figure><img src="gallery/bunny-02.jpg" alt="A pet rabbit" loading="lazy"></figure>
+          <figure><img src="gallery/bunny-03.jpg" alt="A pet rabbit" loading="lazy"></figure>
+          <figure><img src="gallery/bunny-04.jpg" alt="A pet rabbit" loading="lazy"></figure>
+          <figure><img src="gallery/bunny-05.jpg" alt="A pet rabbit" loading="lazy"></figure>
+          <figure><img src="gallery/bunny-06.jpg" alt="A pet rabbit" loading="lazy"></figure>
+          <figure><img src="gallery/bunny-07.jpg" alt="A pet rabbit" loading="lazy"></figure>
+          <figure><img src="gallery/bunny-08.jpg" alt="A pet rabbit" loading="lazy"></figure>
+          <figure><img src="gallery/bunny-09.jpg" alt="A pet rabbit" loading="lazy"></figure>
+          <figure><img src="gallery/bunny-10.jpg" alt="A pet rabbit" loading="lazy"></figure>
+          <figure><img src="gallery/bunny-11.jpg" alt="A pet rabbit" loading="lazy"></figure>
+          <figure><img src="gallery/bunny-12.jpg" alt="A pet rabbit" loading="lazy"></figure>
+          <figure><img src="gallery/bunny-13.jpg" alt="A pet rabbit" loading="lazy"></figure>
+          <figure><img src="gallery/bunny-14.jpg" alt="A pet rabbit" loading="lazy"></figure>
+          <figure><img src="gallery/bunny-15.jpg" alt="A pet rabbit" loading="lazy"></figure>
+          <figure><img src="gallery/bunny-16.jpg" alt="A pet rabbit" loading="lazy"></figure>
+          <figure><img src="gallery/bunny-17.jpg" alt="A pet rabbit" loading="lazy"></figure>
+          <figure><img src="gallery/bunny-18.jpg" alt="A pet rabbit" loading="lazy"></figure>
+          <figure><img src="gallery/bunny-19.jpg" alt="A pet rabbit" loading="lazy"></figure>
+      </div>
+      <p style="margin-top:18px;font-size:.85rem;color:#6b5d47;" data-t="galleryCredit">Photos courtesy of photographers on Pexels.com, used under the free Pexels licence.</p>
+    </div>
+  </section>
+
+  <!-- ================= DEEPER STUDIES ================= -->
+  <section class="screen" id="screen-deeper">
+    <div class="prose">
+      <h2 data-t="deeperTitle">Deeper Studies</h2>
+      <p data-t="deeperIntro">For exhibitors who want to go beyond the show bench — a closer look at what's actually going on inside a rabbit, plus a handful of facts you won't find in the handbook.</p>
+
+      <div class="deeper-wrap">
+        <img src="deeper-anatomy.jpg" alt="A detailed skeletal and muscular anatomy reference poster of a rabbit" class="deeper-img">
+        <div><a href="deeper-anatomy.jpg" download class="btn btn-ghost focus-ring download-btn">⬇ Download this poster</a></div>
+      </div>
+
+      <h3 data-t="deeperFactsH">10 rabbit facts you won't find in the handbook</h3>
+      <ul class="facts-grid">
+        <li data-t="deeperFact1">A rabbit's ears can rotate almost 270°, independently of each other, to pinpoint a sound without turning its head.</li>
+        <li data-t="deeperFact2">Because its eyes sit on the sides of its head, a rabbit can see almost all the way around its body — except for one small blind spot right in front of its nose.</li>
+        <li data-t="deeperFact3">A healthy rabbit's heart beats between 130 and 325 times a minute — up to three times faster than a resting human heart.</li>
+        <li data-t="deeperFact4">Rabbits physically cannot vomit, which is one reason a careful, gradual diet matters so much.</li>
+        <li data-t="deeperFact5">Rabbits produce special soft droppings called caecotrophs and eat them directly, giving their body a second chance to absorb nutrients.</li>
+        <li data-t="deeperFact6">A rabbit's front teeth can grow up to 5mm in a single week — about the width of two grains of rice.</li>
+        <li data-t="deeperFact7">Rabbits mark their territory by rubbing a scent gland under their chin on objects, a behaviour called "chinning."</li>
+        <li data-t="deeperFact8">A healthy adult rabbit can jump over a metre from a standing start — roughly waist-high on an adult person.</li>
+        <li data-t="deeperFact9">Rabbits thump their hind legs hard on the ground to warn other rabbits nearby that danger might be close.</li>
+        <li data-t="deeperFact10">Every domestic rabbit breed alive today descends from wild rabbits native to the Iberian Peninsula — modern-day Spain and Portugal.</li>
+      </ul>
     </div>
   </section>
 
@@ -462,10 +598,10 @@
   <section class="screen" id="screen-about">
     <div class="prose">
       <h2 data-t="aboutTitle">About Rabbit Wise</h2>
-      <p data-t="aboutP1">This quiz was built from an official Youth Show rabbit handleiding (guide) so that young exhibitors can practise their knowledge in a fun, low-pressure way before facing a judge's questions on the show bench.</p>
-      <p data-t="aboutP2">There are three divisions, matched to the Youth Show age groups: Junior Junior (6–8), Junior (9–14) and Senior (15–18). Each division's questions are worded for that age group specifically — simpler for younger exhibitors, and going into full technical depth for Seniors.</p>
+      <p data-t="aboutP1">This quiz was built from an official Youth Show rabbit handbook (guide) so that young exhibitors can practise their knowledge in a fun, low-pressure way before facing a judge's questions on the show bench.</p>
+      <p data-t="aboutP2">There are three divisions, matched to the Youth Show age groups: Junior Junior, Junior and Senior. Each division's questions are worded for that age group specifically — simpler for younger exhibitors, and going into full technical depth for Seniors.</p>
       <h3 data-t="aboutH2">Where the content comes from</h3>
-      <p data-t="aboutP3">Questions are drawn from all eight chapters of the handleiding: what a rabbit is, housing and sanitation, food and nutrition, breeding, health and disease, breeds, show preparation, and the show itself — including the practical judging checklist real judges use.</p>
+      <p data-t="aboutP3">Questions are drawn from all eight chapters of the handbook: what a rabbit is, housing and sanitation, food and nutrition, breeding, health and disease, breeds, show preparation, and the show itself — including the practical judging checklist real judges use.</p>
       <h3 data-t="aboutH3">A note on the pictures</h3>
       <p data-t="aboutP4">Breed-identification questions use simple original illustrations rather than photographs, so nothing here runs into copyright trouble. If you'd like real photos, see the code comments near BREED_IMAGES for a two-line swap using your own licensed images.</p>
     </div>
@@ -485,7 +621,7 @@
       <h3 data-t="priv4h">Cookies</h3>
       <p data-t="priv4p">Aside from advertising cookies described above, this site does not use tracking cookies of its own.</p>
       <h3 data-t="priv5h">Contact</h3>
-      <p data-t="priv5p">Questions about this policy can be directed to the site owner using the contact details published on the show or club's official page.</p>
+      <p data-t="priv5p">Questions about this policy can be directed to <a href="mailto:moodyunicornsinc@gmail.com">moodyunicornsinc@gmail.com</a>.</p>
     </div>
   </section>
 
@@ -517,26 +653,69 @@ const STR = {
 en: {
   eyebrow:"Youth Show · Rabbit Division",
   heroTitle:'Know your rabbit. <em>Win the ribbon.</em>',
-  heroLead:"A knowledge quiz built straight from the official rabbit handleiding — for exhibitors preparing for the show bench, in three age divisions.",
+  heroLead:"A knowledge quiz built straight from the official rabbit handbook — for exhibitors preparing for the show bench, in three age divisions.",
   heroCta:"Choose your division", heroCta2:"How it works",
   pickDivision:"Pick your division",
   jjName:"Junior Junior", jjDesc:"Easy questions with simple words, made for the youngest exhibitors just starting to learn about their rabbits.",
   jName:"Junior", jDesc:"A step up in detail — housing, feeding, breeding and health, worded for confident young readers.",
-  sName:"Senior", sDesc:"The full technical depth of the handleiding — for exhibitors who should know their craft cold.",
+  sName:"Senior", sDesc:"The full technical depth of the handbook — for exhibitors who should know their craft cold.",
   playBtn:"Start quiz",
   howTitle:"How each quiz works",
   how1h:"20 questions, every time", how1p:"Each attempt draws 20 fresh questions from the full rotating question bank covering all eight chapters, so no two quizzes feel the same.",
   how2h:"Matched to your division", how2p:"Junior Junior, Junior, and Senior each get their own wording and depth — simple language for the youngest exhibitors, full technical detail for Seniors.",
-  how3h:"Learn as you go", how3p:"The correct answer and a short explanation appear right after you answer, so every question is a small lesson from the handleiding.",
+  how3h:"Learn as you go", how3p:"The correct answer and a short explanation appear right after you answer, so every question is a small lesson from the handbook.",
   nextBtn:"Next question →",
   playAgain:"Play again", chooseOther:"Choose another division",
   breakdownTitle:"Chapter breakdown",
   footAbout:"About", footPriv:"Privacy Policy", footNote:"Built for Youth Show rabbit exhibitors",
+  deeperTitle:"Deeper Studies",
+  deeperIntro:"For exhibitors who want to go beyond the show bench — a closer look at what's actually going on inside a rabbit, plus a handful of facts you won't find in the handbook.",
+  deeperFactsH:"10 rabbit facts you won't find in the handbook",
+  deeperFact1:"A rabbit's ears can rotate almost 270°, independently of each other, to pinpoint a sound without turning its head.",
+  deeperFact2:"Because its eyes sit on the sides of its head, a rabbit can see almost all the way around its body — except for one small blind spot right in front of its nose.",
+  deeperFact3:"A healthy rabbit's heart beats between 130 and 325 times a minute — up to three times faster than a resting human heart.",
+  deeperFact4:"Rabbits physically cannot vomit, which is one reason a careful, gradual diet matters so much.",
+  deeperFact5:"Rabbits produce special soft droppings called caecotrophs and eat them directly, giving their body a second chance to absorb nutrients.",
+  deeperFact6:"A rabbit's front teeth can grow up to 5mm in a single week — about the width of two grains of rice.",
+  deeperFact7:"Rabbits mark their territory by rubbing a scent gland under their chin on objects, a behaviour called \"chinning.\"",
+  deeperFact8:"A healthy adult rabbit can jump over a metre from a standing start — roughly waist-high on an adult person.",
+  deeperFact9:"Rabbits thump their hind legs hard on the ground to warn other rabbits nearby that danger might be close.",
+  deeperFact10:"Every domestic rabbit breed alive today descends from wild rabbits native to the Iberian Peninsula — modern-day Spain and Portugal.",
+  galleryTitle:"Rabbit Gallery",
+  galleryIntro:"A few photos of rabbits from around the world, showing just how much variety there is between breeds, colours, and coat types.",
+  galleryCredit:"Photos courtesy of photographers on Pexels.com, used under the free Pexels licence.",
+  tipsTitle:"Show Day Guide",
+  tipsIntro:"Whether you're grooming for your first show or your fiftieth, here's a plain-English guide to your rabbit's key features and what actually happens on show day \u2014 pulled straight from the handbook's show-preparation and judging chapters.",
+  tipsAnatomyH:"Know your rabbit",
+  an1h:"Ears", an1p:"carried upright in most breeds; judges check for cleanliness and, in some breeds, ear canker.",
+  an2h:"Eyes", an2p:"should be bright and clear, with no discharge.",
+  an3h:"Nose & whiskers", an3p:"a dry nose is a good sign; a wet, runny nose can signal snuffles.",
+  an4h:"Front paws", an4p:"checked for cleanliness, especially on white rabbits.",
+  an5h:"Coat", an5p:"judged for density, texture and condition \u2014 watch for moulting before a show.",
+  an6h:"Back legs", an6p:"powerful hind legs; also where breed-specific posture (cobby, snaky, and so on) is judged.",
+  an7h:"Tail", an7p:"carried close to the body; judges check general grooming here too.",
+  tipsBeforeH:"Before the show",
+  tipsBefore1:"Trim toenails about two weeks ahead, never the same day \u2014 freshly cut nails are sharper than long ones.",
+  tipsBefore2:"Brush out loose hair with a damp cloth or chamois so it doesn't shed on the show table.",
+  tipsBefore3:"Check ears for canker, and the nose and front paws for any signs of snuffles.",
+  tipsBefore4:"Confirm your rabbit sits correctly for its breed's posture, and that its ears sit the way the standard expects.",
+  tipsNightH:"The night before",
+  tipsNight1:"Some exhibitors rub a little cornflour or mielie meal into the coat to lift out dirt, then brush it all out completely \u2014 any leftover powder makes the coat look dull.",
+  tipsNight2:"Pack your show box: pellets, a water bowl, a small towel or cloth, nail clippers, and a little cabbage or carrot.",
+  tipsNight3:"Make sure your travel carrier keeps your rabbit dry even if it urinates on the way, and skip newspaper bedding under white rabbits \u2014 wet ink can stain the coat.",
+  tipsDayH:"On show day",
+  tipsDay1:"Rabbits are checked for health, tagged with a hutch number, and weighed on arrival.",
+  tipsDay2:"No further preparation may be done once the judge has entered the hall.",
+  tipsDay3:"Handle your rabbit exactly the way it will be handled during judging \u2014 taken from its hutch, placed calmly on a table, sitting quietly beside others.",
+  tipsJudgeH:"During judging",
+  tipsJudge1:"Judges look at type and posture, coat density and condition, head/ears/eyes, toenails and paws, leg and bone structure, and general health.",
+  tipsJudge2:"No discussion is allowed at the judging table, except at a training-purpose \"tafelskou.\"",
+  tipsJudge3:"Winners progress from Best of Breed through higher groupings up to Best in Show.",
   aboutTitle:"About Rabbit Wise",
-  aboutP1:"This quiz was built from an official Youth Show rabbit handleiding (guide) so that young exhibitors can practise their knowledge in a fun, low-pressure way before facing a judge's questions on the show bench.",
-  aboutP2:"There are three divisions, matched to the Youth Show age groups: Junior Junior (6–8), Junior (9–14) and Senior (15–18). Each division's questions are worded for that age group specifically — simpler for younger exhibitors, and going into full technical depth for Seniors.",
+  aboutP1:"This quiz was built from an official Youth Show rabbit handbook (guide) so that young exhibitors can practise their knowledge in a fun, low-pressure way before facing a judge's questions on the show bench.",
+  aboutP2:"There are three divisions, matched to the Youth Show age groups: Junior Junior, Junior and Senior. Each division's questions are worded for that age group specifically — simpler for younger exhibitors, and going into full technical depth for Seniors.",
   aboutH2:"Where the content comes from",
-  aboutP3:"Questions are drawn from all eight chapters of the handleiding: what a rabbit is, housing and sanitation, food and nutrition, breeding, health and disease, breeds, show preparation, and the show itself — including the practical judging checklist real judges use.",
+  aboutP3:"Questions are drawn from all eight chapters of the handbook: what a rabbit is, housing and sanitation, food and nutrition, breeding, health and disease, breeds, show preparation, and the show itself — including the practical judging checklist real judges use.",
   aboutH3:"A note on the pictures",
   aboutP4:"Breed-identification questions use simple original illustrations rather than photographs, so nothing here runs into copyright trouble. If you'd like real photos, see the code comments near BREED_IMAGES for a two-line swap using your own licensed images.",
   privTitle:"Privacy Policy",
@@ -545,31 +724,31 @@ en: {
   priv2h:"Advertising", priv2p:"This site may show ads served by Google AdSense to keep it free for schools and families. Google may use cookies or device identifiers to show relevant ads. You can control ad personalisation through Google's own settings at adssettings.google.com.",
   priv3h:"Children's use", priv3p:"This site is designed for use by children under adult or teacher supervision as part of Youth Show preparation. No personal information is requested from or required of any user, child or adult, to use the quiz.",
   priv4h:"Cookies", priv4p:"Aside from advertising cookies described above, this site does not use tracking cookies of its own.",
-  priv5h:"Contact", priv5p:"Questions about this policy can be directed to the site owner using the contact details published on the show or club's official page."
+  priv5h:"Contact", priv5p:"Questions about this policy can be directed to <a href=\"mailto:moodyunicornsinc@gmail.com\">moodyunicornsinc@gmail.com</a>."
 },
 af: {
   eyebrow:"Jeugskou · Konynafdeling",
   heroTitle:'Ken jou konyn. <em>Wen die lint.</em>',
-  heroLead:"'n Tweetalige kwis reguit uit die amptelike konyn-handleiding — vir skouers wat vir die skoubank voorberei, in drie ouderdomsafdelings.",
+  heroLead:"'n Tweetalige kwis reguit uit die amptelike konyn-handbook — vir skouers wat vir die skoubank voorberei, in drie ouderdomsafdelings.",
   heroCta:"Kies jou afdeling", heroCta2:"Hoe dit werk",
   pickDivision:"Kies jou afdeling",
   jjName:"Junior Junior", jjDesc:"Maklike vrae met eenvoudige woorde, gemaak vir die jongste skouers wat pas begin leer van hulle konyne.",
   jName:"Junior", jDesc:"'n Trap hoër in detail — behuising, voeding, teling en gesondheid, verwoord vir selfversekerde jong lesers.",
-  sName:"Senior", sDesc:"Die volle tegniese diepte van die handleiding — vir skouers wat hulle vak deur en deur moet ken.",
+  sName:"Senior", sDesc:"Die volle tegniese diepte van die handbook — vir skouers wat hulle vak deur en deur moet ken.",
   playBtn:"Begin kwis",
   howTitle:"Hoe elke kwis werk",
   how1h:"20 vrae, elke keer", how1p:"Elke poging trek 20 vars vrae uit die volle roterende vraebank wat al agt hoofstukke dek, sodat geen twee kwisse dieselfde voel nie.",
   how2h:"Lees dit soos jy wil", how2p:"Elke vraag en antwoord verskyn saam in Engels en Afrikaans — wissel die skakelaar bo-aan enige tyd, net soos 'n tweemedium-eksamenvraestel.",
-  how3h:"Leer soos jy speel", how3p:"Die korrekte antwoord en 'n kort verduideliking verskyn dadelik nadat jy geantwoord het, sodat elke vraag 'n klein lessie uit die handleiding is.",
+  how3h:"Leer soos jy speel", how3p:"Die korrekte antwoord en 'n kort verduideliking verskyn dadelik nadat jy geantwoord het, sodat elke vraag 'n klein lessie uit die handbook is.",
   nextBtn:"Volgende vraag →",
   playAgain:"Speel weer", chooseOther:"Kies 'n ander afdeling",
   breakdownTitle:"Hoofstuk-uiteensetting",
   footAbout:"Oor die kwis", footPriv:"Privaatheidsbeleid", footNote:"Gemaak vir Jeugskou-konynskouers · Tweetalig EN/AF",
   aboutTitle:"Oor Konynkennis / Rabbit Wise",
-  aboutP1:"Hierdie kwis is gebou uit 'n amptelike Jeugskou konyn-handleiding sodat jong skouers hulle kennis op 'n plesierige, lae-druk manier kan oefen voordat hulle 'n beoordelaar se vrae op die skoubank in die gesig staar.",
+  aboutP1:"Hierdie kwis is gebou uit 'n amptelike Jeugskou konyn-handbook sodat jong skouers hulle kennis op 'n plesierige, lae-druk manier kan oefen voordat hulle 'n beoordelaar se vrae op die skoubank in die gesig staar.",
   aboutP2:"Daar is drie afdelings, wat pas by die Jeugskou-ouderdomsgroepe: Junior Junior (6–8), Junior (9–14) en Senior (15–18). Elke vraag bestaan in beide Engels en Afrikaans, net soos 'n tweemedium skoolvraestel — gebruik die EN / AF-skakelaar regs bo-aan enige tyd.",
   aboutH2:"Waar die inhoud vandaan kom",
-  aboutP3:"Vrae kom uit al agt hoofstukke van die handleiding: wat 'n konyn is, behuising en sanitasie, voedsel en voedingswaarde, teling, gesondheid en siektes, rasse, skou-voorbereiding, en die skou self — insluitend die praktiese beoordelingslys wat werklike beoordelaars gebruik.",
+  aboutP3:"Vrae kom uit al agt hoofstukke van die handbook: wat 'n konyn is, behuising en sanitasie, voedsel en voedingswaarde, teling, gesondheid en siektes, rasse, skou-voorbereiding, en die skou self — insluitend die praktiese beoordelingslys wat werklike beoordelaars gebruik.",
   aboutH3:"'n Nota oor die prente",
   aboutP4:"Ras-identifiseringsvrae gebruik eenvoudige oorspronklike illustrasies eerder as foto's, sodat niks hier in outeursreg-moeilikheid loop nie. As u regte foto's wil hê, sien die kode-kommentaar naby BREED_IMAGES vir 'n vinnige vervanging met u eie gelisensieerde beelde.",
   privTitle:"Privaatheidsbeleid",
@@ -578,46 +757,60 @@ af: {
   priv2h:"Advertensies", priv2p:"Hierdie werf kan advertensies vertoon deur Google AdSense verskaf om dit gratis vir skole en gesinne te hou. Google kan koekies of toestelidentifiseerders gebruik om relevante advertensies te wys. U kan advertensie-personalisering beheer via Google se eie instellings by adssettings.google.com.",
   priv3h:"Gebruik deur kinders", priv3p:"Hierdie werf is ontwerp vir gebruik deur kinders onder volwasse- of onderwysertoesig as deel van Jeugskou-voorbereiding. Geen persoonlike inligting word van enige gebruiker, kind of volwassene, versoek of vereis om die kwis te gebruik nie.",
   priv4h:"Koekies", priv4p:"Afgesien van die advertensiekoekies hierbo beskryf, gebruik hierdie werf nie sy eie internetspoorkoekies nie.",
-  priv5h:"Kontak", priv5p:"Vrae oor hierdie beleid kan aan die werf-eienaar gerig word deur die kontakbesonderhede wat op die skou of klub se amptelike bladsy gepubliseer is."
+  priv5h:"Kontak", priv5p:"Vrae oor hierdie beleid kan gerig word aan <a href=\"mailto:moodyunicornsinc@gmail.com\">moodyunicornsinc@gmail.com</a>."
 }
 };
 let currentLang = 'en';
 
 /* ---------------- Simple SVG bunny generator for breed-ID questions ---------------- */
+/* ---------------- Chibi mascot mood illustrations (matched to the real bunny's markings) ---------------- */
+
 function BREED_SVG(opts){
   // opts: {ear:'short'|'long'|'lop', body:'small'|'medium'|'large', pattern:'solid'|'points'|'blaze'|'furry', color, accent}
   const ear = opts.ear||'short', body=opts.body||'medium', pattern=opts.pattern||'solid';
-  const color = opts.color||'#EDE3D2', accent = opts.accent||'#23405C';
-  const scale = body==='small'?0.72:body==='large'?1.18:1;
+  const color = opts.color||'#FFFDFA', accent = opts.accent||'#2B2622';
+  const outline = '#3A302A';
+  const scale = body==='small'?0.8:body==='large'?1.15:1;
+  const isPoints = pattern==='points';
+  const earFill = isPoints ? accent : color;
+  const bodyFill = color;
+
   const earPath = ear==='lop'
-    ? `<ellipse cx="70" cy="118" rx="16" ry="46" fill="${color}" stroke="${accent}" stroke-width="4" transform="rotate(70 70 118)"/>
-       <ellipse cx="130" cy="118" rx="16" ry="46" fill="${color}" stroke="${accent}" stroke-width="4" transform="rotate(-70 130 118)"/>`
+    ? `<ellipse cx="68" cy="120" rx="17" ry="48" fill="${earFill}" stroke="${outline}" stroke-width="3.5" transform="rotate(68 68 120)"/>
+       <ellipse cx="132" cy="120" rx="17" ry="48" fill="${earFill}" stroke="${outline}" stroke-width="3.5" transform="rotate(-68 132 120)"/>`
     : ear==='long'
-    ? `<ellipse cx="78" cy="46" rx="14" ry="58" fill="${color}" stroke="${accent}" stroke-width="4"/>
-       <ellipse cx="122" cy="46" rx="14" ry="58" fill="${color}" stroke="${accent}" stroke-width="4"/>`
-    : `<ellipse cx="82" cy="66" rx="12" ry="34" fill="${color}" stroke="${accent}" stroke-width="4"/>
-       <ellipse cx="118" cy="66" rx="12" ry="34" fill="${color}" stroke="${accent}" stroke-width="4"/>`;
+    ? `<ellipse cx="77" cy="42" rx="15" ry="56" fill="${earFill}" stroke="${outline}" stroke-width="3.5"/>
+       <ellipse cx="123" cy="42" rx="15" ry="56" fill="${earFill}" stroke="${outline}" stroke-width="3.5"/>`
+    : `<ellipse cx="80" cy="64" rx="13" ry="36" fill="${earFill}" stroke="${outline}" stroke-width="3.5"/>
+       <ellipse cx="120" cy="64" rx="13" ry="36" fill="${earFill}" stroke="${outline}" stroke-width="3.5"/>`;
+
   let markings = '';
-  if(pattern==='points'){
-    markings = `<ellipse cx="100" cy="150" rx="46" ry="38" fill="${accent}" opacity="0.85"/>
-                <circle cx="100" cy="118" r="8" fill="${accent}"/>`;
+  if(isPoints){
+    // classic "point" markings: nose patch + two small front-foot patches + tiny tail patch,
+    // separate from the ears (already coloured above) — nothing covers the body itself.
+    markings = `
+      <ellipse cx="100" cy="112" rx="13" ry="10" fill="${accent}"/>
+      <ellipse cx="76" cy="178" rx="11" ry="9" fill="${accent}"/>
+      <ellipse cx="124" cy="178" rx="11" ry="9" fill="${accent}"/>
+      <ellipse cx="152" cy="150" rx="8" ry="8" fill="${accent}"/>`;
   } else if(pattern==='blaze'){
-    markings = `<path d="M100 100 L112 150 L88 150 Z" fill="${accent}" opacity="0.8"/>`;
+    markings = `<path d="M100 96 L110 140 Q100 148 90 140 Z" fill="${accent}" opacity="0.9"/>`;
   } else if(pattern==='furry'){
-    markings = `<g stroke="${accent}" stroke-width="2" opacity="0.5">
-      <path d="M60 150 q6 -10 0 -20"/><path d="M75 158 q6 -10 0 -20"/><path d="M90 162 q6 -10 0 -20"/>
-      <path d="M110 162 q6 -10 0 -20"/><path d="M125 158 q6 -10 0 -20"/><path d="M140 150 q6 -10 0 -20"/>
+    markings = `<g stroke="${accent}" stroke-width="2.5" opacity="0.55" stroke-linecap="round">
+      <path d="M58 150 q6 -12 0 -22"/><path d="M74 160 q6 -12 0 -22"/><path d="M90 164 q6 -12 0 -22"/>
+      <path d="M110 164 q6 -12 0 -22"/><path d="M126 160 q6 -12 0 -22"/><path d="M142 150 q6 -12 0 -22"/>
     </g>`;
   }
-  return `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="illustrated rabbit">
-    <g transform="translate(100 100) scale(${scale}) translate(-100 -100)">
+
+  return `<svg viewBox="0 0 200 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="illustrated rabbit showing breed markings">
+    <g transform="translate(100 105) scale(${scale}) translate(-100 -105)">
       ${earPath}
-      <ellipse cx="100" cy="140" rx="58" ry="46" fill="${color}" stroke="${accent}" stroke-width="4"/>
-      <circle cx="100" cy="92" r="30" fill="${color}" stroke="${accent}" stroke-width="4"/>
-      <circle cx="90" cy="88" r="3.5" fill="${accent}"/>
-      <circle cx="110" cy="88" r="3.5" fill="${accent}"/>
-      <circle cx="100" cy="98" r="3" fill="${accent}"/>
+      <ellipse cx="100" cy="150" rx="58" ry="44" fill="${bodyFill}" stroke="${outline}" stroke-width="3.5"/>
+      <circle cx="100" cy="96" r="32" fill="${bodyFill}" stroke="${outline}" stroke-width="3.5"/>
       ${markings}
+      <circle cx="89" cy="90" r="4" fill="${outline}"/>
+      <circle cx="111" cy="90" r="4" fill="${outline}"/>
+      ${isPoints ? '' : `<ellipse cx="100" cy="112" rx="7" ry="5" fill="#E39494" stroke="${outline}" stroke-width="1.5"/>`}
     </g>
   </svg>`;
 }
@@ -662,28 +855,28 @@ add('j',1,"What key difference separates rabbit kits from hare babies at birth?"
   ["Kits are born blind and hairless; hares are born sighted and furred","Kits are born furred; hares are born hairless","There is no difference","Hares are always bigger"],
   ["Kleintjies word blind en kaal gebore; hasies word siende en met hare gebore","Kleintjies word met hare gebore; hasies word kaal gebore","Daar is geen verskil nie","Hasies is altyd groter"],0,
   "Rabbit kits are born blind and without fur; hare young are born with fur and open eyes.","Konynkleintjies word blind en sonder pels gebore; haaskleintjies word met pels en oop oë gebore.");
-add('j',1,"Which wool-producing breed's mutation first appeared, per the handleiding, in monasteries?","Watter wolproduserende ras se mutasie het, volgens die handleiding, eerste in kloosters verskyn?",
+add('j',1,"Which wool-producing breed's mutation first appeared, per the handbook, in monasteries?","Watter wolproduserende ras se mutasie het, volgens die handleiding, eerste in kloosters verskyn?",
   ["Rex","Angora","Satin","Californian"],["Rex","Angora","Satyn","Kaliforniese"],1,
   "The Angora's wool mutation was first noted among rabbits kept in monasteries.","Die Angora se wolmutasie is eerste opgemerk onder konyne wat in kloosters aangehou is.");
 add('j',1,"List one reason people keep rabbits besides as pets, according to the book.","Noem een rede, benewens as troeteldiere, waarom mense konyne aanhou, volgens die boek.",
   ["For commercial meat purposes","To ride them","As guard animals","To sell their milk"],
   ["Vir kommersiële vleisdoeleindes","Om op hulle te ry","As wagdiere","Om hulle melk te verkoop"],0,
-  "The handleiding lists pets, commercial meat purposes, therapeutic/rehabilitation purposes, and research as reasons.","Die handleiding noem troeteldiere, kommersiële vleisdoeleindes, terapeutiese/rehabilitasiedoeleindes, en navorsing as redes.");
+  "The handbook lists pets, commercial meat purposes, therapeutic/rehabilitation purposes, and research as reasons.","Die handleiding noem troeteldiere, kommersiële vleisdoeleindes, terapeutiese/rehabilitasiedoeleindes, en navorsing as redes.");
 
 add('s',1,"Rabbits are classified in the order Lagomorpha, distinguishing them from which commonly confused order?","Konyne word in die orde Lagomorpha geklassifiseer — van watter algemeen verwarde orde onderskei dit hulle?",
   ["Rodentia","Carnivora","Artiodactyla","Chiroptera"],["Rodentia","Carnivora","Artiodactyla","Chiroptera"],0,
   "Rabbits are often wrongly classified as rodents; they are in fact Lagomorpha.","Konyne word dikwels verkeerdelik as knaagdiere geklassifiseer; hulle is in werklikheid Lagomorpha.");
-add('s',1,"Approximately when, per the handleiding, were rabbits first domesticated and kept in hutches?","Wanneer, volgens die handleiding, is konyne ongeveer eerste gedomestikeer en in hokke aangehou?",
+add('s',1,"Approximately when, per the handbook, were rabbits first domesticated and kept in hutches?","Wanneer, volgens die handleiding, is konyne ongeveer eerste gedomestikeer en in hokke aangehou?",
   ["1000 BC","1800 AD","500 AD","1900 AD"],["1000 VC","1800 nC","500 nC","1900 nC"],0,
   "Rabbits have been kept in hutches since about 1000 BC.","Konyne word al sedert omtrent 1000 VC in hokke aangehou.");
 add('s',1,"During which era did fancy breeds like Rex and Satyn first appear as documented mutations?","Gedurende watter era het luukse rasse soos Rex en Satyn eerste as gedokumenteerde mutasies verskyn?",
   ["The Middle Ages","The 18th century","The 20th century","Ancient Rome"],
   ["Die Middeleeue","Die 18de eeu","Die 20ste eeu","Antieke Rome"],1,
   "Mutations such as Rex and Satyn are noted from the 18th century onward.","Mutasies soos Rex en Satyn word van die 18de eeu af aangeteken.");
-add('s',1,"Give a full modern reason list (per the handleiding) for why rabbits are kept today.","Gee 'n volledige moderne redelys (volgens die handleiding) waarom konyne vandag aangehou word.",
+add('s',1,"Give a full modern reason list (per the handbook) for why rabbits are kept today.","Gee 'n volledige moderne redelys (volgens die handleiding) waarom konyne vandag aangehou word.",
   ["Pets, commercial meat, therapeutic/rehabilitation, and research purposes","Only meat and racing","Only as show animals","Only for wool production"],
   ["Troeteldiere, kommersiële vleis, terapeutiese/rehabilitasie, en navorsingsdoeleindes","Net vleis en resies","Net as skoudiere","Net vir wolproduksie"],0,
-  "The handleiding lists four main reasons: pets, commercial (meat), therapeutic/rehabilitation, and research.","Die handleiding noem vier hoofredes: troeteldiere, kommersieel (vleis), terapeuties/rehabilitasie, en navorsing.");
+  "The handbook lists four main reasons: pets, commercial (meat), therapeutic/rehabilitation, and research.","Die handleiding noem vier hoofredes: troeteldiere, kommersieel (vleis), terapeuties/rehabilitasie, en navorsing.");
 
 /* ===== CHAPTER 2 — Housing / Sanitation ===== */
 add('jj',2,"Should a rabbit's hutch be kept clean?","Moet 'n konyn se hok skoon gehou word?",
@@ -696,7 +889,7 @@ add('jj',2,"Where should a mother rabbit and her babies be kept apart from other
 add('jj',2,"Is it a good idea to let many rabbits run loose together all the time?","Is dit 'n goeie idee om baie konyne heeltyd saam los te laat loop?",
   ["Yes, always best","There are pros and cons to think about","Rabbits can't be kept loose","Only at night"],
   ["Ja, altyd die beste","Daar is voor- en nadele om oor na te dink","Konyne kan nie los gehou word nie","Net snags"],1,
-  "The handleiding asks you to weigh up pros and cons of free-range, colony, or individual housing.","Die handleiding vra jou om voor- en nadele van los loop, kolonies, of afsonderlike hokke teen mekaar op te weeg.");
+  "The handbook asks you to weigh up pros and cons of free-range, colony, or individual housing.","Die handleiding vra jou om voor- en nadele van los loop, kolonies, of afsonderlike hokke teen mekaar op te weeg.");
 add('jj',2,"What must you always give your rabbit in its hutch, besides food?","Wat moet jy altyd, benewens kos, aan jou konyn se hok gee?",
   ["A television","Clean water and a clean space","A swimming pool","Nothing else"],
   ["'n Televisie","Skoon water en 'n skoon plek","'n Swembad","Niks anders nie"],1,
@@ -706,7 +899,7 @@ add('j',2,"Why must a doe be moved to the buck's hutch rather than the other way
   ["Because rabbits are territorial/plekgebonde","Bucks can't move","Does don't like their own hutch","It doesn't matter either way"],
   ["Omdat konyne plekgebonde is","Mannetjies kan nie beweeg nie","Wyfies hou nie van hulle eie hok nie","Dit maak nie saak nie"],0,
   "Rabbits are plekgebonde (site-attached), so the doe is taken to the buck's territory for mating.","Konyne is plekgebonde, dus word die wyfie na die mannetjie se gebied geneem vir paring.");
-add('j',2,"What are the three housing options compared in the handleiding's Chapter 2 project?","Wat is die drie behuisingsopsies wat in Hoofstuk 2 se projek vergelyk word?",
+add('j',2,"What are the three housing options compared in the handbook's Chapter 2 project?","Wat is die drie behuisingsopsies wat in Hoofstuk 2 se projek vergelyk word?",
   ["Free-range in the garden, colonies, and separate hutches","Cages, cars, and cages again","Only colonies","Only free range"],
   ["Los in die tuin, kolonies, en aparte hokke","Hokke, motors, en weer hokke","Net kolonies","Net los loop"],0,
   "The project compares letting rabbits run loose, keeping them in colonies, or in separate hutches.","Die projek vergelyk om konyne los te laat loop, in kolonies te hou, of in aparte hokke te hou.");
@@ -752,7 +945,7 @@ add('jj',3,"If you change a rabbit's food, should you do it suddenly or slowly?"
 add('j',3,"What protein percentage range do rabbits typically need in their diet?","Watter proteïenpersentasie-omvang benodig konyne tipies in hulle dieet?",
   ["2-4%","12-14%","40-50%","80%"],["2-4%","12-14%","40-50%","80%"],1,
   "Rabbits typically need a diet with about 12-14% protein, though some sources suggest up to 18%.","Konyne benodig tipies 'n dieet met omtrent 12-14% proteïen, alhoewel sommige bronne tot 18% voorstel.");
-add('j',3,"Which vegetables/foods does the handleiding specifically warn against?","Watter groente/kosse waarsku die handleiding spesifiek teen?",
+add('j',3,"Which vegetables/foods does the handbook specifically warn against?","Watter groente/kosse waarsku die handleiding spesifiek teen?",
   ["Carrots and lettuce","Rhubarb, tomato plants, raw potatoes, and onions","Grass clippings","Oats"],
   ["Wortels en blaarslaai","Rabarber, tamatieplante, rou aartappels, en uie","Grassnysels","Hawermout"],1,
   "Rhubarb, tomato plants, raw potatoes, and onions can be fatal to rabbits.","Rabarber, tamatieplante, rou aartappels, en uie kan noodlottig vir konyne wees.");
@@ -765,7 +958,7 @@ add('j',3,"How often should fresh water be provided if a rabbit eats pellets?","
   ["Een keer per week","Twee tot drie keer per dag","Nooit, korrelkos bevat genoeg water","Een keer per maand"],1,
   "Rabbits on pellet diets should get fresh water two to three times a day and can drink up to a litre a day.","Konyne op korrelkos-diëte moet twee tot drie keer per dag vars water kry en kan tot 'n liter per dag drink.");
 
-add('s',3,"What timeframe does the handleiding say feed-related problems may take to become noticeable?","Watter tydperk sê die handleiding kan kosverwante probleme neem om sigbaar te word?",
+add('s',3,"What timeframe does the handbook say feed-related problems may take to become noticeable?","Watter tydperk sê die handleiding kan kosverwante probleme neem om sigbaar te word?",
   ["A few hours","Six months to a year","Ten years","They are always immediate"],
   ["'n Paar uur","Ses maande tot 'n jaar","Tien jaar","Hulle is altyd onmiddellik"],1,
   "Feed-related problems require sustained observation over six months to a year to properly identify.","Kosverwante probleme vereis volgehoue waarneming oor ses maande tot 'n jaar om behoorlik te identifiseer.");
@@ -815,7 +1008,7 @@ add('s',4,"Compare the commercial 5-week breeding cycle with a show-oriented 10-
   ["The 5-week cycle maximises output for profit; the 10-week cycle better balances health and show condition","Both cycles are identical in practice","The 10-week cycle is only used for meat rabbits","The 5-week cycle is used exclusively for show breeding"],
   ["Die 5-weeklikse siklus maksimeer opbrengs vir wins; die 10-weeklikse siklus balanseer gesondheid en skoukondisie beter","Albei siklusse is prakties identies","Die 10-weeklikse siklus word slegs vir vleiskonyne gebruik","Die 5-weeklikse siklus word uitsluitlik vir skouteling gebruik"],0,
   "Commercial breeders use a 5-week cycle to maximise output; show breeders often use a 10-week cycle for better results in both breeding and condition.","Kommersiële telers gebruik 'n 5-weeklikse siklus om opbrengs te maksimeer; skoutelers gebruik dikwels 'n 10-weeklikse siklus vir beter resultate in beide teling en kondisie.");
-add('s',4,"What buck-to-doe ratio does the handleiding suggest for a 10-week breeding cycle?","Watter mannetjie-tot-wyfie-verhouding stel die handleiding voor vir 'n 10-weeklikse telingsiklus?",
+add('s',4,"What buck-to-doe ratio does the handbook suggest for a 10-week breeding cycle?","Watter mannetjie-tot-wyfie-verhouding stel die handleiding voor vir 'n 10-weeklikse telingsiklus?",
   ["1 buck per 20 does","1 buck per 2 does","1 buck per 100 does","Bucks are not needed in this cycle"],
   ["1 mannetjie per 20 wyfies","1 mannetjie per 2 wyfies","1 mannetjie per 100 wyfies","Mannetjies word nie in hierdie siklus benodig nie"],0,
   "For a 10-week cycle, one buck is needed for about 20 does; for a 5-week cycle, one buck per 10 does.","Vir 'n 10-weeklikse siklus word een mannetjie vir omtrent 20 wyfies benodig; vir 'n 5-weeklikse siklus, een mannetjie per 10 wyfies.");
@@ -846,8 +1039,8 @@ add('j',5,"What causes ear canker?","Wat veroorsaak oorkanker?",
   ["A mite","A vitamin deficiency","Cold weather","Too much water"],["'n Mytjie","'n Vitamientekort","Koue weer","Te veel water"],0,
   "Ear canker is caused by a mite that creates a scabby crust in the ear.","Oorkanker word deur 'n mytjie veroorsaak wat 'n korserige skurfte in die oor skep.");
 add('j',5,"What condition results when a rabbit's teeth don't wear down properly due to jaw misalignment?","Watter toestand ontstaan wanneer 'n konyn se tande nie behoorlik afslyt weens kaakwanaansluiting nie?",
-  ["Wanokklusie (malocclusion)","Snuifsiekte","Skewe nek","Oorkanker"],["Wanokklusie","Snuifsiekte","Skewe nek","Oorkanker"],0,
-  "Wanokklusie (malocclusion) happens when the jaw doesn't align properly, so teeth overgrow.","Wanokklusie ontstaan wanneer die kaak nie behoorlik aansluit nie, sodat tande oorgroei.");
+  ["Malocclusion","Snuffles","Wry neck","Ear canker"],["Wanokklusie","Snuifsiekte","Skewe nek","Oorkanker"],0,
+  "Malocclusion happens when the jaw doesn't align properly, so teeth overgrow.","Wanokklusie ontstaan wanneer die kaak nie behoorlik aansluit nie, sodat tande oorgroei.");
 add('j',5,"What should be done with a wound or abscess after it has been drained?","Wat moet met 'n wond of abses gedoen word nadat dit gedreineer is?",
   ["Disinfect it and cover with healing oil or a Vaseline/sulfur mix","Leave it completely uncovered forever","Cover it in mud","Nothing further is needed"],
   ["Ontsmet dit en bedek met genesende olie of 'n Vaselien/blomswawel-mengsel","Los dit vir altyd heeltemal onbedek","Bedek dit met modder","Niks verder word benodig nie"],0,
@@ -864,7 +1057,7 @@ add('s',5,"Explain why a beoordelaar (judge) might notice a knop (lump) in a vac
   ["The snuffles vaccine injection site can cause a visible lump","Vaccinated rabbits always lose their fur","It indicates the rabbit is pregnant","It means the rabbit has malocclusion"],
   ["Die inspuitingsplek van die snuifsiekte-entstof kan 'n sigbare knop veroorsaak","Ingeënte konyne verloor altyd hulle pels","Dit dui aan dat die konyn dragtig is","Dit beteken die konyn het wanokklusie"],0,
   "The snuffles vaccine is injected in the neck and can leave a noticeable lump, which judges may spot.","Die snuifsiekte-entstof word in die nek ingespuit en kan 'n merkbare knop laat, wat beoordelaars kan opmerk.");
-add('s',5,"What does the handleiding recommend as the 'doeltreffendste' response to a rabbit with confirmed snuffles?","Wat beveel die handleiding aan as die 'doeltreffendste' reaksie op 'n konyn met bevestigde snuifsiekte?",
+add('s',5,"What does the handbook recommend as the 'doeltreffendste' response to a rabbit with confirmed snuffles?","Wat beveel die handleiding aan as die 'doeltreffendste' reaksie op 'n konyn met bevestigde snuifsiekte?",
   ["Euthanise the sick rabbit, or strictly isolate it if that isn't possible","Ignore it, it will clear up alone","Only isolate it for one day","Give it more greens"],
   ["Maak die siek konyn dood, of isoleer dit streng as dit nie moontlik is nie","Ignoreer dit, dit sal vanself oorgaan","Isoleer dit net vir een dag","Gee dit meer groenkos"],0,
   "The most effective response is to euthanise the sick rabbit, or strictly isolate it if that's not possible, since snuffles is highly contagious.","Die doeltreffendste reaksie is om die siek konyn dood te maak, of dit streng te isoleer indien dit nie moontlik is nie, aangesien snuifsiekte hoogs aansteeklik is.");
@@ -884,7 +1077,7 @@ add('jj',6,"Which breed is white with dark points on its nose, ears, feet and ta
   "The Himalayan is white with black points on nose, ears, feet and tail.","Die Himalaja is wit met swart kolle op neus, ore, pote en stert.",'image',BREED_SVG({ear:'short',pattern:'points',color:'#FBF6EC',accent:'#2a2a2a'}));
 
 add('j',6,"Which breed is judged largely on its distinctive colour pattern rather than just size?","Watter ras word grotendeels op sy kenmerkende kleurpatroon beoordeel eerder as net grootte?",
-  ["Dutch (Hollandse konyn)","New Zealand White","Californian","Chinchilla"],["Hollandse konyn","Nieu-Seeland Wit","Kaliforniese","Chinchilla"],0,
+  ["Dutch","New Zealand White","Californian","Chinchilla"],["Hollandse konyn","Nieu-Seeland Wit","Kaliforniese","Chinchilla"],0,
   "Most points for the Dutch rabbit are awarded based on its distinctive colour patterning.","Die meeste punte vir die Hollandse konyn word toegeken op grond van sy kenmerkende kleurpatrone.");
 add('j',6,"The Rex breed is best known for which coat feature?","Die Rex-ras is bekendste vir watter pelseienskap?",
   ["A short, dense, velvet-like coat","Extremely long wool","No fur at all","Curly ears"],["'n Kort, digte, fluweelagtige pels","Uiters lang wol","Glad geen pels nie","Krulore"],0,
@@ -1017,6 +1210,278 @@ add('s',8,"Why must all rabbits be re-checked for health on arrival even if they
   ["Om aansteeklike toestande op te tel voordat vermenging met ander konyne by die skou plaasvind","Dit word nie werklik vereis nie","Net siek konyne word nagegaan","Gesondheidskontroles gebeur net na beoordeling"],0,
   "Arrival health checks catch contagious problems like snuffles before rabbits are placed near others at the show.","Aankoms-gesondheidskontroles vang aansteeklike probleme soos snuifsiekte voordat konyne naby ander by die skou geplaas word.");
 
+
+/* ---- Extra rotation questions (added for variety across replays) ---- */
+
+/* Chapter 1 */
+add('jj',1,"What is another name people sometimes wrongly call rabbits, thinking they are the same animal?","Watter ander naam noem mense konyne soms verkeerdelik, omdat hulle dink dit is dieselfde dier?",
+  ["Rodents","Hares","Cats","Dogs"],["Knaagdiere","Hase","Katte","Honde"],1,
+  "People often confuse rabbits with hares, but they are different animals.","Mense verwar konyne dikwels met hase, maar hulle is verskillende diere.");
+add('jj',1,"Do all rabbit breeds look the same?","Lyk alle konynrasse dieselfde?",
+  ["Yes, exactly the same","No, there are many different breeds","Only two breeds exist","Only white rabbits exist"],
+  ["Ja, presies dieselfde","Nee, daar is baie verskillende rasse","Net twee rasse bestaan","Net wit konyne bestaan"],1,
+  "There are many different rabbit breeds, each with its own look.","Daar is baie verskillende konynrasse, elkeen met sy eie voorkoms.");
+add('jj',1,"Can a rabbit be kept just because it makes a good pet?","Kan 'n konyn aangehou word net omdat dit 'n goeie troeteldier is?",
+  ["Yes","No, only for shows","No, only for meat","No, that is not allowed"],
+  ["Ja","Nee, net vir skoue","Nee, net vir vleis","Nee, dit word nie toegelaat nie"],0,
+  "Being a good pet is one of the main reasons people keep rabbits.","Om 'n goeie troeteldier te wees is een van die hoofredes waarom mense konyne aanhou.");
+
+add('j',1,"What is another name for the order Lagomorpha, referring to their double front teeth?","Wat is 'n ander naam vir die orde Lagomorpha, wat na hulle dubbele voortande verwys?",
+  ["Duplicidenta","Rodentia","Carnivora","Insectivora"],["Duplicidenta","Rodentia","Carnivora","Insectivora"],0,
+  "Lagomorpha is also referred to as Duplicidenta, reflecting their doubled front incisors.","Lagomorpha word ook Duplicidenta genoem, wat na hulle dubbele voortande verwys.");
+add('j',1,"How many teeth does a rodent typically have, compared to a rabbit's 28?","Hoeveel tande het 'n knaagdier tipies, vergeleke met 'n konyn se 28?",
+  ["16","28","40","8"],["16","28","40","8"],0,
+  "Rodents typically have 16 teeth, compared to a rabbit's 28 — one reason they are classified differently.","Knaagdiere het tipies 16 tande, vergeleke met 'n konyn se 28 — een rede waarom hulle anders geklassifiseer word.");
+add('j',1,"Why can it be understandable that laypeople mistake rabbits for rodents?","Waarom is dit verstaanbaar dat leke konyne vir knaagdiere aansien?",
+  ["They share some superficial similarities though they're biologically distinct","Rabbits are actually rodents","There is no similarity at all","Rodents are actually Lagomorpha"],
+  ["Hulle deel sekere oppervlakkige ooreenkomste alhoewel hulle biologies verskillend is","Konyne is werklik knaagdiere","Daar is geen ooreenkoms nie","Knaagdiere is werklik Lagomorpha"],0,
+  "The handbook notes it's an understandable mistake given superficial similarities, even though the classification is quite different.","Die handleiding noem dit 'n verstaanbare fout gegewe oppervlakkige ooreenkomste, alhoewel die klassifikasie redelik anders is.");
+
+add('s',1,"Rabbits and hares are both grouped under Lagomorpha, but into how many families?","Konyne en hase word albei onder Lagomorpha gegroepeer, maar in hoeveel families?",
+  ["Two", "One", "Four", "Six"],["Twee","Een","Vier","Ses"],0,
+  "Lagomorpha is split into families that separate rabbits and hares from pikas.","Lagomorpha word in families verdeel wat konyne en hase van pika's skei.");
+add('s',1,"What historical factor most likely drove the initial domestication of the rabbit?","Watter historiese faktor het waarskynlik die aanvanklike domestikasie van die konyn gedryf?",
+  ["Monastic meat-keeping practices","Racing", "Wool production only", "Companionship only"],
+  ["Kloosterlike vleishouery-praktyke","Resies","Slegs wolproduksie","Slegs geselskap"],0,
+  "Monasteries kept rabbits initially largely for meat, which is credited with starting domestication.","Kloosters het konyne aanvanklik grotendeels vir vleis aangehou, wat gekrediteer word met die begin van domestikasie.");
+add('s',1,"Name one mutation-derived trait, besides Angora wool, that later became the basis of a whole fancy breed.","Noem een mutasie-afkomstige eienskap, benewens Angora-wol, wat later die basis van 'n hele luukse ras geword het.",
+  ["A short velvet-like Rex coat","A striped tail","Webbed feet","Extra toes"],["'n Kort fluweelagtige Rex-pels","'n Gestreepte stert","Geswiegde pote","Ekstra tone"],0,
+  "The Rex coat mutation, producing a short velvety texture, became the foundation of the Rex breed.","Die Rex-pelsmutasie, wat 'n kort fluweelagtige tekstuur lewer, het die grondslag van die Rex-ras geword.");
+
+
+/* Chapter 2 */
+add('jj',2,"Should a rabbit's water bowl ever be left dirty?","Moet 'n konyn se waterbak ooit vuil gelaat word?",
+  ["Yes, always","No, it should be kept clean","Only on Sundays","It doesn't have water"],
+  ["Ja, altyd","Nee, dit moet skoon gehou word","Net Sondae","Dit het nie water nie"],1,
+  "Water bowls must be kept clean and disinfected, just like the rest of the hutch.","Waterbakke moet skoon en ontsmet gehou word, net soos die res van die hok.");
+add('jj',2,"If a hutch has a wire floor, what should be added for comfort?","As 'n hok 'n draadvloer het, wat moet vir gemak bygevoeg word?",
+  ["Grass or shavings","Water only","Nothing at all","Rocks"],["Gras of skaafsels","Net water","Glad niks nie","Klippe"],0,
+  "Grass or shavings should be scattered on wire floors for comfort and cleanliness.","Gras of skaafsels moet op draadvloere gestrooi word vir gemak en higiëne.");
+add('jj',2,"Why do rabbits need their own separate hutches instead of always running together?","Waarom het konyne hulle eie aparte hokke nodig eerder as om altyd saam te loop?",
+  ["So breeding and health can be managed properly","Rabbits dislike each other always","It is required by law only","It saves food"],
+  ["Sodat teling en gesondheid behoorlik bestuur kan word","Konyne hou altyd nie van mekaar nie","Dit word slegs wetlik vereis","Dit spaar kos"],0,
+  "Separate hutches make it easier to manage breeding, health, and individual care.","Aparte hokke maak dit makliker om teling, gesondheid, en individuele sorg te bestuur.");
+
+add('j',2,"What is one downside of keeping rabbits in a colony rather than separate hutches?","Wat is een nadeel daaraan om konyne in 'n kolonie eerder as aparte hokke aan te hou?",
+  ["It's harder to control breeding and keep accurate records","Rabbits get less exercise","Rabbits eat less food","There are no downsides"],
+  ["Dit is moeiliker om teling te beheer en akkurate rekords te hou","Konyne kry minder oefening","Konyne eet minder kos","Daar is geen nadele nie"],0,
+  "Colonies make it difficult to control exactly which rabbits breed with which.","Kolonies maak dit moeilik om te beheer presies watter konyne met watter teel.");
+add('j',2,"What must be done to hutch equipment like feed bowls, not just visible dirt?","Wat moet met hoktoerusting soos voerbakke gedoen word, nie net sigbare vuil nie?",
+  ["It must be disinfected","It must be painted","It must be replaced weekly","Nothing further"],
+  ["Dit moet ontsmet word","Dit moet geverf word","Dit moet weekliks vervang word","Niks verder nie"],0,
+  "Disinfecting removes germs that plain washing might leave behind.","Ontsmetting verwyder kieme wat gewone was kan agterlaat.");
+add('j',2,"Which housing style gives a breeder the most control over which individual rabbits mate?","Watter behuisingstyl gee 'n teler die meeste beheer oor watter individuele konyne paar?",
+  ["Separate hutches","Free-range colonies","Communal pens","Open garden runs"],
+  ["Aparte hokke","Vryloop-kolonies","Gemeenskaplike kampe","Oop tuinlopies"],0,
+  "Separate hutches let a breeder control precisely which rabbits are paired for mating.","Aparte hokke laat 'n teler toe om presies te beheer watter konyne vir paring gepaar word.");
+
+add('s',2,"What sanitation issue is specifically associated with hutches suspended above ground on a wire floor?","Watter higiëne-kwessie word spesifiek geassosieer met hokke wat bo-grond op 'n draadvloer opgehang is?",
+  ["Waste can accumulate underneath and needs bedding/management there too","There is no issue","The rabbit cannot be fed","The hutch cannot be cleaned at all"],
+  ["Afval kan daaronder ophoop en benodig ook bedekking/bestuur daar","Daar is geen kwessie nie","Die konyn kan nie gevoer word nie","Die hok kan glad nie skoongemaak word nie"],0,
+  "Waste accumulates below suspended wire-floor hutches, so bedding or management underneath matters too.","Afval hoop onder opgehangde draadvloerhokke op, so bedekking of bestuur daaronder is ook belangrik.");
+add('s',2,"Compare the record-keeping implications of colony housing versus individual hutches for a serious breeder.","Vergelyk die rekordhouding-implikasies van kolonie-behuising teenoor individuele hokke vir 'n ernstige teler.",
+  ["Individual hutches allow precise pedigree tracking; colonies make this very difficult","Both allow equally precise tracking","Colonies are always better for pedigree accuracy","Neither allows any record-keeping"],
+  ["Individuele hokke laat presiese stamboom-nasporing toe; kolonies maak dit baie moeilik","Albei laat ewe presiese nasporing toe","Kolonies is altyd beter vir stamboom-akkuraatheid","Geeneen laat enige rekordhouding toe nie"],0,
+  "Individual hutches let a serious breeder track pedigree precisely, which colonies make very difficult.","Individuele hokke laat 'n ernstige teler toe om stamboom presies na te spoor, wat kolonies baie moeilik maak.");
+
+/* Chapter 3 */
+add('jj',3,"Is it okay to give a rabbit chocolate as a treat?","Is dit reg om vir 'n konyn sjokolade as 'n lekkerny te gee?",
+  ["Yes, lots of it","No, it isn't a good idea","Yes, every day","Chocolate is their favourite food"],
+  ["Ja, baie daarvan","Nee, dit is nie 'n goeie idee nie","Ja, elke dag","Sjokolade is hulle gunsteling kos"],1,
+  "Even though some rabbits might nibble it, chocolate isn't good rabbit food.","Al knibbel party konyne daaraan, is sjokolade nie goeie konynkos nie.");
+add('jj',3,"What should be mixed with pellets to give a rabbit's diet some roughage?","Wat moet met korrelkos gemeng word om 'n konyn se dieet vesel te gee?",
+  ["Hay", "Sand", "Plastic", "Metal"],["Hooi","Sand","Plastiek","Metaal"],0,
+  "Hay adds roughage to a rabbit's diet alongside pellets.","Hooi voeg vesel by 'n konyn se dieet by, saam met korrelkos.");
+add('jj',3,"How many times a day should fresh water be given if a rabbit eats pellets?","Hoeveel keer per dag moet vars water gegee word as 'n konyn korrelkos eet?",
+  ["Two to three times","Once a month","Never","Once a year"],["Twee tot drie keer","Een keer per maand","Nooit","Een keer per jaar"],0,
+  "Fresh water should be given two to three times a day.","Vars water moet twee tot drie keer per dag gegee word.");
+
+add('j',3,"What happens if you switch a rabbit's pellet brand suddenly instead of gradually?","Wat gebeur as jy 'n konyn se korrelkos-handelsmerk skielik verander eerder as geleidelik?",
+  ["It can cause diarrhoea and other problems","Nothing happens at all","The rabbit grows faster","The coat becomes shinier"],
+  ["Dit kan buikloop en ander probleme veroorsaak","Niks gebeur glad nie","Die konyn groei vinniger","Die pels word blinker"],0,
+  "Sudden feed changes can cause diarrhoea, coat problems, and other issues.","Skielike kosveranderinge kan buikloop, pelsprobleme, en ander kwessies veroorsaak.");
+add('j',3,"Roughly what percentage steps are recommended when transitioning to a new feed?","Ongeveer watter persentasiestappe word aanbeveel wanneer na 'n nuwe kos oorgeskakel word?",
+  ["25%, 50%, 75%, 100%","10%, 90%","50%, 100% only","100% immediately"],
+  ["25%, 50%, 75%, 100%","10%, 90%","50%, 100% slegs","100% onmiddellik"],0,
+  "Feed transitions should happen gradually, e.g. 25%, 50%, 75%, then 100%.","Kosoorgange moet geleidelik gebeur, bv. 25%, 50%, 75%, dan 100%.");
+add('j',3,"Which two treats are mentioned as good for boosting a show rabbit's coat shine?","Watter twee lekkernye word genoem as goed om 'n skoukonyn se pelsglans te verhoog?",
+  ["Oats and sunflower seeds","Chocolate and sugar","Bread and milk","Rice and pasta"],
+  ["Hawermout en sonneblomsaad","Sjokolade en suiker","Brood en melk","Rys en pasta"],0,
+  "Oats and sunflower seeds are mentioned as treats that help coat shine before a show.","Hawermout en sonneblomsaad word genoem as lekkernye wat pelsglans voor 'n skou help.");
+
+add('s',3,"Why might feed problems be difficult to attribute to a single cause?","Waarom kan kosprobleme moeilik wees om aan 'n enkele oorsaak toe te skryf?",
+  ["Other factors could cause or mask the same symptoms, requiring long observation","Feed never causes problems","Problems always appear immediately","Only one factor is ever responsible"],
+  ["Ander faktore kan dieselfde simptome veroorsaak of verdoesel, wat lang waarneming vereis","Kos veroorsaak nooit probleme nie","Probleme verskyn altyd onmiddellik","Slegs een faktor is ooit verantwoordelik"],0,
+  "Other factors can cause or mask the same symptoms, so sustained observation over months is needed.","Ander faktore kan dieselfde simptome veroorsaak of verdoesel, so volgehoue waarneming oor maande word benodig.");
+add('s',3,"What is the reasoning some breeders give for avoiding rabbits raised only on greenfeed and no water?","Wat is die redenasie wat sommige telers gee vir konyne wat slegs op groenvoer en geen water grootgemaak word nie?",
+  ["High water content in greens like lettuce can substitute for drinking water","Greens contain no water at all","It is always fatal","It has no explanation offered"],
+  ["Hoë waterinhoud in groenkos soos blaarslaai kan drinkwater vervang","Groenkos bevat glad geen water nie","Dit is altyd noodlottig","Geen verduideliking word aangebied nie"],0,
+  "The handbook notes lettuce's high water content as the likely reason some rabbits went a year without drinking water.","Die handleiding noem blaarslaai se hoë waterinhoud as die waarskynlike rede waarom sommige konyne 'n jaar sonder om te drink deurgebring het.");
+
+/* Chapter 4 */
+add('jj',4,"What is given to a mother rabbit to help her build a soft nest for her babies?","Wat word aan 'n ma-konyn gegee om haar te help om 'n sagte nes vir haar babas te bou?",
+  ["Nest material","A blanket from a shop","Nothing is needed","A toy"],["Nesmateriaal","'n Kombers uit 'n winkel","Niks word benodig nie","'n Speelding"],0,
+  "The doe is given nest material to help her build a nest.","Die wyfie kry nesmateriaal om haar te help om 'n nes te bou.");
+add('jj',4,"About how many babies can be in one rabbit litter?","Ongeveer hoeveel babas kan in een konynwerpsel wees?",
+  ["Several, sometimes many","Always exactly one","Always exactly one hundred","Never more than one"],
+  ["Verskeie, soms baie","Altyd presies een","Altyd presies een honderd","Nooit meer as een nie"],0,
+  "A litter can have several kits, sometimes quite a large number.","'n Werpsel kan verskeie kleintjies hê, soms 'n redelike aantal.");
+add('jj',4,"Why must baby rabbits of different sexes be separated as they grow older?","Waarom moet babakonyne van verskillende geslagte geskei word soos hulle ouer word?",
+  ["To prevent unwanted babies","They fight constantly","They eat different food","There is no reason"],
+  ["Om ongewenste babas te voorkom","Hulle baklei aanhoudend","Hulle eet verskillende kos","Daar is geen rede nie"],0,
+  "Separating the sexes prevents unwanted, accidental litters.","Om die geslagte te skei voorkom ongewenste, per ongeluk werpsels.");
+
+add('j',4,"Approximately how many days after mating does a doe typically give birth?","Ongeveer hoeveel dae na paring gee 'n wyfie tipies geboorte?",
+  ["30-32 days","5 days","100 days","300 days"],["30-32 dae","5 dae","100 dae","300 dae"],0,
+  "A doe's gestation period is about 30-32 days.","'n Wyfie se dragtyd is omtrent 30-32 dae.");
+add('j',4,"What is one sign that a newborn litter needs help right after birth?","Wat is een teken dat 'n pasgebore werpsel hulp nodig het reg na geboorte?",
+  ["The kits are cold and the mother hasn't plucked belly fur for the nest","The kits are moving normally","The mother is eating normally","The nest box is empty"],
+  ["Die kleintjies is koud en die ma het nie maagpels vir die nes uitgepluk nie","Die kleintjies beweeg normaalweg","Die ma eet normaalweg","Die neskas is leeg"],0,
+  "Cold kits with no plucked belly fur in the nest is a sign the doe may need help.","Koue kleintjies sonder uitgepluikte maagpels in die nes is 'n teken dat die wyfie dalk hulp nodig het.");
+add('j',4,"Why is a doe's ration typically doubled after she gives birth?","Waarom word 'n wyfie se rantsoen tipies verdubbel nadat sy geboorte gegee het?",
+  ["To support milk production for the kits","To make her grow taller","To reduce her appetite","It isn't actually increased"],
+  ["Om melkproduksie vir die kleintjies te ondersteun","Om haar langer te laat groei","Om haar eetlus te verminder","Dit word nie werklik verhoog nie"],0,
+  "A doubled ration after birth helps support milk production for the litter.","'n Verdubbelde rantsoen na geboorte help om melkproduksie vir die werpsel te ondersteun.");
+
+add('s',4,"What complication can arise from fostering kits between does of different breeds versus the same breed/colour?","Watter komplikasie kan ontstaan deur kleintjies tussen wyfies van verskillende rasse teenoor dieselfde ras/kleur te pleeg?",
+  ["Same-breed/colour fostering can make record-keeping harder since kits become hard to tell apart","There is never any complication","Different-breed fostering is always impossible","Fostering is illegal in all cases"],
+  ["Selfde-ras/kleur-pleging kan rekordhouding moeiliker maak aangesien kleintjies moeilik uit mekaar te ken is","Daar is nooit enige komplikasie nie","Verskillende-ras-pleging is altyd onmoontlik","Pleging is in alle gevalle onwettig"],0,
+  "Fostering between does of the same breed and colour can confuse record-keeping since the kits look identical.","Pleging tussen wyfies van dieselfde ras en kleur kan rekordhouding verwar aangesien die kleintjies identies lyk.");
+add('s',4,"What is one method some breeders use to manage exceptionally large litters, beyond fostering?","Wat is een metode wat sommige telers gebruik om buitengewoon groot werpsels te bestuur, benewens pleeg?",
+  ["Letting the doe build two nests and split the kits between them herself","Removing half the kits permanently","Feeding the kits solid food from birth","There is no alternative method"],
+  ["Om die wyfie toe te laat om twee neste te bou en die kleintjies self tussen hulle te verdeel","Om die helfte van die kleintjies permanent te verwyder","Om die kleintjies van geboorte af soliede kos te voer","Daar is geen alternatiewe metode nie"],0,
+  "Some does with large litters build two nests and split the kits themselves, successfully raising all of them.","Sommige wyfies met groot werpsels bou twee neste en verdeel die kleintjies self, en maak almal suksesvol groot.");
+
+/* Chapter 5 */
+add('jj',5,"If a rabbit's ear looks scabby and crusty, what might be the cause?","As 'n konyn se oor korserig en skurf lyk, wat kan die oorsaak wees?",
+  ["A tiny mite","A haircut gone wrong","Too much sun","Nothing, it's normal"],["'n Klein mytjie","'n Haarsnit wat verkeerd geloop het","Te veel son","Niks nie, dis normaal"],0,
+  "Ear canker is caused by a tiny mite that creates a crusty scab.","Oorkanker word deur 'n klein mytjie veroorsaak wat 'n korserige skurfte skep.");
+add('jj',5,"What colour discharge from the nose could mean a rabbit has snuffles?","Watter kleur uitvloeisel uit die neus kan beteken 'n konyn het snuifsiekte?",
+  ["White or clear", "Purple", "Green sparkly", "Rainbow"],["Wit of deurskynend","Pers","Groen vonkelend","Reënboog"],0,
+  "A white, runny nose can be a sign of snuffles.","'n Wit, lopende neus kan 'n teken van snuifsiekte wees.");
+add('jj',5,"Why should a sick rabbit be kept away from other rabbits?","Waarom moet 'n siek konyn weg van ander konyne gehou word?",
+  ["So it doesn't spread the illness","Sick rabbits like being alone","It has nothing to do with illness","Rabbits are always kept apart"],
+  ["Sodat dit nie die siekte versprei nie","Siek konyne hou daarvan om alleen te wees","Dit het niks met siekte te doen nie","Konyne word altyd apart gehou"],0,
+  "Isolating a sick rabbit helps stop the illness from spreading to others.","Om 'n siek konyn te isoleer help om te keer dat die siekte na ander versprei.");
+
+add('j',5,"What everyday household item is sometimes used as a cheap treatment for ear canker?","Watter alledaagse huishoudelike item word soms as 'n goedkoop behandeling vir oorkanker gebruik?",
+  ["Baby oil or olive oil","Toothpaste","Dish soap","Sunscreen"],["Babaolie of olyfolie","Tandepasta","Skottelgoedseep","Sonskerm"],0,
+  "A few drops of baby oil or olive oil is a common home treatment for ear canker.","'n Paar druppels babaolie of olyfolie is 'n algemene tuisbehandeling vir oorkanker.");
+add('j',5,"Why does the handbook recommend regular vet-style vaccination against snuffles?","Waarom beveel die handleiding gereelde entstof teen snuifsiekte aan?",
+  ["Because it's highly contagious among rabbit populations","Because it's required for feeding","Because it improves coat colour","Because it's optional and rarely needed"],
+  ["Omdat dit hoogs aansteeklik is onder konynbevolkings","Omdat dit vir voeding vereis word","Omdat dit pelskleur verbeter","Omdat dit opsioneel is en selde benodig word"],0,
+  "Snuffles is highly contagious, which is why regular vaccination is recommended.","Snuifsiekte is hoogs aansteeklik, daarom word gereelde entstof aanbeveel.");
+add('j',5,"What can cause a rabbit's teeth to overgrow to the point it can no longer eat?","Wat kan veroorsaak dat 'n konyn se tande oorgroei tot die punt dat dit nie meer kan eet nie?",
+  ["Malocclusion (jaw misalignment)","Eating too many greens","Drinking too much water","Being groomed too often"],
+  ["Wanokklusie (kaakwanaansluiting)","Om te veel groenkos te eet","Om te veel water te drink","Om te gereeld versorg te word"],0,
+  "Malocclusion means the jaw doesn't align, so teeth aren't worn down and overgrow.","Wanokklusie beteken die kaak sluit nie behoorlik aan nie, so tande word nie afgeslyt nie en oorgroei.");
+
+add('s',5,"Why is a lump in a vaccinated rabbit's neck sometimes mistaken for a health problem by an inexperienced judge?","Waarom word 'n knop in 'n ingeënte konyn se nek soms deur 'n onervare beoordelaar vir 'n gesondheidsprobleem aangesien?",
+  ["It's actually the injection site reaction from the snuffles vaccine","It is always a tumour","It indicates malocclusion","It is always fatal"],
+  ["Dit is eintlik die inspuitingsplek-reaksie van die snuifsiekte-entstof","Dit is altyd 'n gewas","Dit dui op wanokklusie","Dit is altyd noodlottig"],0,
+  "The lump is often just the injection site reaction, not a disease symptom.","Die knop is dikwels net die inspuitingsplek-reaksie, nie 'n siektesimptoom nie.");
+add('s',5,"What long-term management issue does wanokklusie (malocclusion) create if untreated?","Watter langtermyn-bestuurskwessie skep wanokklusie indien onbehandel?",
+  ["Progressive tooth overgrowth preventing eating, leading to death","No issue, it resolves itself","Improved digestion","Faster growth"],
+  ["Progressiewe tand-oorgroei wat eet verhoed, wat tot die dood lei","Geen kwessie nie, dit los homself op","Verbeterde vertering","Vinniger groei"],0,
+  "Untreated malocclusion leads to progressively overgrown teeth, preventing eating and eventually causing death.","Onbehandelde wanokklusie lei tot progressief oorgroeide tande, wat eet verhoed en uiteindelik die dood veroorsaak.");
+
+/* Chapter 6 */
+add('jj',6,"Which breed is very large and often thought of as a meat breed, but is actually a show breed too?","Watter ras is baie groot en word dikwels as 'n vleisras beskou, maar is ook eintlik 'n skouras?",
+  ["Flemish Giant","Netherland Dwarf","Himalayan","Polish"],["Vlaamse Reus","Nederlandse Dwerg","Himalaja","Poolse"],0,
+  "The Flemish Giant is often mistaken for a purely commercial breed but is also shown.","Die Vlaamse Reus word dikwels vir 'n suiwer kommersiële ras aangesien maar word ook gewys.");
+add('jj',6,"Which breed has a coat that feels like velvet?","Watter ras het 'n pels wat soos fluweel voel?",
+  ["Rex","Angora","Californian","Dutch"],["Rex","Angora","Kaliforniese","Hollandse"],0,
+  "The Rex breed's short, dense coat feels like velvet.","Die Rex-ras se kort, digte pels voel soos fluweel.");
+add('jj',6,"Which breed is known for its very small size, under about 1.1kg?","Watter ras is bekend vir sy baie klein grootte, onder omtrent 1,1kg?",
+  ["Netherland Dwarf","Flemish Giant","New Zealand","Chinchilla Giganta"],["Nederlandse Dwerg","Vlaamse Reus","Nieu-Seeland","Chinchilla Giganta"],0,
+  "The Netherland Dwarf has a maximum weight of about 1.12kg.","Die Nederlandse Dwerg het 'n maksimum gewig van omtrent 1,12kg.");
+
+add('j',6,"Which breed's most popular commercial variety is the New Zealand White?","Watter ras se gewildste kommersiële variëteit is die Nieu-Seeland Wit?",
+  ["New Zealand","Californian","Dutch","Beige"],["Nieu-Seeland","Kaliforniese","Hollandse","Beige"],0,
+  "The New Zealand White is the most popular commercial cross of the New Zealand breed.","Die Nieu-Seeland Wit is die gewildste kommersiële kruisteling van die Nieu-Seeland-ras.");
+add('j',6,"What colour is the Beige breed's undercoat, giving it its distinctive look?","Watter kleur is die Beige-ras se onderpels, wat dit sy kenmerkende voorkoms gee?",
+  ["Sand-coloured with a bluish tint on top","Bright pink","Solid black","Neon green"],["Sandkleurig met 'n blouerige tint bo-op","Helder pienk","Solied swart","Neon groen"],0,
+  "The Beige has a sand-coloured undercoat with a bluish tint on top.","Die Beige het 'n sandkleurige onderpels met 'n blouerige tint bo-op.");
+add('j',6,"Which breed is described as having a coat with banded blue, white and black hairs, like a chinchilla?","Watter ras word beskryf as 'n pels met gebande blou, wit en swart hare, soos 'n tjinsjilla?",
+  ["Chinchilla Giganta","Californian","Himalayan","Deilenaar"],["Chinchilla Giganta","Kaliforniese","Himalaja","Deilenaar"],0,
+  "The Chinchilla Giganta has banded hair colouring similar to a chinchilla's natural coat.","Die Chinchilla Giganta het gebande haarkleuring soortgelyk aan 'n tjinsjilla se natuurlike pels.");
+
+add('s',6,"What specific weight-related challenge affects breeding the Deilenaar to standard?","Watter spesifieke gewigsverwante uitdaging affekteer die teling van die Deilenaar tot standaard?",
+  ["Adults commonly exceed the 3.5kg maximum","Adults never reach minimum weight","There is no weight standard","The breed has no weight issues"],
+  ["Volwassenes oorskry algemeen die 3,5kg-maksimum","Volwassenes bereik nooit die minimum gewig nie","Daar is geen gewigstandaard nie","Die ras het geen gewigskwessies nie"],0,
+  "Deilenaars commonly exceed the 3.5kg maximum weight allowed by the standard.","Deilenaars oorskry algemeen die 3,5kg-maksimumgewig wat deur die standaard toegelaat word.");
+add('s',6,"Why does the Vlaamse Reus (Flemish Giant) face a particular challenge under the European Standard versus the British standard?","Waarom staar die Vlaamse Reus 'n spesifieke uitdaging in die gesig onder die Europese Standaard teenoor die Britse standaard?",
+  ["The European Standard requires a larger, heavier rabbit","The European Standard requires a smaller rabbit","There is no difference between the standards","The British standard doesn't recognise the breed"],
+  ["Die Europese Standaard vereis 'n groter, swaarder konyn","Die Europese Standaard vereis 'n kleiner konyn","Daar is geen verskil tussen die standaarde nie","Die Britse standaard erken nie die ras nie"],0,
+  "The European Standard requires a heavier rabbit than the British standard, which is a challenge for breeders.","Die Europese Standaard vereis 'n swaarder konyn as die Britse standaard, wat 'n uitdaging vir telers is.");
+
+/* Chapter 7 */
+add('jj',7,"What should you do if you find a hutch stain on your rabbit before a show?","Wat moet jy doen as jy 'n hokvlek op jou konyn voor 'n skou vind?",
+  ["Clean it off before the show","Ignore it completely","Paint over it","Cover it with a sticker"],
+  ["Maak dit skoon voor die skou","Ignoreer dit heeltemal","Verf daaroor","Bedek dit met 'n plakker"],0,
+  "Any hutch stains must be cleaned off before a show.","Enige hokvlekke moet voor 'n skou skoongemaak word.");
+add('jj',7,"What might cause a rabbit to suddenly start moulting before a show?","Wat kan veroorsaak dat 'n konyn skielik begin verhaar voor 'n skou?",
+  ["A sudden change in the weather","Eating too many carrots","Being too calm","Nothing causes moulting"],
+  ["'n Skielike verandering in die weer","Om te veel wortels te eet","Om te kalm te wees","Niks veroorsaak verharing nie"],0,
+  "A sudden change in weather can trigger a rabbit to moult.","'n Skielike weersverandering kan 'n konyn laat verhaar.");
+add('jj',7,"Why should a rabbit practise sitting calmly on a table before a show?","Waarom moet 'n konyn oefen om kalm op 'n tafel te sit voor 'n skou?",
+  ["Because that's how it will be handled during judging","Tables are more comfortable than hutches","It has nothing to do with judging","Rabbits are never placed on tables"],
+  ["Omdat dit is hoe dit tydens beoordeling hanteer sal word","Tafels is gemakliker as hokke","Dit het niks met beoordeling te doen nie","Konyne word nooit op tafels geplaas nie"],0,
+  "Practising on a table prepares the rabbit for exactly how it will be handled during judging.","Om op 'n tafel te oefen berei die konyn voor vir presies hoe dit tydens beoordeling hanteer sal word.");
+
+add('j',7,"Besides a damp cloth, what tool can help remove loose hair from a rabbit's coat before a show?","Benewens 'n klam lap, watter gereedskap kan help om los hare uit 'n konyn se pels voor 'n skou te verwyder?",
+  ["A seemslap (chamois)","A hammer","A screwdriver","A hairdryer only"],["'n Seemslap","'n Hamer","'n Skroewedraaier","Net 'n haardroër"],0,
+  "A chamois (seemslap) is used, alongside damp hands or a cloth, to remove loose hair.","'n Seemslap word gebruik, saam met klam hande of 'n lap, om los hare te verwyder.");
+add('j',7,"Why should a wet white rabbit not be placed on newspaper?","Waarom moet 'n nat wit konyn nie op koerantpapier geplaas word nie?",
+  ["The ink can stain its coat","Newspaper is too expensive","Rabbits eat newspaper","There is no reason"],
+  ["Die ink kan sy pels vlek","Koerantpapier is te duur","Konyne eet koerantpapier","Daar is geen rede nie"],0,
+  "Wet newspaper ink can stain a white rabbit's coat.","Nat koerantpapier se ink kan 'n wit konyn se pels vlek.");
+add('j',7,"What must never happen once the judge has entered the show hall?","Wat mag nooit gebeur sodra die beoordelaar die skousaal binnegekom het nie?",
+  ["Further preparation or grooming of the rabbit","The rabbit being judged","Comments being recorded","Winners being announced"],
+  ["Verdere voorbereiding of versorging van die konyn","Die konyn wat beoordeel word","Kommentaar wat aangeteken word","Wenners wat aangekondig word"],0,
+  "No preparation may happen once the judge has entered the hall.","Geen voorbereiding mag gebeur sodra die beoordelaar die saal binnegekom het nie.");
+
+add('s',7,"Why is over-application of starch or flour before judging considered risky?","Waarom word oormatige toediening van stysel of meel voor beoordeling as riskant beskou?",
+  ["If not fully brushed out, it can make the coat look dull and lifeless","It always causes an allergic reaction","It changes the rabbit's eye colour","There is no risk at all"],
+  ["As dit nie heeltemal uitgeborsel word nie, kan dit die pels dof en lewenloos laat lyk","Dit veroorsaak altyd 'n allergiese reaksie","Dit verander die konyn se oogkleur","Daar is glad geen risiko nie"],0,
+  "Excess starch or flour left in the coat can make it look dull under judging.","Oormatige stysel of meel wat in die pels agterbly kan dit dof onder beoordeling laat lyk.");
+add('s',7,"What is the underlying reason breeds like the Belgian Hare only need one handling session before showing?","Wat is die onderliggende rede waarom rasse soos die Belgiese Haas net een hanteringsessie voor 'n skou benodig?",
+  ["Their temperament and posture requirements make them settle with minimal training","They cannot be handled more than once","They are not judged at all","They are always aggressive"],
+  ["Hulle temperament en houdingsvereistes maak dat hulle met minimale opleiding tuisvoel","Hulle kan nie meer as een keer hanteer word nie","Hulle word glad nie beoordeel nie","Hulle is altyd aggressief"],0,
+  "Certain breeds settle into show posture with minimal handling due to temperament, unlike most breeds needing repeated practice.","Sekere rasse val in skouposisie met minimale hantering weens temperament, anders as die meeste rasse wat herhaalde oefening benodig.");
+
+/* Chapter 8 */
+add('jj',8,"What must you do before you can enter your rabbit into a show?","Wat moet jy doen voordat jy jou konyn vir 'n skou kan inskryf?",
+  ["Fill in an entry form for the correct class","Nothing at all","Just show up on the day","Ask the other exhibitors"],
+  ["Vul 'n inskrywingsvorm vir die regte klas in","Glad niks nie","Net opdaag op die dag","Vra die ander uitstallers"],0,
+  "You need to fill in an entry form and make sure you're entered in the correct class.","Jy moet 'n inskrywingsvorm invul en seker maak jy is in die regte klas ingeskryf.");
+add('jj',8,"What happens to rabbits that win their breed class?","Wat gebeur met konyne wat hulle rasklas wen?",
+  ["They move on to be judged against other winners","They go straight home","Nothing further happens","They are disqualified"],
+  ["Hulle gaan aan om teen ander wenners beoordeel te word","Hulle gaan reguit huis toe","Niks verder gebeur nie","Hulle word gediskwalifiseer"],0,
+  "Class winners move on to be judged for higher awards.","Klaswenners gaan aan om vir hoër toekennings beoordeel te word.");
+
+add('j',8,"What is the purpose of 'tentoonstelling' (penning) the evening before judging?","Wat is die doel van 'tentoonstelling' (inhok) die aand voor beoordeling?",
+  ["To settle rabbits into their show cages ahead of time","To feed the judges","To sell rabbits","To clean the hall"],
+  ["Om konyne vooraf in hulle skouhokke te vestig","Om die beoordelaars te voer","Om konyne te verkoop","Om die saal skoon te maak"],0,
+  "Penning settles rabbits into their show cages the evening before judging.","Inhok vestig konyne die aand voor beoordeling in hulle skouhokke.");
+add('j',8,"What happens to a rabbit's hutch number when it arrives at a show?","Wat gebeur met 'n konyn se hoknommer wanneer dit by 'n skou aankom?",
+  ["It's marked in the rabbit's ear","It is painted on its back","It's written on a certificate only","Nothing is recorded"],
+  ["Dit word in die konyn se oor gemerk","Dit word op sy rug geverf","Dit word net op 'n sertifikaat geskryf","Niks word aangeteken nie"],0,
+  "The rabbit's hutch number is marked in its ear on arrival.","Die konyn se hoknommer word by aankoms in sy oor gemerk.");
+add('j',8,"What is the difference between open and closed judging?","Wat is die verskil tussen oop en geslote beoordeling?",
+  ["Open judging allows spectators to watch; closed does not","Open judging has no judge present","Closed judging allows unlimited discussion","There is no difference"],
+  ["Oop beoordeling laat toeskouers toe om te kyk; geslote nie","Oop beoordeling het geen beoordelaar teenwoordig nie","Geslote beoordeling laat onbeperkte bespreking toe","Daar is geen verskil nie"],0,
+  "Open judging allows spectators to watch, while closed judging only allows officials at the table.","Oop beoordeling laat toeskouers toe om te kyk, terwyl geslote beoordeling net amptenare by die tafel toelaat.");
+
+add('s',8,"What role does the book steward play that supports fair judging?","Watter rol speel die boekbeampte wat regverdige beoordeling ondersteun?",
+  ["Recording the judge's commentary accurately for later reference","Choosing the winners themselves","Feeding rabbits during judging","Selling raffle tickets"],
+  ["Om die beoordelaar se kommentaar akkuraat vir latere verwysing aan te teken","Om self die wenners te kies","Om konyne tydens beoordeling te voer","Om lootjies te verkoop"],0,
+  "The book steward records the judge's commentary accurately for later reference.","Die boekbeampte teken die beoordelaar se kommentaar akkuraat aan vir latere verwysing.");
+add('s',8,"Why must show conditions and rules be checked before entering, given inter-club variation?","Waarom moet skoutoestande en -reëls voor inskrywing nagegaan word, gegewe klub-tot-klub-variasie?",
+  ["Different clubs and shows can have different rules, classes, and conditions","All shows use identical rules everywhere","Rules never vary between clubs","It is not necessary to check anything"],
+  ["Verskillende klubs en skoue kan verskillende reëls, klasse, en toestande hê","Alle skoue gebruik identiese reëls oral","Reëls verskil nooit tussen klubs nie","Dit is nie nodig om enigiets na te gaan nie"],0,
+  "Different clubs and shows can have different rules, so it's important to check before entering.","Verskillende klubs en skoue kan verskillende reëls hê, so dit is belangrik om voor inskrywing na te gaan.");
+
 /* ---------------- STATE ---------------- */
 let state = { division:null, questions:[], idx:0, score:0, answered:false, chapterScore:{} };
 
@@ -1059,6 +1524,12 @@ function showScreen(id){
   document.getElementById('screen-'+id).classList.add('active');
   document.querySelectorAll('.navbtn[data-nav]').forEach(b=>b.classList.toggle('active', b.dataset.nav===id));
   window.scrollTo({top:0, behavior:'smooth'});
+  const navTop = document.getElementById('navTop');
+  const navToggle = document.getElementById('navToggle');
+  if(navTop && navTop.classList.contains('open')){
+    navTop.classList.remove('open');
+    navToggle.setAttribute('aria-expanded','false');
+  }
 }
 document.querySelectorAll('[data-nav]').forEach(btn=>{
   btn.addEventListener('click', ()=> showScreen(btn.dataset.nav));
@@ -1066,6 +1537,14 @@ document.querySelectorAll('[data-nav]').forEach(btn=>{
 document.querySelectorAll('[data-start]').forEach(btn=>{
   btn.addEventListener('click', ()=> startQuiz(btn.dataset.start));
 });
+const navToggleBtn = document.getElementById('navToggle');
+if(navToggleBtn){
+  navToggleBtn.addEventListener('click', ()=>{
+    const navTop = document.getElementById('navTop');
+    const isOpen = navTop.classList.toggle('open');
+    navToggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+}
 
 /* ---------------- LANGUAGE ----------------
    This site renders a single language (English). The underlying data still
@@ -1186,10 +1665,10 @@ function finishQuiz(){
   const moodImg = document.getElementById('moodImg');
   moodRosette.classList.remove('mood-happy','mood-sad');
   if(pct>=0.8){
-    moodImg.src = 'bunny-happy.jpg';
+    moodImg.src = 'mood-happy.jpg';
     moodRosette.classList.add('mood-happy');
   } else if(pct<=0.5){
-    moodImg.src = 'bunny-sad.jpg';
+    moodImg.src = 'mood-sad.jpg';
     moodRosette.classList.add('mood-sad');
   } else {
     moodImg.src = 'bunny-field.jpg';
@@ -1199,7 +1678,7 @@ function finishQuiz(){
   if(pct>=0.85){titleEn="Champion form!"; titleAf="Kampioenvorm!";}
   else if(pct>=0.6){titleEn="Solid showing!"; titleAf="Solied gedoen!";}
   else if(pct>=0.4){titleEn="Good start — keep learning!"; titleAf="Goeie begin — leer aan!";}
-  else {titleEn="Time to hit the handleiding again!"; titleAf="Tyd om weer die handleiding te lees!";}
+  else {titleEn="Time to hit the handbook again!"; titleAf="Tyd om weer die handleiding te lees!";}
   document.getElementById('resultTitle').textContent = currentLang==='en' ? titleEn : titleAf;
   document.getElementById('resultSub').textContent = currentLang==='en'
     ? `You scored ${state.score} out of 20 in the ${labelForDiv(state.division)} division.`
