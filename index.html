@@ -241,6 +241,8 @@
   .qtext .af{display:block;color:var(--sky);font-weight:600;font-size:.92em;margin-top:6px;}
   .illus{display:flex;justify-content:center;margin-bottom:20px;}
   .illus svg{max-width:220px;}
+  .illus img{max-width:100%;width:320px;max-height:240px;object-fit:cover;border-radius:14px;border:1px solid var(--line);display:block;}
+  @media (max-width:520px){.illus img{width:100%;max-height:200px;}}
   .options{display:grid;gap:12px;}
   .opt{
     display:flex;align-items:center;gap:14px;text-align:left;
@@ -508,13 +510,13 @@
         <ol class="anatomy-legend">
           <li><strong data-t="anat1h">Nose</strong> — <span data-t="anat1p">clean, with no discharge.</span></li>
           <li><strong data-t="anat2h">Mouth / teeth</strong> — <span data-t="anat2p">front teeth should meet evenly and not be overgrown.</span></li>
-          <li><strong data-t="anat3h">Ears</strong> — <span data-t="anat3p">upright, clean, no scabs or mites.</span></li>
-          <li><strong data-t="anat4h">Fur / coat</strong> — <span data-t="anat4p">dense, clean and glossy, no bald patches.</span></li>
-          <li><strong data-t="anat5h">Tail</strong> — <span data-t="anat5p">straight and clean underneath.</span></li>
-          <li><strong data-t="anat6h">Private area</strong> — <span data-t="anat6p">anus, and penis or vulva (depending on sex) — checked for cleanliness.</span></li>
-          <li><strong data-t="anat7h">Front paws</strong> — <span data-t="anat7p">clean, standing square.</span></li>
-          <li><strong data-t="anat8h">Hind legs</strong> — <span data-t="anat8p">straight, strong bone, even stance.</span></li>
-          <li><strong data-t="anat9h">Toenails</strong> — <span data-t="anat9p">trimmed, not overgrown or split.</span></li>
+          <li><strong data-t="anat3h">Eyes</strong> — <span data-t="anat3p">bright, clear and open, no discharge or cloudiness.</span></li>
+          <li><strong data-t="anat4h">Ears</strong> — <span data-t="anat4p">upright, clean, no scabs or mites.</span></li>
+          <li><strong data-t="anat5h">Fur / coat</strong> — <span data-t="anat5p">dense, clean and glossy, no bald patches.</span></li>
+          <li><strong data-t="anat6h">Tail</strong> — <span data-t="anat6p">straight and clean underneath.</span></li>
+          <li><strong data-t="anat7h">Private area</strong> — <span data-t="anat7p">anus, and penis or vulva (depending on sex) — checked for cleanliness.</span></li>
+          <li><strong data-t="anat8h">Front paws</strong> — <span data-t="anat8p">clean, standing square, toenails trimmed and not overgrown.</span></li>
+          <li><strong data-t="anat9h">Hind legs</strong> — <span data-t="anat9p">straight, strong bone, even stance, toenails trimmed and not overgrown.</span></li>
         </ol>
       </div>
       <div style="text-align:center;margin:-12px 0 0;">
@@ -731,13 +733,13 @@ en: {
   tipsJudge3:"It's a conversation with the judge, one exhibitor at a time \u2014 not a silent inspection while rabbits sit together at a table.",
   anat1h:"Nose", anat1p:"clean, with no discharge.",
   anat2h:"Mouth / teeth", anat2p:"front teeth should meet evenly and not be overgrown.",
-  anat3h:"Ears", anat3p:"upright, clean, no scabs or mites.",
-  anat4h:"Fur / coat", anat4p:"dense, clean and glossy, no bald patches.",
-  anat5h:"Tail", anat5p:"straight and clean underneath.",
-  anat6h:"Private area", anat6p:"anus, and penis or vulva (depending on sex) \u2014 checked for cleanliness.",
-  anat7h:"Front paws", anat7p:"clean, standing square.",
-  anat8h:"Hind legs", anat8p:"straight, strong bone, even stance.",
-  anat9h:"Toenails", anat9p:"trimmed, not overgrown or split.",
+  anat3h:"Eyes", anat3p:"bright, clear and open, no discharge or cloudiness.",
+  anat4h:"Ears", anat4p:"upright, clean, no scabs or mites.",
+  anat5h:"Fur / coat", anat5p:"dense, clean and glossy, no bald patches.",
+  anat6h:"Tail", anat6p:"straight and clean underneath.",
+  anat7h:"Private area", anat7p:"anus, and penis or vulva (depending on sex) \u2014 checked for cleanliness.",
+  anat8h:"Front paws", anat8p:"clean, standing square, toenails trimmed and not overgrown.",
+  anat9h:"Hind legs", anat9p:"straight, strong bone, even stance, toenails trimmed and not overgrown.",
   tipsStockH:"What the judge is really scoring",
   tipsStockP1:"Showmanship isn't only about reciting facts \u2014 it's judged the same way real stockmanship competitions work, across a few things a judge is quietly watching the whole time you're in front of them, not just when they ask you a question.",
   tipsStockP2:"First, how you handle your rabbit: gently and confidently, without force or rushing, and clearly aware of when it's getting stressed. Second, how well you actually control it \u2014 where you stand, how smoothly you move it into position, and how you keep both of you safe around tables, gates, or pens. Third, whether you can read its body language: noticing when it's about to react and keeping it calm, rather than letting a situation get away from you. And finally, whether you genuinely know your stuff \u2014 if the judge asks a question about feeding, health, or breeding, can you actually answer it, not just repeat a rehearsed line.",
