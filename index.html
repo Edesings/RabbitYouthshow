@@ -7,7 +7,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rabbit Wise — Youth Show Rabbit Quiz</title>
 <meta name="description" content="A knowledge quiz for Youth Show rabbit exhibitors, built from the official rabbit handbook — Junior Junior, Junior and Senior divisions.">
-<link rel="icon" type="image/png" href="favicon-field.png">
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Social share preview (WhatsApp, iMessage, Facebook, etc.) -->
+<meta property="og:title" content="Rabbit Wise — Youth Show Rabbit Quiz">
+<meta property="og:description" content="Know your rabbit. Win the ribbon. A knowledge quiz for Youth Show rabbit exhibitors — Junior Junior, Junior and Senior divisions.">
+<meta property="og:image" content="https://edesings.github.io/RabbitYouthshow/og-share-image.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://edesings.github.io/RabbitYouthshow/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rabbit Wise — Youth Show Rabbit Quiz">
+<meta name="twitter:description" content="Know your rabbit. Win the ribbon. A knowledge quiz for Youth Show rabbit exhibitors.">
+<meta name="twitter:image" content="https://edesings.github.io/RabbitYouthshow/og-share-image.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
@@ -243,6 +256,34 @@
   .illus svg{max-width:220px;}
   .illus img{max-width:100%;width:320px;max-height:240px;object-fit:cover;border-radius:14px;border:1px solid var(--line);display:block;}
   @media (max-width:520px){.illus img{width:100%;max-height:200px;}}
+
+  .reaction-pop{
+    position:fixed; right:24px; bottom:24px; z-index:60;
+    display:flex; flex-direction:column; align-items:center; gap:6px;
+    opacity:0; pointer-events:none; transform:scale(0.4) translateY(20px);
+  }
+  .reaction-pop img{ width:120px; height:auto; filter:drop-shadow(0 8px 16px rgba(0,0,0,.35)); }
+  .reaction-pop span{
+    background:var(--paper); color:var(--forest-deep); font-weight:700; font-size:.85rem;
+    padding:6px 14px; border-radius:999px; border:2px solid var(--gold); white-space:nowrap;
+    box-shadow:0 4px 10px rgba(0,0,0,.25); text-align:center;
+  }
+  .reaction-pop.show{ animation: reactionPop 2.2s ease forwards; }
+  @keyframes reactionPop{
+    0%{ opacity:0; transform:scale(0.3) translateY(30px) rotate(-8deg); }
+    15%{ opacity:1; transform:scale(1.12) translateY(-6px) rotate(3deg); }
+    25%{ transform:scale(1) translateY(0) rotate(0deg); }
+    82%{ opacity:1; transform:scale(1) translateY(0) rotate(0deg); }
+    100%{ opacity:0; transform:scale(0.85) translateY(-10px) rotate(0deg); }
+  }
+  @media (max-width:640px){
+    .reaction-pop{ right:12px; bottom:100px; }
+    .reaction-pop img{ width:88px; }
+    .reaction-pop span{ font-size:.75rem; padding:5px 10px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .reaction-pop.show{ animation:none; opacity:1; }
+  }
   .options{display:grid;gap:12px;}
   .opt{
     display:flex;align-items:center;gap:14px;text-align:left;
@@ -450,6 +491,10 @@
         <button class="btn btn-primary focus-ring" id="nextBtn" style="display:none;" data-t="nextBtn">Next question</button>
       </div>
     </div>
+    <div class="reaction-pop" id="reactionPop" aria-hidden="true">
+      <img id="reactionImg" src="" alt="">
+      <span id="reactionText"></span>
+    </div>
   </section>
 
   <!-- ================= RESULTS ================= -->
@@ -600,7 +645,7 @@
         <div><a href="deeper-anatomy.jpg" download class="btn btn-ghost focus-ring download-btn">⬇ Download this poster</a></div>
       </div>
 
-      <h3 data-t="deeperFactsH">10 rabbit facts you won't find in the handbook</h3>
+      <h3 data-t="deeperFactsH">20 rabbit facts you won't find in the handbook</h3>
       <ul class="facts-grid">
         <li data-t="deeperFact1">A rabbit's ears can rotate almost 270°, independently of each other, to pinpoint a sound without turning its head.</li>
         <li data-t="deeperFact2">Because its eyes sit on the sides of its head, a rabbit can see almost all the way around its body — except for one small blind spot right in front of its nose.</li>
@@ -612,6 +657,16 @@
         <li data-t="deeperFact8">A healthy adult rabbit can jump over a metre from a standing start — roughly waist-high on an adult person.</li>
         <li data-t="deeperFact9">Rabbits thump their hind legs hard on the ground to warn other rabbits nearby that danger might be close.</li>
         <li data-t="deeperFact10">Every domestic rabbit breed alive today descends from wild rabbits native to the Iberian Peninsula — modern-day Spain and Portugal.</li>
+        <li data-t="deeperFact11">Bugs Bunny might want to tell you carrots are good for your rabbit, but he's wrong. Carrots are high in sugar and calcium, and too many can cause diarrhoea, weight gain, or just crowd out the hay a rabbit actually needs (which should be most of its diet, not carrots).</li>
+        <li data-t="deeperFact12">With proper care, a pet rabbit can live 8 to 12 years — some even longer. It's less like a hamster and more like a cat or small dog, so it's a real commitment, not a short one.</li>
+        <li data-t="deeperFact13">Rabbits are highly sensitive to steroids — even a small dose can cause serious liver damage or immune suppression. Always make sure your vet knows this, especially if they're not used to treating rabbits specifically.</li>
+        <li data-t="deeperFact14">A rabbit should never stop eating for more than 8 hours — after that, their gut can shut down (called GI stasis), and it can turn fatal fast if it's not caught in time.</li>
+        <li data-t="deeperFact15">Myxomatosis isn't caught the way most rabbit illnesses are — it's spread by biting insects like fleas, mosquitoes, mites and ticks, not just contact with a sick rabbit. It causes severe swelling and tumour-like lumps on the face and limbs, and it's usually fatal once a rabbit gets it. There's no cure, only prevention — keeping insects away from hutches and vaccinating where it's available.</li>
+        <li data-t="deeperFact16">RHDV2 is a virus that attacks the liver so badly it causes massive internal bleeding — the rabbit's blood starts clotting where it shouldn't, all through the body, which is why the disease kills so fast. It's also unusually tough as far as viruses go: it can survive on cages, bedding, and clothing for weeks, and it can even survive being frozen. There's still no cure — prevention and vaccination are the only real defence.</li>
+        <li data-t="deeperFact17">South Africa has a permanent ban on importing live rabbits, and it's been in place for decades — specifically to keep out diseases like myxomatosis and RHD, which don't naturally occur here. It's why South African breeders work with a genuinely small gene pool compared to countries where rabbits move freely across borders.</li>
+        <li data-t="deeperFact18">South Africa actually had lop-eared rabbits once. In the 1960s, heart transplant surgeon Chris Barnard imported German Lops for tissue-matching research at Groote Schuur Hospital — he wanted their big ears specifically. A local breeder got them breeding successfully, and for a while they were even part of commercial herds here. But once that generation of breeders moved on, the line died out completely, and the specific gene behind a lop's ear can't be bred back from scratch. Since South Africa's rabbit import ban is still in place, there's been no legal way to bring them back.</li>
+        <li data-t="deeperFact19">Rabbits and hares aren't the same family, or even close — they're cousins. Both sit under the order Lagomorpha, but rabbits are genus <em>Oryctolagus</em> and hares are genus <em>Lepus</em>. They can't interbreed, and every single domestic rabbit breed alive today — from a tiny Netherland Dwarf to a giant Flemish Giant — descends from just one wild species, the European rabbit. Hares were never domesticated at all.</li>
+        <li data-t="deeperFact20">The popular story says French monks domesticated rabbits around 600 AD because they classified unborn rabbit fetuses as "fish" so they could eat them during Lent. It's a great story — but Oxford researchers found in 2018 that it's mostly a myth. Romans were already keeping wild rabbits in enclosures centuries before that, and real domestication wasn't one clean moment at all — it was a slow process stretched over hundreds of years.</li>
       </ul>
     </div>
   </section>
@@ -690,7 +745,7 @@ en: {
   footAbout:"About", footPriv:"Privacy Policy", footNote:"Built for Youth Show rabbit exhibitors",
   deeperTitle:"Deeper Studies",
   deeperIntro:"For exhibitors who want to go beyond the show bench — a closer look at what's actually going on inside a rabbit, plus a handful of facts you won't find in the handbook.",
-  deeperFactsH:"10 rabbit facts you won't find in the handbook",
+  deeperFactsH:"20 rabbit facts you won't find in the handbook",
   deeperFact1:"A rabbit's ears can rotate almost 270°, independently of each other, to pinpoint a sound without turning its head.",
   deeperFact2:"Because its eyes sit on the sides of its head, a rabbit can see almost all the way around its body — except for one small blind spot right in front of its nose.",
   deeperFact3:"A healthy rabbit's heart beats between 130 and 325 times a minute — up to three times faster than a resting human heart.",
@@ -701,6 +756,16 @@ en: {
   deeperFact8:"A healthy adult rabbit can jump over a metre from a standing start — roughly waist-high on an adult person.",
   deeperFact9:"Rabbits thump their hind legs hard on the ground to warn other rabbits nearby that danger might be close.",
   deeperFact10:"Every domestic rabbit breed alive today descends from wild rabbits native to the Iberian Peninsula — modern-day Spain and Portugal.",
+  deeperFact11:"Bugs Bunny might want to tell you carrots are good for your rabbit, but he's wrong. Carrots are high in sugar and calcium, and too many can cause diarrhoea, weight gain, or just crowd out the hay a rabbit actually needs (which should be most of its diet, not carrots).",
+  deeperFact12:"With proper care, a pet rabbit can live 8 to 12 years — some even longer. It's less like a hamster and more like a cat or small dog, so it's a real commitment, not a short one.",
+  deeperFact13:"Rabbits are highly sensitive to steroids — even a small dose can cause serious liver damage or immune suppression. Always make sure your vet knows this, especially if they're not used to treating rabbits specifically.",
+  deeperFact14:"A rabbit should never stop eating for more than 8 hours — after that, their gut can shut down (called GI stasis), and it can turn fatal fast if it's not caught in time.",
+  deeperFact15:"Myxomatosis isn't caught the way most rabbit illnesses are — it's spread by biting insects like fleas, mosquitoes, mites and ticks, not just contact with a sick rabbit. It causes severe swelling and tumour-like lumps on the face and limbs, and it's usually fatal once a rabbit gets it. There's no cure, only prevention — keeping insects away from hutches and vaccinating where it's available.",
+  deeperFact16:"RHDV2 is a virus that attacks the liver so badly it causes massive internal bleeding — the rabbit's blood starts clotting where it shouldn't, all through the body, which is why the disease kills so fast. It's also unusually tough as far as viruses go: it can survive on cages, bedding, and clothing for weeks, and it can even survive being frozen. There's still no cure — prevention and vaccination are the only real defence.",
+  deeperFact17:"South Africa has a permanent ban on importing live rabbits, and it's been in place for decades — specifically to keep out diseases like myxomatosis and RHD, which don't naturally occur here. It's why South African breeders work with a genuinely small gene pool compared to countries where rabbits move freely across borders.",
+  deeperFact18:"South Africa actually had lop-eared rabbits once. In the 1960s, heart transplant surgeon Chris Barnard imported German Lops for tissue-matching research at Groote Schuur Hospital — he wanted their big ears specifically. A local breeder got them breeding successfully, and for a while they were even part of commercial herds here. But once that generation of breeders moved on, the line died out completely, and the specific gene behind a lop's ear can't be bred back from scratch. Since South Africa's rabbit import ban is still in place, there's been no legal way to bring them back.",
+  deeperFact19:"Rabbits and hares aren't the same family, or even close — they're cousins. Both sit under the order Lagomorpha, but rabbits are genus <em>Oryctolagus</em> and hares are genus <em>Lepus</em>. They can't interbreed, and every single domestic rabbit breed alive today — from a tiny Netherland Dwarf to a giant Flemish Giant — descends from just one wild species, the European rabbit. Hares were never domesticated at all.",
+  deeperFact20:"The popular story says French monks domesticated rabbits around 600 AD because they classified unborn rabbit fetuses as \"fish\" so they could eat them during Lent. It's a great story — but Oxford researchers found in 2018 that it's mostly a myth. Romans were already keeping wild rabbits in enclosures centuries before that, and real domestication wasn't one clean moment at all — it was a slow process stretched over hundreds of years.",
   galleryTitle:"Rabbit Gallery",
   galleryIntro:"A few photos of rabbits from around the world, showing just how much variety there is between breeds, colours, and coat types.",
   galleryCredit:"Photos courtesy of photographers on Pexels.com, used under the free Pexels licence.",
@@ -919,19 +984,19 @@ add('jj',2,"Where should a mother rabbit and her babies be kept apart from other
   ["In their own hutch","In the garden with everyone","On the road","Nowhere special"],
   ["In hulle eie hok","In die tuin saam met almal","Op die pad","Nêrens spesiaal nie"],0,
   "Rabbits are usually kept in separate hutches so breeding and health can be managed properly.","Konyne word gewoonlik in aparte hokke gehou sodat teling en gesondheid behoorlik bestuur kan word.");
-add('jj',2,"Is it a good idea to let many rabbits run loose together all the time?","Is dit 'n goeie idee om baie konyne heeltyd saam los te laat loop?",
-  ["Yes, always best","There are pros and cons to think about","Rabbits can't be kept loose","Only at night"],
-  ["Ja, altyd die beste","Daar is voor- en nadele om oor na te dink","Konyne kan nie los gehou word nie","Net snags"],1,
-  "The handbook asks you to weigh up pros and cons of free-range, colony, or individual housing.","Die handleiding vra jou om voor- en nadele van los loop, kolonies, of afsonderlike hokke teen mekaar op te weeg.");
+add('jj',2,"How do rabbits like their hutches to be?","Hoe hou konyne daarvan dat hulle hokke is?",
+  ["Clean, dry, out of cold wind and extreme heat","Damp and drafty","Hot and enclosed with no airflow","It doesn't matter how the hutch is kept"],
+  ["Skoon, droog, uit die koue wind en uiterste hitte","Vogtig en toghtig","Warm en toe sonder lugvloei","Dit maak nie saak hoe die hok gehou word nie"],0,
+  "Rabbits do best in hutches that are clean, dry, and sheltered from cold wind and extreme heat.","Konyne vaar die beste in hokke wat skoon, droog, en beskut is teen koue wind en uiterste hitte.");
 add('jj',2,"What must you always give your rabbit in its hutch, besides food?","Wat moet jy altyd, benewens kos, aan jou konyn se hok gee?",
   ["A television","Clean water and a clean space","A swimming pool","Nothing else"],
   ["'n Televisie","Skoon water en 'n skoon plek","'n Swembad","Niks anders nie"],1,
   "A hutch needs to be kept clean and rabbits always need fresh water available.","'n Hok moet skoon gehou word en konyne het altyd vars water nodig.");
 
 add('j',2,"Why must a doe be moved to the buck's hutch rather than the other way around?","Waarom moet 'n wyfie na die mannetjie se hok geneem word, en nie andersom nie?",
-  ["Because rabbits are territorial/plekgebonde","Bucks can't move","Does don't like their own hutch","It doesn't matter either way"],
+  ["Because rabbits are territorial","Bucks can't move","Does don't like their own hutch","It doesn't matter either way"],
   ["Omdat konyne plekgebonde is","Mannetjies kan nie beweeg nie","Wyfies hou nie van hulle eie hok nie","Dit maak nie saak nie"],0,
-  "Rabbits are plekgebonde (site-attached), so the doe is taken to the buck's territory for mating.","Konyne is plekgebonde, dus word die wyfie na die mannetjie se gebied geneem vir paring.");
+  "Rabbits are site-attached (territorial), so the doe is taken to the buck's territory for mating.","Konyne is plekgebonde, dus word die wyfie na die mannetjie se gebied geneem vir paring.");
 add('j',2,"What are the three housing options compared in the handbook's Chapter 2 project?","Wat is die drie behuisingsopsies wat in Hoofstuk 2 se projek vergelyk word?",
   ["Free-range in the garden, colonies, and separate hutches","Cages, cars, and cages again","Only colonies","Only free range"],
   ["Los in die tuin, kolonies, en aparte hokke","Hokke, motors, en weer hokke","Net kolonies","Net los loop"],0,
@@ -946,9 +1011,9 @@ add('j',2,"Why must housing and its equipment (bowls) be disinfected, not just w
   "Disinfecting removes germs that plain washing can leave behind, protecting rabbit health.","Ontsmetting verwyder kieme wat gewone was kan agterlaat, wat die konyn se gesondheid beskerm.");
 
 add('s',2,"Explain the practical reason a doe, rather than a buck, is transferred for mating.","Verduidelik die praktiese rede waarom 'n wyfie, eerder as 'n mannetjie, vir paring oorgeplaas word.",
-  ["Because rabbits are site-bound (plekgebonde) to their own hutch/territory","Because does are lighter to carry","Because bucks refuse to mate away from home","There is no real reason, it is just tradition"],
+  ["Because rabbits are site-bound to their own hutch/territory","Because does are lighter to carry","Because bucks refuse to mate away from home","There is no real reason, it is just tradition"],
   ["Omdat konyne plekgebonde is aan hulle eie hok/gebied","Omdat wyfies ligter is om te dra","Omdat mannetjies weier om weg van die huis te paar","Daar is geen regte rede nie, dis net tradisie"],0,
-  "Rabbits are plekgebonde — moving the doe to the buck's territory respects this and supports normal mating behaviour.","Konyne is plekgebonde — deur die wyfie na die mannetjie se gebied te neem, word hierdie gedrag gerespekteer en normale paringsgedrag ondersteun.");
+  "Rabbits are site-bound — moving the doe to the buck's territory respects this and supports normal mating behaviour.","Konyne is plekgebonde — deur die wyfie na die mannetjie se gebied te neem, word hierdie gedrag gerespekteer en normale paringsgedrag ondersteun.");
 add('s',2,"Compare colony housing with individual hutch housing in terms of breeding management.","Vergelyk kolonie-behuising met individuele hokbehuising ten opsigte van telingsbestuur.",
   ["Colonies make controlled breeding and record-keeping harder; individual hutches allow controlled pairing","Colonies are always better for breeding control","Individual hutches always cause more stress","There is no difference for breeding purposes"],
   ["Kolonies maak beheerde teling en rekordhouding moeiliker; aparte hokke laat beheerde paring toe","Kolonies is altyd beter vir telingsbeheer","Aparte hokke veroorsaak altyd meer stres","Daar is geen verskil vir telingsdoeleindes nie"],0,
@@ -1025,7 +1090,7 @@ add('jj',4,"By what age must male and female kits be separated to avoid unwanted
 add('j',4,"What is the gestation period (pregnancy length) of a rabbit?","Wat is die dragtyd (swangerskapslengte) van 'n konyn?",
   ["30-32 days","10-12 days","60-65 days","5-6 months"],["30-32 dae","10-12 dae","60-65 dae","5-6 maande"],0,
   "A doe's gestation period is between 30 and 32 days.","'n Wyfie se dragtyd is tussen 30 en 32 dae.");
-add('j',4,"Why might a breeder use 'pleegmas' (foster does)?","Waarom sal 'n teler 'pleegmas' (pleegwyfies) gebruik?",
+add('j',4,"Why might a breeder use foster does?","Waarom sal 'n teler pleegwyfies gebruik?",
   ["To balance litters when one doe has too many kits and another too few","To teach rabbits tricks","To replace the buck","There is no such practice"],
   ["Om werpsels te balanseer wanneer een wyfie te veel kleintjies het en 'n ander te min","Om konyne foefies te leer","Om die mannetjie te vervang","So 'n praktyk bestaan nie"],0,
   "Foster does with similarly-aged litters can take on extra kits from a doe with too many.","Pleegwyfies met soortgelyke-ouderdom werpsels kan ekstra kleintjies van 'n wyfie met te veel kleintjies oorneem.");
@@ -1086,7 +1151,7 @@ add('s',5,"What is the recommended course of action for a rabbit that develops w
   ["Humane removal of the animal","Wait a year and see","Feed only greens","Isolate for one week only"],
   ["Menswaardige verwydering van die dier","Wag 'n jaar en kyk","Voer net groenkos","Isoleer vir net een week"],0,
   "If wry neck cannot be treated and balance is fully lost, humane removal is recommended.","As skewe nek nie behandel kan word nie en balans heeltemal verloor is, word menswaardige verwydering aanbeveel.");
-add('s',5,"Explain why a beoordelaar (judge) might notice a knop (lump) in a vaccinated rabbit's neck.","Verduidelik waarom 'n beoordelaar 'n knop in 'n ingeënte konyn se nek kan opmerk.",
+add('s',5,"Explain why a judge might notice a lump in a vaccinated rabbit's neck.","Verduidelik waarom 'n beoordelaar 'n knop in 'n ingeënte konyn se nek kan opmerk.",
   ["The snuffles vaccine injection site can cause a visible lump","Vaccinated rabbits always lose their fur","It indicates the rabbit is pregnant","It means the rabbit has malocclusion"],
   ["Die inspuitingsplek van die snuifsiekte-entstof kan 'n sigbare knop veroorsaak","Ingeënte konyne verloor altyd hulle pels","Dit dui aan dat die konyn dragtig is","Dit beteken die konyn het wanokklusie"],0,
   "The snuffles vaccine is injected in the neck and can leave a noticeable lump, which judges may spot.","Die snuifsiekte-entstof word in die nek ingespuit en kan 'n merkbare knop laat, wat beoordelaars kan opmerk.");
@@ -1100,7 +1165,7 @@ add('jj',6,"Which breed is famous for having a very fluffy, woolly coat?","Watte
   ["Angora","Rex","Californian","New Zealand"],["Angora","Rex","Kaliforniese","Nieu-Seeland"],0,
   "The Angora is known for its long, fluffy wool coat.","Die Angora is bekend vir sy lang, donsige wolpels.",'image','<img src="breed-angora.jpg" alt="An Angora rabbit with a long, fluffy wool coat">');
 add('jj',6,"Which breed is one of the smallest, weighing just over 1kg?","Watter ras is een van die kleinstes, net oor 1kg?",
-  ["Flemish Giant","Netherland Dwarf","Vlaamse Reus","Belgian Hare"],["Vlaamse Reus","Nederlandse Dwerg","Vlaamse Reus","Belgiese Haas"],1,
+  ["Flemish Giant","Netherland Dwarf","Belgian Hare","New Zealand"],["Vlaamse Reus","Nederlandse Dwerg","Belgiese Haas","Nieu-Seeland"],1,
   "The Netherland Dwarf has a maximum weight of about 1.12kg.","Die Nederlandse Dwerg het 'n maksimum gewig van omtrent 1,12kg.",'image','<img src="breed-netherland-dwarf.jpg" alt="A small Netherland Dwarf rabbit">');
 add('jj',6,"Which breed is famous for its huge floppy ears?","Watter ras is bekend vir sy reuse-hangore?",
   ["English Lop","Netherland Dwarf","Himalayan","Rex"],["Engelse Flapoor","Nederlandse Dwerg","Himalaja","Rex"],0,
@@ -1155,7 +1220,7 @@ add('s',6,"Why is it particularly difficult to source a genetically 'pure' Angor
   ["Import bans plus easy crossbreeding among the three Angora types have blurred purity","Angoras were never imported","There is an abundance of pure Angoras everywhere","Angoras cannot be crossbred at all"],
   ["Invoerverbode plus maklike kruisteling tussen die drie Angora-tipes het suiwerheid vertroebel","Angoras is nooit ingevoer nie","Daar is 'n oorvloed suiwer Angoras oral","Angoras kan glad nie gekruis word nie"],0,
   "Three Angora types were imported and cross easily, and with import bans in place, purebred lines are now scarce.","Drie Angora-tipes is ingevoer en kruis maklik, en met invoerverbode in plek is suiwer lyne nou skaars.");
-add('s',6,"What weight standard discrepancy exists between the British and European standards for the Flemish Giant (Vlaamse Reus)?","Watter gewigstandaard-verskil bestaan tussen die Britse en Europese standaarde vir die Vlaamse Reus?",
+add('s',6,"What weight standard discrepancy exists between the British and European standards for the Flemish Giant?","Watter gewigstandaard-verskil bestaan tussen die Britse en Europese standaarde vir die Vlaamse Reus?",
   ["The European standard requires a heavier rabbit than the British standard","They are identical","The British standard requires heavier rabbits","Neither standard specifies weight"],
   ["Die Europese standaard vereis 'n swaarder konyn as die Britse standaard","Hulle is identies","Die Britse standaard vereis swaarder konyne","Geen standaard spesifiseer gewig nie"],0,
   "The European Standard requires a larger/heavier rabbit than the British Rabbit Council standard, which is a challenge for breeders.","Die Europese Standaard vereis 'n groter/swaarder konyn as die Britse Konynraad se standaard, wat 'n uitdaging vir telers is.");
@@ -1206,9 +1271,9 @@ add('j',7,"Why is newspaper avoided as bedding for a white rabbit's travel carri
   ["Ink can stain the white fur","Newspaper is too expensive","Rabbits eat newspaper and get sick","It has no reason, it's just a myth"],
   ["Ink kan die wit pels vlek","Koerantpapier is te duur","Konyne eet koerantpapier en raak siek","Daar is geen rede nie, dis net 'n mite"],0,
   "Newspaper ink can stain a white rabbit's coat if it gets wet, so it's avoided.","Koerantpapier se ink kan 'n wit konyn se pels vlek as dit nat word, daarom word dit vermy.");
-add('j',7,"What household substance do some exhibitors rub into the coat the night before a show, then brush out?","Watter huishoudelike stof vryf sommige uitstallers die aand voor 'n skou in die pels, en borsel dan uit?",
-  ["Potato starch or mielie meal","Motor oil","Paint thinner","Sugar"],["Aartappelstysel of mieliemeel","Motorolie","Verfverdunner","Suiker"],0,
-  "Some exhibitors rub potato starch or mielie meal into the coat to lift dirt, then brush it all out.","Sommige uitstallers vryf aartappelstysel of mieliemeel in die pels om vuil op te lig, en borsel dit dan heeltemal uit.");
+add('j',7,"What do you use to help a white rabbit's coat shine, rubbed in the night before a show and then brushed out?","Wat gebruik jy om 'n wit konyn se pels te laat blink, ingevryf die aand voor 'n skou en dan uitgeborsel?",
+  ["Maizena (maize starch)","Sheep wool","Lemon juice","Baby oil"],["Maizena (mieliestysel)","Skaapwol","Suurlemoensap","Babaolie"],0,
+  "Maizena is rubbed into a white rabbit's coat the night before a show, then brushed out, to help it shine.","Maizena word die aand voor 'n skou in 'n wit konyn se pels gevryf, en dan uitgeborsel, om dit te laat blink.");
 
 add('s',7,"Which two specific breeds are noted as needing only a single handling session before showing, unlike most breeds?","Watter twee spesifieke rasse word genoem as slegs een hanteringsessie voor 'n skou nodig het, anders as die meeste rasse?",
   ["Belgian Hare and Polish","Netherland Dwarf and Angora","Rex and Satin","New Zealand and Californian"],
@@ -1232,10 +1297,10 @@ add('jj',8,"Once the judge arrives, may you still take your rabbit out of its ca
   ["Yes, any time","No, only for judging","Only at lunch","Only if you ask nicely"],
   ["Ja, enige tyd","Nee, net vir beoordeling","Net met middagete","Net as jy mooi vra"],1,
   "Once the judge has arrived, rabbits may only be taken out of their cages for judging.","Sodra die beoordelaar aangekom het, mag konyne net vir beoordeling uit hulle hokke gehaal word.");
-add('jj',8,"Should you talk to the judge or other people at the judging table during closed judging?","Moet jy met die beoordelaar of ander mense by die beoordelingstafel praat tydens geslote beoordeling?",
-  ["Yes, chat freely","No, no discussion is allowed","Only shout loudly","Only sing"],
-  ["Ja, gesels vrylik","Nee, geen bespreking word toegelaat nie","Skree net hard","Sing net"],1,
-  "During closed judging, no discussion is allowed at the judging table.","Tydens geslote beoordeling word geen bespreking by die beoordelingstafel toegelaat nie.");
+add('jj',8,"What should you do at the judges' table?","Wat moet jy by die beoordelaars se tafel doen?",
+  ["Not talk to other people, and not interrupt the judge while they are judging","Chat with other exhibitors while waiting","Interrupt the judge whenever you want to ask something","Ignore the judge completely"],
+  ["Nie met ander mense praat nie, en nie die beoordelaar onderbreek terwyl hulle beoordeel nie","Gesels met ander uitstallers terwyl jy wag","Onderbreek die beoordelaar wanneer jy wil","Ignoreer die beoordelaar heeltemal"],0,
+  "You shouldn't be chatting with other people or interrupting the judge while they're working — but talking to the judge during showmanship is expected, that's part of the process.","Jy moenie met ander mense gesels of die beoordelaar onderbreek terwyl hulle werk nie — maar om met die beoordelaar te praat tydens die showmanship-gedeelte is verwag, dit is deel van die proses.");
 add('jj',8,"What happens to your rabbit when you first arrive at the show?","Wat gebeur met jou konyn wanneer jy eers by die skou aankom?",
   ["It's checked for health, given a hutch number, and weighed","Nothing happens","It goes straight home","It gets a bath in cold water"],
   ["Dit word vir gesondheid nagegaan, kry 'n hoknommer, en word geweeg","Niks gebeur nie","Dit gaan reguit huis toe","Dit kry 'n bad in koue water"],0,
@@ -1256,10 +1321,10 @@ add('j',8,"What may NOT happen once the judge has arrived and judging area is 'c
   ["Rabbits being removed from hutches except for judging","The judge giving comments","The book steward recording notes","Winners progressing to higher rounds"],
   ["Konyne word uit hokke gehaal behalwe vir beoordeling","Die beoordelaar wat kommentaar lewer","Die boekbeampte wat notas aanteken","Wenners wat na hoër rondtes vorder"],0,
   "Once judging is closed, rabbits may not be removed from their hutches except when called for judging.","Sodra beoordeling geslote is, mag konyne nie uit hulle hokke gehaal word nie, behalwe wanneer vir beoordeling geroep.");
-add('j',8,"What is a 'tafelskou' and when is table-side discussion allowed?","Wat is 'n 'tafelskou' en wanneer word bespreking by die tafel toegelaat?",
-  ["A training-purpose table show, the one case where discussion at the table is allowed","A show only for tables and furniture","It never allows any discussion","It is the same as closed judging"],
-  ["'n Opleidingsdoel-tafelskou, die enigste geval waar bespreking by die tafel toegelaat word","'n Skou net vir tafels en meubels","Dit laat nooit enige bespreking toe nie","Dit is dieselfde as geslote beoordeling"],0,
-  "A tafelskou is held for training purposes, and it's the one exception where discussion at the judging table is allowed.","'n Tafelskou word vir opleidingsdoeleindes gehou, en dit is die enigste uitsondering waar bespreking by die beoordelingstafel toegelaat word.");
+add('j',8,"At a professional breeder's show, which category allows discussion at the judging table, unlike the closed judging used for live animal classes?","By 'n professionele teler-skou, watter kategorie laat bespreking by die beoordelingstafel toe, anders as die geslote beoordeling wat vir lewende diereklasse gebruik word?",
+  ["Static (non-live) entries only","Every category, including live animals","No category ever allows discussion","Only the live rabbit classes"],
+  ["Slegs statiese (nie-lewende) inskrywings","Elke kategorie, insluitend lewende diere","Geen kategorie laat ooit bespreking toe nie","Slegs die lewende konynklasse"],0,
+  "At professional breeder-level shows, table-side discussion during judging is only permitted for static entries — live animal classes stay under closed judging throughout.","By professionele teler-vlak skoue word bespreking by die tafel tydens beoordeling slegs vir statiese inskrywings toegelaat — lewende diereklasse bly deurgaans onder geslote beoordeling.");
 
 add('s',8,"Describe the full judging progression from class winner to overall show champion.","Beskryf die volle beoordelingsvordering van klaswenner tot algehele skoukampioen.",
   ["Class winners → Best of Breed → higher group judging → Best in Show/Grand Champion","Class winners go directly to Grand Champion with no further judging","Every rabbit is automatically Grand Champion","There is no progression system"],
@@ -1387,9 +1452,9 @@ add('s',3,"What is the reasoning some breeders give for avoiding rabbits raised 
   "The handbook notes lettuce's high water content as the likely reason some rabbits went a year without drinking water.","Die handleiding noem blaarslaai se hoë waterinhoud as die waarskynlike rede waarom sommige konyne 'n jaar sonder om te drink deurgebring het.");
 
 /* Chapter 4 */
-add('jj',4,"What is given to a mother rabbit to help her build a soft nest for her babies?","Wat word aan 'n ma-konyn gegee om haar te help om 'n sagte nes vir haar babas te bou?",
-  ["Nest material","A blanket from a shop","Nothing is needed","A toy"],["Nesmateriaal","'n Kombers uit 'n winkel","Niks word benodig nie","'n Speelding"],0,
-  "The doe is given nest material to help her build a nest.","Die wyfie kry nesmateriaal om haar te help om 'n nes te bou.");
+add('jj',4,"What does a mother rabbit use to build her nest?","Wat gebruik 'n ma-konyn om haar nes te bou?",
+  ["Fur from her own belly","Leaves and twigs","Store-bought cotton wool","Nothing, she doesn't build a nest"],["Pels van haar eie maag","Blare en takkies","Winkel-gekoopte watte","Niks, sy bou nie 'n nes nie"],0,
+  "A doe plucks fur from her own belly to line and build her nest.","'n Wyfie pluk pels van haar eie maag om haar nes te voer en te bou.");
 add('jj',4,"About how many babies can be in one rabbit litter?","Ongeveer hoeveel babas kan in een konynwerpsel wees?",
   ["Several, sometimes many","Always exactly one","Always exactly one hundred","Never more than one"],
   ["Verskeie, soms baie","Altyd presies een","Altyd presies een honderd","Nooit meer as een nie"],0,
@@ -1399,9 +1464,9 @@ add('jj',4,"Why must baby rabbits of different sexes be separated as they grow o
   ["Om ongewenste babas te voorkom","Hulle baklei aanhoudend","Hulle eet verskillende kos","Daar is geen rede nie"],0,
   "Separating the sexes prevents unwanted, accidental litters.","Om die geslagte te skei voorkom ongewenste, per ongeluk werpsels.");
 
-add('j',4,"Approximately how many days after mating does a doe typically give birth?","Ongeveer hoeveel dae na paring gee 'n wyfie tipies geboorte?",
-  ["30-32 days","5 days","100 days","300 days"],["30-32 dae","5 dae","100 dae","300 dae"],0,
-  "A doe's gestation period is about 30-32 days.","'n Wyfie se dragtyd is omtrent 30-32 dae.");
+add('j',4,"What does a mother rabbit use to build her nest?","Wat gebruik 'n ma-konyn om haar nes te bou?",
+  ["Fur from her own belly","Leaves and twigs","Store-bought cotton wool","Nothing, she doesn't build a nest"],["Pels van haar eie maag","Blare en takkies","Winkel-gekoopte watte","Niks, sy bou nie 'n nes nie"],0,
+  "A doe plucks fur from her own belly to line and build her nest.","'n Wyfie pluk pels van haar eie maag om haar nes te voer en te bou.");
 add('j',4,"What is one sign that a newborn litter needs help right after birth?","Wat is een teken dat 'n pasgebore werpsel hulp nodig het reg na geboorte?",
   ["The kits are cold and the mother hasn't plucked belly fur for the nest","The kits are moving normally","The mother is eating normally","The nest box is empty"],
   ["Die kleintjies is koud en die ma het nie maagpels vir die nes uitgepluk nie","Die kleintjies beweeg normaalweg","Die ma eet normaalweg","Die neskas is leeg"],0,
@@ -1435,10 +1500,10 @@ add('jj',5,"Why should a sick rabbit be kept away from other rabbits?","Waarom m
 add('j',5,"What everyday household item is sometimes used as a cheap treatment for ear canker?","Watter alledaagse huishoudelike item word soms as 'n goedkoop behandeling vir oorkanker gebruik?",
   ["Baby oil or olive oil","Toothpaste","Dish soap","Sunscreen"],["Babaolie of olyfolie","Tandepasta","Skottelgoedseep","Sonskerm"],0,
   "A few drops of baby oil or olive oil is a common home treatment for ear canker.","'n Paar druppels babaolie of olyfolie is 'n algemene tuisbehandeling vir oorkanker.");
-add('j',5,"Why does the handbook recommend regular vet-style vaccination against snuffles?","Waarom beveel die handleiding gereelde entstof teen snuifsiekte aan?",
-  ["Because it's highly contagious among rabbit populations","Because it's required for feeding","Because it improves coat colour","Because it's optional and rarely needed"],
-  ["Omdat dit hoogs aansteeklik is onder konynbevolkings","Omdat dit vir voeding vereis word","Omdat dit pelskleur verbeter","Omdat dit opsioneel is en selde benodig word"],0,
-  "Snuffles is highly contagious, which is why regular vaccination is recommended.","Snuifsiekte is hoogs aansteeklik, daarom word gereelde entstof aanbeveel.");
+add('j',5,"What causes wry neck?","Wat veroorsaak skewe nek?",
+  ["Breeding, injuries, or secondary infections","Overfeeding pellets","Too much sunlight","It has no known cause"],
+  ["Teling, beserings, of sekondêre infeksies","Oorvoeding met pellets","Te veel sonlig","Dit het geen bekende oorsaak nie"],0,
+  "Wry neck can be caused by breeding issues, injuries, or secondary infections.","Skewe nek kan veroorsaak word deur telingskwessies, beserings, of sekondêre infeksies.");
 add('j',5,"What can cause a rabbit's teeth to overgrow to the point it can no longer eat?","Wat kan veroorsaak dat 'n konyn se tande oorgroei tot die punt dat dit nie meer kan eet nie?",
   ["Malocclusion (jaw misalignment)","Eating too many greens","Drinking too much water","Being groomed too often"],
   ["Wanokklusie (kaakwanaansluiting)","Om te veel groenkos te eet","Om te veel water te drink","Om te gereeld versorg te word"],0,
@@ -1484,14 +1549,14 @@ add('j',6,"This breed is white with dark points, but is a different, larger comm
   ["Californian","Himalayan","Dutch","Satin"],["Kaliforniese","Himalaja","Hollandse","Satyn"],0,
   "The Californian shares the pointed pattern with the Himalayan but is a larger, commercially-bred breed.","Die Kaliforniese deel die gekolde patroon met die Himalaja maar is 'n groter, kommersieel-geteelde ras.",'image','<img src="breed-californian.jpg" alt="A Californian rabbit, white with dark points">');
 
-add('s',6,"What specific weight-related challenge affects breeding the Deilenaar to standard?","Watter spesifieke gewigsverwante uitdaging affekteer die teling van die Deilenaar tot standaard?",
-  ["Adults commonly exceed the 3.5kg maximum","Adults never reach minimum weight","There is no weight standard","The breed has no weight issues"],
-  ["Volwassenes oorskry algemeen die 3,5kg-maksimum","Volwassenes bereik nooit die minimum gewig nie","Daar is geen gewigstandaard nie","Die ras het geen gewigskwessies nie"],0,
-  "Deilenaars commonly exceed the 3.5kg maximum weight allowed by the standard.","Deilenaars oorskry algemeen die 3,5kg-maksimumgewig wat deur die standaard toegelaat word.");
-add('s',6,"Why does the Vlaamse Reus (Flemish Giant) face a particular challenge under the European Standard versus the British standard?","Waarom staar die Vlaamse Reus 'n spesifieke uitdaging in die gesig onder die Europese Standaard teenoor die Britse standaard?",
-  ["The European Standard requires a larger, heavier rabbit","The European Standard requires a smaller rabbit","There is no difference between the standards","The British standard doesn't recognise the breed"],
-  ["Die Europese Standaard vereis 'n groter, swaarder konyn","Die Europese Standaard vereis 'n kleiner konyn","Daar is geen verskil tussen die standaarde nie","Die Britse standaard erken nie die ras nie"],0,
-  "The European Standard requires a heavier rabbit than the British standard, which is a challenge for breeders.","Die Europese Standaard vereis 'n swaarder konyn as die Britse standaard, wat 'n uitdaging vir telers is.");
+add('s',6,"What small rabbit breed weighs on average 2.2kg and unfortunately ended up breeding with the Silver Fox rabbit, losing a lot of its original colouring?","Watter klein konynras weeg gemiddeld 2,2kg en het ongelukkig met die Silver Fox-konyn geteel, wat baie van sy oorspronklike kleur verloor het?",
+  ["Black and Tan","Himalayan","Dutch","Beige"],
+  ["Swart en Tan","Himalaja","Hollandse","Beige"],0,
+  "The Black and Tan, averaging around 2.2kg, lost much of its original colouring through crossbreeding with the Silver Fox.","Die Swart en Tan, wat gemiddeld omtrent 2,2kg weeg, het baie van sy oorspronklike kleur verloor deur kruisteling met die Silver Fox.");
+add('s',6,"What breeds are supposed to have the exact same markings, just in different colours?","Watter rasse veronderstel om presies dieselfde markeringe te hê, net in verskillende kleure?",
+  ["The Harlequin and the Magpie","The Dutch and the Himalayan","The Rex and the Satin","The Angora and the Beige"],
+  ["Die Harlekyn en die Ekster","Die Hollandse en die Himalaja","Die Rex en die Satyn","Die Angora en die Beige"],0,
+  "The Harlequin and Magpie share the same marking pattern, differing only in colour.","Die Harlekyn en Ekster deel dieselfde markeringspatroon, en verskil net in kleur.");
 
 /* Chapter 7 */
 add('jj',7,"What should you do if you find a hutch stain on your rabbit before a show?","Wat moet jy doen as jy 'n hokvlek op jou konyn voor 'n skou vind?",
@@ -1499,9 +1564,9 @@ add('jj',7,"What should you do if you find a hutch stain on your rabbit before a
   ["Maak dit skoon voor die skou","Ignoreer dit heeltemal","Verf daaroor","Bedek dit met 'n plakker"],0,
   "Any hutch stains must be cleaned off before a show.","Enige hokvlekke moet voor 'n skou skoongemaak word.");
 add('jj',7,"What might cause a rabbit to suddenly start moulting before a show?","Wat kan veroorsaak dat 'n konyn skielik begin verhaar voor 'n skou?",
-  ["A sudden change in the weather","Eating too many carrots","Being too calm","Nothing causes moulting"],
-  ["'n Skielike verandering in die weer","Om te veel wortels te eet","Om te kalm te wees","Niks veroorsaak verharing nie"],0,
-  "A sudden change in weather can trigger a rabbit to moult.","'n Skielike weersverandering kan 'n konyn laat verhaar.");
+  ["Stress","Eating too many carrots","Being too calm","Nothing causes moulting"],
+  ["Stres","Om te veel wortels te eet","Om te kalm te wees","Niks veroorsaak verharing nie"],0,
+  "Stress can cause a rabbit to moult unexpectedly, so keeping your rabbit calm in the lead-up to a show matters.","Stres kan 'n konyn onverwags laat verhaar, so dit is belangrik om jou konyn kalm te hou voor 'n skou.");
 add('jj',7,"Why should a rabbit practise sitting calmly on a table before a show?","Waarom moet 'n konyn oefen om kalm op 'n tafel te sit voor 'n skou?",
   ["Because that's how it will be handled during judging","Tables are more comfortable than hutches","It has nothing to do with judging","Rabbits are never placed on tables"],
   ["Omdat dit is hoe dit tydens beoordeling hanteer sal word","Tafels is gemakliker as hokke","Dit het niks met beoordeling te doen nie","Konyne word nooit op tafels geplaas nie"],0,
@@ -1542,23 +1607,183 @@ add('j',8,"What is the purpose of penning rabbits the evening before judging?","
   ["To settle rabbits into their show cages ahead of time","To feed the judges","To sell rabbits","To clean the hall"],
   ["Om konyne vooraf in hulle skouhokke te vestig","Om die beoordelaars te voer","Om konyne te verkoop","Om die saal skoon te maak"],0,
   "Penning settles rabbits into their show cages the evening before judging.","Inhok vestig konyne die aand voor beoordeling in hulle skouhokke.");
-add('j',8,"What happens to a rabbit's hutch number when it arrives at a show?","Wat gebeur met 'n konyn se hoknommer wanneer dit by 'n skou aankom?",
-  ["It's marked in the rabbit's ear","It is painted on its back","It's written on a certificate only","Nothing is recorded"],
-  ["Dit word in die konyn se oor gemerk","Dit word op sy rug geverf","Dit word net op 'n sertifikaat geskryf","Niks word aangeteken nie"],0,
-  "The rabbit's hutch number is marked in its ear on arrival.","Die konyn se hoknommer word by aankoms in sy oor gemerk.");
+add('j',8,"What happens with a rabbit's number at a Youth Show, unlike at a professional breeder's show?","Wat gebeur met 'n konyn se nommer by 'n Jeugskou, anders as by 'n professionele teler-skou?",
+  ["The rabbit's cage is given a number that's matched to a corresponding number for the exhibitor (the child)","The rabbit's ear is permanently tattooed with a number","No numbers are used at all","Only the judge is given a number"],
+  ["Die konyn se hok kry 'n nommer wat pas by 'n ooreenstemmende nommer vir die uitstaller (die kind)","Die konyn se oor word permanent met 'n nommer getatoeëer","Geen nommers word glad nie gebruik nie","Slegs die beoordelaar kry 'n nommer"],0,
+  "At the professional breeder-show level, rabbits are often marked directly (like an ear tattoo). Youth Show works differently — it matches a cage number to a number for the exhibitor themselves.","By professionele teler-skoue word konyne dikwels direk gemerk (soos 'n oor-tatoeëring). Jeugskou werk anders — dit pas 'n hoknommer by 'n nommer vir die uitstaller self.");
 add('j',8,"What is the difference between open and closed judging?","Wat is die verskil tussen oop en geslote beoordeling?",
   ["Open judging allows spectators to watch; closed does not","Open judging has no judge present","Closed judging allows unlimited discussion","There is no difference"],
   ["Oop beoordeling laat toeskouers toe om te kyk; geslote nie","Oop beoordeling het geen beoordelaar teenwoordig nie","Geslote beoordeling laat onbeperkte bespreking toe","Daar is geen verskil nie"],0,
   "Open judging allows spectators to watch, while closed judging only allows officials at the table.","Oop beoordeling laat toeskouers toe om te kyk, terwyl geslote beoordeling net amptenare by die tafel toelaat.");
 
-add('s',8,"What role does the book steward play that supports fair judging?","Watter rol speel die boekbeampte wat regverdige beoordeling ondersteun?",
-  ["Recording the judge's commentary accurately for later reference","Choosing the winners themselves","Feeding rabbits during judging","Selling raffle tickets"],
-  ["Om die beoordelaar se kommentaar akkuraat vir latere verwysing aan te teken","Om self die wenners te kies","Om konyne tydens beoordeling te voer","Om lootjies te verkoop"],0,
-  "The book steward records the judge's commentary accurately for later reference.","Die boekbeampte teken die beoordelaar se kommentaar akkuraat aan vir latere verwysing.");
 add('s',8,"Why must show conditions and rules be checked before entering, given inter-club variation?","Waarom moet skoutoestande en -reëls voor inskrywing nagegaan word, gegewe klub-tot-klub-variasie?",
   ["Different clubs and shows can have different rules, classes, and conditions","All shows use identical rules everywhere","Rules never vary between clubs","It is not necessary to check anything"],
   ["Verskillende klubs en skoue kan verskillende reëls, klasse, en toestande hê","Alle skoue gebruik identiese reëls oral","Reëls verskil nooit tussen klubs nie","Dit is nie nodig om enigiets na te gaan nie"],0,
   "Different clubs and shows can have different rules, so it's important to check before entering.","Verskillende klubs en skoue kan verskillende reëls hê, so dit is belangrik om voor inskrywing na te gaan.");
+
+
+/* ===== NEW QUESTIONS ADDED IN TODAY'S SESSION ===== */
+
+/* --- Senior --- */
+add('s',2,"What can happen to your rabbit — especially coloured rabbits — if your rabbit's hutch gets too much sun?","Wat kan met jou konyn gebeur — veral gekleurde konyne — as jou konyn se hok te veel son kry?",
+  ["Their fur may get sun spots","Their ears grow larger","They stop needing water","Nothing, sun exposure has no effect"],
+  ["Hulle pels kan sonvlekke kry","Hulle ore groei groter","Hulle het nie meer water nodig nie","Niks, sonblootstelling het geen effek nie"],0,
+  "Too much direct sun can cause sun spots in a coloured rabbit's coat, so hutches need some shade.","Te veel direkte son kan sonvlekke in 'n gekleurde konyn se pels veroorsaak, so hokke het skaduwee nodig.");
+add('s',2,"What may a sick rabbit not be allowed to do on a show?","Wat mag 'n siek konyn nie by 'n skou doen nie?",
+  ["Participate","Eat","Sleep","Drink water"],["Deelneem","Eet","Slaap","Water drink"],0,
+  "A sick rabbit isn't allowed to participate in a show — health comes first, and it protects the other rabbits there too.","'n Siek konyn mag nie aan 'n skou deelneem nie — gesondheid kom eerste, en dit beskerm ook die ander konyne daar.");
+add('s',2,"What size hutch do commercial breeders prefer for their rabbits?","Watter grootte hok verkies kommersiële telers vir hulle konyne?",
+  ["600mm x 600mm x 300mm or 450mm, with a breeding hutch on the outside of the cage","200mm x 200mm x 100mm, with no breeding hutch","2m x 2m x 2m, indoors only","Any size, as long as it has wheels"],
+  ["600mm x 600mm x 300mm of 450mm, met 'n teelkas buite die hok","200mm x 200mm x 100mm, sonder 'n teelkas","2m x 2m x 2m, slegs binnenshuis","Enige grootte, solank dit wiele het"],0,
+  "Commercial breeders typically use a 600mm x 600mm hutch, 300mm or 450mm high, with a separate breeding hutch (teelkas) attached to the outside.","Kommersiële telers gebruik tipies 'n 600mm x 600mm hok, 300mm of 450mm hoog, met 'n aparte teelkas aan die buitekant aangeheg.");
+
+add('s',3,"How much protein does a rabbit need?","Hoeveel proteïen het 'n konyn nodig?",
+  ["Between 12% and 14%","Between 2% and 4%","Between 40% and 50%","Protein isn't necessary for rabbits"],
+  ["Tussen 12% en 14%","Tussen 2% en 4%","Tussen 40% en 50%","Proteïen is nie nodig vir konyne nie"],0,
+  "A rabbit's feed should contain roughly 12-14% protein.","'n Konyn se voer moet ongeveer 12-14% proteïen bevat.");
+add('s',3,"What problems could you possibly rule out by slowly changing the rabbit's pellets?","Watter probleme kan jy moontlik uitskakel deur die konyn se pellets stadig te verander?",
+  ["A change in their fur texture and inconsistencies with fertility","A change in ear length","A change in eye colour","Nothing — pellet changes have no effect"],
+  ["'n Verandering in hulle pelstekstuur en teenstrydighede met vrugbaarheid","'n Verandering in oorlengte","'n Verandering in oogkleur","Niks — pelletveranderinge het geen effek nie"],0,
+  "Switching pellets gradually helps avoid problems like changes in fur texture and fertility inconsistencies.","Om pellets geleidelik te verwissel help om probleme soos veranderinge in pelstekstuur en vrugbaarheidsonreëlmatighede te vermy.");
+
+add('s',4,"At what age does a baby rabbit/kit's eyes start to open?","Op watter ouderdom begin 'n baba-konyn/kleintjie se oë oopmaak?",
+  ["Day 10 to 12","Day 1 to 2","Day 30 to 35","They're born with their eyes open"],
+  ["Dag 10 tot 12","Dag 1 tot 2","Dag 30 tot 35","Hulle word gebore met oop oë"],0,
+  "Kits' eyes typically start opening around day 10 to 12.","Kleintjies se oë begin tipies oopmaak omtrent dag 10 tot 12.");
+add('s',4,"After how many days would the baby rabbit/kits start leaving the nest and eating solid food?","Na hoeveel dae sal die baba-konyne/kleintjies begin om die nes te verlaat en soliede kos te eet?",
+  ["3 weeks","3 days","3 months","They never leave the nest voluntarily"],
+  ["3 weke","3 dae","3 maande","Hulle verlaat nooit die nes vrywillig nie"],0,
+  "Kits generally start leaving the nest and eating solid food at around 3 weeks old.","Kleintjies begin gewoonlik die nes verlaat en soliede kos eet op omtrent 3 weke oud.");
+add('s',4,"After the doe gives birth, you should double the rations with what?","Nadat die wyfie geboorte gee, moet jy die porsies verdubbel met wat?",
+  ["Green lucern/alfalfa and other leafy greens","Extra pellets only, no greens","Bread and grains","No change in rations is needed"],
+  ["Groen lusern/alfalfa en ander blaargroentes","Ekstra pellets alleen, geen groentes nie","Brood en grane","Geen verandering in porsies is nodig nie"],0,
+  "A doe's rations should be doubled after giving birth, with green lucern/alfalfa and other leafy greens added.","'n Wyfie se porsies moet verdubbel word na geboorte, met groen lusern/alfalfa en ander blaargroentes bygevoeg.");
+
+add('s',5,"What is the correct way to treat an abscess on your rabbit?","Wat is die korrekte manier om 'n absess op jou konyn te behandel?",
+  ["Open it up with sanitised equipment, squeeze out the pus, disinfect the wound, and apply a healing balm/oil or a mixture of flowers of sulphur and vaseline","Leave it completely alone, it will heal on its own","Cover it with a bandage and never check it again","Pop it with bare, unwashed hands"],
+  ["Maak dit oop met gesteriliseerde toerusting, druk die etter uit, ontsmet die wond, en smeer 'n helende salf/olie of 'n mengsel van swaelblom en vaseline aan","Los dit heeltemal, dit sal vanself genees","Bedek dit met 'n verband en kyk nooit weer daarna nie","Druk dit oop met kaal, ongewaste hande"],0,
+  "An abscess should be opened with sanitised equipment, drained, disinfected, and treated with a healing balm or a flowers-of-sulphur-and-vaseline mixture.","'n Absess moet met gesteriliseerde toerusting oopgemaak, gedreineer, ontsmet, en behandel word met 'n helende salf of 'n swaelblom-en-vaseline-mengsel.");
+add('s',5,"What causes sore hocks?","Wat veroorsaak seer hakskene?",
+  ["When the hair under the rabbit's feet falls out, causing the skin to burst and get infected — usually due to long toenails or dirty, rusty, wire floors","Overfeeding pellets","Too much time outdoors in the sun","Vaccination side effects"],
+  ["Wanneer die hare onder die konyn se voete uitval, wat veroorsaak dat die vel bars en geïnfekteer raak — gewoonlik weens lang naels of vuil, roeserige draadvloere","Oorvoeding met pellets","Te veel tyd buite in die son","Newe-effekte van inentings"],0,
+  "Sore hocks develop when fur under the feet wears away, exposing skin that can burst and become infected — commonly from long toenails or dirty, rusty wire flooring.","Seer hakskene ontwikkel wanneer die pels onder die voete wegslyt, wat vel blootstel wat kan bars en geïnfekteer raak — algemeen weens lang naels of vuil, roeserige draadvloere.");
+add('s',5,"What breed tends to be the most susceptible to malocclusion?","Watter ras is geneig om die mees vatbaar vir wanokklusie te wees?",
+  ["Netherland Dwarf","Flemish Giant","English Lop","New Zealand"],["Nederlandse Dwerg","Vlaamse Reus","Engelse Flapoor","Nieu-Seeland"],0,
+  "The Netherland Dwarf is particularly prone to malocclusion (misaligned teeth).","Die Nederlandse Dwerg is veral geneig tot wanokklusie (skewe tande).");
+add('s',5,"What breed is most susceptible to sore hocks?","Watter ras is die mees vatbaar vir seer hakskene?",
+  ["Rex","Angora","Himalayan","Dutch"],["Rex","Angora","Himalaja","Hollandse"],0,
+  "The Rex breed's fine, thin fur on its feet makes it especially prone to sore hocks.","Die Rex-ras se fyn, dun pels op sy voete maak dit veral vatbaar vir seer hakskene.");
+
+add('s',6,"What is identical to the Sable breed but has a blue/grey colour?","Wat is identies aan die Sabel-ras maar het 'n blou/grys kleur?",
+  ["Smoke Pearl","Chinchilla Giganta","Beige","Californian"],["Smoke Pearl","Chinchilla Giganta","Beige","Kaliforniese"],0,
+  "The Smoke Pearl is essentially a Sable in blue/grey rather than the Sable's usual colouring.","Die Smoke Pearl is in wese 'n Sabel in blou/grys eerder as die Sabel se gewone kleur.");
+add('s',6,"What breeds are considered 'Special Fur' breeds?","Watter rasse word as 'Spesiale Pels'-rasse beskou?",
+  ["The Rex and the Satin","The Angora and the Dutch","The Himalayan and the Beige","The Flemish Giant and the Netherland Dwarf"],
+  ["Die Rex en die Satyn","Die Angora en die Hollandse","Die Himalaja en die Beige","Die Vlaamse Reus en die Nederlandse Dwerg"],0,
+  "Rex and Satin are grouped as Special Fur breeds, judged specifically on their distinctive coat textures.","Rex en Satyn word as Spesiale Pels-rasse gegroepeer, en word spesifiek op hulle kenmerkende pelstekstuur beoordeel.");
+add('s',6,"What is the difference between a Californian rabbit breed and a Himalayan rabbit breed?","Wat is die verskil tussen 'n Kaliforniese-konynras en 'n Himalaja-konynras?",
+  ["The Californian is much larger and stockier, weighing 3.4kg-4.5kg, and was bred for meat; the Himalayan is small and slender, weighing around 2.2kg","They are actually the exact same breed under two names","The Himalayan is the larger, meat-bred variety","There is no difference besides ear length"],
+  ["Die Kaliforniese is baie groter en steviger, en weeg 3,4kg-4,5kg, en is vir vleis geteel; die Himalaja is klein en rank, en weeg omtrent 2,2kg","Hulle is eintlik dieselfde ras onder twee name","Die Himalaja is die groter, vleis-geteelde variëteit","Daar is geen verskil behalwe oorlengte nie"],0,
+  "Despite the similar white-with-dark-points pattern, the Californian is a much larger, meat-purpose breed, while the Himalayan is small and slender.","Ondanks die soortgelyke wit-met-donker-kolle patroon, is die Kaliforniese 'n veel groter, vleis-doel ras, terwyl die Himalaja klein en rank is.");
+
+add('s',8,"How should you be dressed when arriving at the judges' table?","Hoe moet jy geklee wees wanneer jy by die beoordelaars se tafel aankom?",
+  ["In your competition shirt, navy denim trousers, and closed shoes","Casual clothes of your choice","A costume matching your rabbit's breed","School uniform, regardless of the show's dress code"],
+  ["In jou kompetisiehemp, vlootblou denimbroek, en toe skoene","Casual klere van jou keuse","'n Kostuum wat by jou konyn se ras pas","Skooluniform, ongeag die skou se kleredragkode"],0,
+  "Exhibitors should arrive at the judge's table properly presented — competition shirt, navy denim trousers, and closed shoes.","Uitstallers moet behoorlik uitgevat by die beoordelaar se tafel aankom — kompetisiehemp, vlootblou denimbroek, en toe skoene.");
+add('s',8,"What is part of the criteria judges look for in stockmanship?","Wat is deel van die kriteria wat beoordelaars in stokmanskap soek?",
+  ["Understanding of animal behaviour and practical husbandry knowledge","Only how expensive the rabbit's cage is","Only the rabbit's pedigree paperwork","Only how fast you can catch the rabbit"],
+  ["Begrip van dierlike gedrag en praktiese veeteeltkennis","Slegs hoe duur die konyn se hok is","Slegs die konyn se stamboom-dokumentasie","Slegs hoe vinnig jy die konyn kan vang"],0,
+  "Stockmanship judging includes understanding of animal behaviour and practical husbandry knowledge — not just how the animal looks.","Stokmanskap-beoordeling sluit begrip van dierlike gedrag en praktiese veeteeltkennis in — nie net hoe die dier lyk nie.");
+add('s',8,"When handling your animal on the show bench, what should you do?","Wanneer jy jou dier op die skoubank hanteer, wat moet jy doen?",
+  ["Not shout or use unnecessary force or rough treatment","Grip firmly and shout commands to control it","Let it move freely with no guidance at all","Only touch it if the judge tells you to"],
+  ["Nie skree of onnodige krag of rowwe behandeling gebruik nie","Gryp ferm en skree bevele om dit te beheer","Laat dit vryelik beweeg sonder enige leiding","Raak dit slegs aan as die beoordelaar jou vertel om"],0,
+  "Rabbits should always be handled calmly — never shouted at, forced, or roughly treated on the show bench.","Konyne moet altyd kalm hanteer word — nooit geskree, gedwing, of rof behandel op die skoubank nie.");
+
+/* --- Junior Junior --- */
+add('jj',1,"What are some differences between a rabbit and a hare?","Wat is sommige verskille tussen 'n konyn en 'n haas?",
+  ["A rabbit's babies are born naked, underground, with eyes closed and helpless; a hare's babies are born with hair, above ground, and can see and run around soon after birth","They are actually the exact same animal with no differences","Hares are born underground and rabbits are born above ground","Rabbits and hares both give birth to fully grown babies"],
+  ["'n Konyn se babas word naak, ondergronds, met oë toe en hulpeloos gebore; 'n haas se babas word met hare, bogronds, gebore en kan sien en rondhardloop kort na geboorte","Hulle is eintlik dieselfde dier met geen verskille nie","Hase word ondergronds gebore en konyne word bogronds gebore","Konyne en hase se babas word albei ten volle grootgemaak gebore"],0,
+  "Rabbit kits are born naked, blind, and helpless in an underground burrow, while hare young (leverets) are born furred, sighted, and mobile above ground.","Konynkleintjies word naak, blind, en hulpeloos in 'n ondergrondse gang gebore, terwyl haasjonges met hare, siende, en beweegbaar bogronds gebore word.");
+add('jj',1,"What reasons are there to keep rabbits?","Watter redes is daar om konyne aan te hou?",
+  ["As meat, as pets, as therapy/rehabilitation animals, and for scientific research","Only as pets","Only for racing","Only for their wool"],
+  ["As vleis, as troeteldiere, as terapie/rehabilitasie-diere, en vir wetenskaplike navorsing","Slegs as troeteldiere","Slegs vir wedrenne","Slegs vir hulle wol"],0,
+  "Rabbits are kept for many reasons — meat, companionship, therapeutic/rehabilitation work, and scientific research.","Konyne word om baie redes aangehou — vleis, geselskap, terapeutiese/rehabilitasiewerk, en wetenskaplike navorsing.");
+
+add('jj',2,"What conditions in a rabbit's hutch can cause flu, snuffles (Pasteurella), and ear infections?","Watter toestande in 'n konyn se hok kan griep, snuifsiekte (Pasteurella), en oorinfeksies veroorsaak?",
+  ["Wind blowing through the cage and over the rabbit","Too much sunlight","Too much fresh water","Nothing in the hutch can cause illness"],
+  ["Wind wat deur die hok waai en oor die konyn","Te veel sonlig","Te veel vars water","Niks in die hok kan siekte veroorsaak nie"],0,
+  "A draughty hutch, with wind blowing directly over the rabbit, can lead to flu, snuffles, and ear infections.","'n Toghtige hok, met wind wat direk oor die konyn waai, kan lei tot griep, snuifsiekte, en oorinfeksies.");
+
+add('jj',5,"What do you do when you see your rabbit has diarrhoea?","Wat doen jy wanneer jy sien jou konyn het diarree?",
+  ["Take away all food, give only dry hay with lots of fresh water — a phosphorus base can also be added to the drinking water","Give it extra pellets to build strength","Give it more fresh greens","Do nothing, it will pass on its own"],
+  ["Neem alle kos weg, gee net droë hooi met baie vars water — 'n fosforbasis kan ook by die drinkwater gevoeg word","Gee ekstra pellets om krag op te bou","Gee dit meer vars groentes","Doen niks, dit sal vanself oorgaan nie"],0,
+  "For diarrhoea, remove all food except dry hay, ensure plenty of fresh water, and a phosphorus base can be added to the water to help settle it.","Vir diarree, verwyder alle kos behalwe droë hooi, verseker baie vars water, en 'n fosforbasis kan by die water gevoeg word om dit te help kalmeer.");
+
+/* --- Junior --- */
+add('j',1,"Rabbits are also bred for what other reasons?","Konyne word ook om watter ander redes geteel?",
+  ["For research purposes and as therapy/rehabilitation animals","Only for racing","Only for their milk","Only for their wool"],
+  ["Vir navorsingsdoeleindes en as terapie/rehabilitasie-diere","Slegs vir wedrenne","Slegs vir hulle melk","Slegs vir hulle wol"],0,
+  "Beyond pets and meat, rabbits are also bred for scientific research and for therapy/rehabilitation work.","Buiten troeteldiere en vleis, word konyne ook geteel vir wetenskaplike navorsing en vir terapie/rehabilitasiewerk.");
+add('j',1,"What are some differences between rabbits and hares?","Wat is sommige verskille tussen konyne en hase?",
+  ["A rabbit creates a place to hide and nest under the ground, while a hare lives above the ground","Rabbits live above ground and hares live underground","There is no difference in where they live","Both live exclusively in trees"],
+  ["'n Konyn skep 'n plek om weg te kruip en te nes ondergronds, terwyl 'n haas bogronds leef","Konyne leef bogronds en hase leef ondergronds","Daar is geen verskil in waar hulle leef nie","Albei leef uitsluitlik in bome"],0,
+  "Rabbits dig burrows and nest underground for shelter, while hares live and rest above ground in the open.","Konyne grawe gange en nes ondergronds vir skuiling, terwyl hase bogronds in die oop veld leef en rus.");
+add('j',1,"What can't rabbits and hares do together?","Wat kan konyne en hase nie saam doen nie?",
+  ["Breed","Eat the same food","Live in the same country","Be kept as pets"],
+  ["Teel","Dieselfde kos eet","In dieselfde land woon","As troeteldiere aangehou word"],0,
+  "Despite looking similar, rabbits and hares are different species and cannot interbreed.","Ondanks hulle soortgelyke voorkoms, is konyne en hase verskillende spesies en kan nie kruisteel nie.");
+
+add('j',2,"What size is a breeding hutch normally for medium to large breeds?","Watter grootte is 'n teelhok normaalweg vir medium tot groot rasse?",
+  ["900mm wide x 600mm deep x 450mm high","100mm x 100mm x 100mm","3m x 3m x 3m","There is no standard size"],
+  ["900mm wyd x 600mm diep x 450mm hoog","100mm x 100mm x 100mm","3m x 3m x 3m","Daar is geen standaardgrootte nie"],0,
+  "A typical breeding hutch for medium to large breeds measures around 900mm wide, 600mm deep, and 450mm high.","'n Tipiese teelhok vir medium tot groot rasse meet omtrent 900mm wyd, 600mm diep, en 450mm hoog.");
+add('j',2,"How often should you remove the rabbit droppings from the hutch?","Hoe gereeld moet jy die konynmis uit die hok verwyder?",
+  ["Everyday","Once a month","Once a year","Never"],["Elke dag","Een keer 'n maand","Een keer 'n jaar","Nooit"],0,
+  "Droppings should be cleaned out of the hutch every day to keep it sanitary.","Mis moet elke dag uit die hok skoongemaak word om dit higiënies te hou.");
+add('j',2,"What conditions could result in your rabbit getting flu, snuffles (Pasteurella) and even ear infections?","Watter toestande kan daartoe lei dat jou konyn griep, snuifsiekte (Pasteurella) en selfs oorinfeksies kry?",
+  ["A cold wind blowing through their cage and over the rabbit. They are very sensitive to a cold draft","Too much sunlight","Too much fresh water","Nothing in the hutch can cause illness"],
+  ["'n Koue wind wat deur hulle hok waai en oor die konyn. Hulle is baie sensitief vir 'n koue trek","Te veel sonlig","Te veel vars water","Niks in die hok kan siekte veroorsaak nie"],0,
+  "A cold draft blowing through the hutch can lead to flu, snuffles, and ear infections — rabbits are very sensitive to cold drafts.","'n Koue trek wat deur die hok waai kan lei tot griep, snuifsiekte, en oorinfeksies — konyne is baie sensitief vir koue trekke.");
+
+add('j',3,"What problems can occur if you do not gradually switch over to new food?","Watter probleme kan voorkom as jy nie geleidelik na nuwe kos oorskakel nie?",
+  ["The rabbits can lose their appetite, their fur texture can change, and even inconsistencies with fertility","Nothing happens at all","The rabbit grows faster","The coat becomes shinier"],
+  ["Die konyne kan hulle eetlus verloor, hulle pelstekstuur kan verander, en selfs teenstrydighede met vrugbaarheid","Niks gebeur glad nie","Die konyn groei vinniger","Die pels word blinker"],0,
+  "Switching foods too quickly can cause a rabbit to lose its appetite, change its fur texture, and even cause fertility inconsistencies — always transition gradually.","Om te vinnig van kos te verwissel kan veroorsaak dat 'n konyn sy eetlus verloor, sy pelstekstuur verander, en selfs vrugbaarheidsonreëlmatighede veroorsaak — skakel altyd geleidelik oor.");
+
+add('j',4,"With what do they double the mother's rations after she gave birth, for milk production?","Waarmee verdubbel hulle die moeder se porsies nadat sy geboorte gegee het, vir melkproduksie?",
+  ["Lucerne/alfalfa and leafy greens","Extra pellets only","Bread and grains","No change in rations is needed"],
+  ["Lusern/alfalfa en blaargroentes","Slegs ekstra pellets","Brood en grane","Geen verandering in porsies is nodig nie"],0,
+  "A doe's rations are doubled with lucerne/alfalfa and other leafy greens after birth to support milk production.","'n Wyfie se porsies word verdubbel met lusern/alfalfa en ander blaargroentes na geboorte om melkproduksie te ondersteun.");
+
+add('j',5,"What is sore hocks?","Wat is seer hakskene?",
+  ["When the hair on the bottom of the rabbit's feet falls out, and the skin starts to blister and burst and get infections","A type of ear infection","A broken toenail","A digestive problem"],
+  ["Wanneer die hare aan die onderkant van die konyn se voete uitval, en die vel begin blaar en bars en infeksies kry","'n Soort oorinfeksie","'n Gebreekte naeltjie","'n Spysverteringsprobleem"],0,
+  "Sore hocks happen when the hair on the bottom of a rabbit's feet wears away, and the exposed skin blisters, bursts, and becomes infected.","Seer hakskene gebeur wanneer die hare aan die onderkant van 'n konyn se voete wegslyt, en die blootgestelde vel blaar, bars, en geïnfekteer raak.");
+add('j',5,"What issues would you commonly find in the Rex breed?","Watter probleme sal jy algemeen in die Rex-ras vind?",
+  ["Sore hocks","Malocclusion","Wry neck","Ear canker"],["Seer hakskene","Wanokklusie","Skewe nek","Oorskurfte"],0,
+  "Rex rabbits are especially prone to sore hocks because their fur is so short and offers little cushioning for their feet.","Rex-konyne is veral geneig tot seer hakskene omdat hulle pels so kort is en min versagting vir hulle voete bied.");
+add('j',5,"What issues would you commonly encounter with a Netherland Dwarf breed?","Watter probleme sal jy algemeen met 'n Nederlandse Dwerg-ras teëkom?",
+  ["Malocclusion","Sore hocks","Snuffles","Ear canker"],["Wanokklusie","Seer hakskene","Snuifsiekte","Oorskurfte"],0,
+  "The Netherland Dwarf breed is particularly prone to malocclusion (misaligned teeth).","Die Nederlandse Dwerg-ras is veral geneig tot wanokklusie (skewe tande).");
+
+add('j',6,"Which breed is this?","Watter ras is dit?",
+  ["Himalayan","Californian","Beige","Dutch"],["Himalaja","Kaliforniese","Beige","Hollandse"],0,
+  "The Himalayan is white with dark points on the nose, ears, feet and tail.","Die Himalaja is wit met donker kolle op die neus, ore, pote en stert.",'image','<img src="breed-himalayan.jpg" alt="A white Himalayan rabbit with dark points on nose, ears, feet and tail">');
+add('j',6,"Which breed is this?","Watter ras is dit?",
+  ["Beige","Californian","Himalayan","Dutch"],["Beige","Kaliforniese","Himalaja","Hollandse"],0,
+  "The Beige has a sandy coat with a bluish-tinted undercoat underneath.","Die Beige het 'n sandkleurige pels met 'n blouerig-getinte onderpels daaronder.",'image','<img src="breed-beige.jpg" alt="A Beige rabbit with a sandy coat">');
+add('j',6,"Which breed is this?","Watter ras is dit?",
+  ["Netherland Dwarf","Flemish Giant","Rex","Dutch"],["Nederlandse Dwerg","Vlaamse Reus","Rex","Hollandse"],0,
+  "The Netherland Dwarf is one of the smallest breeds, weighing just over 1kg.","Die Nederlandse Dwerg is een van die kleinste rasse, en weeg net oor 1kg.",'image','<img src="breed-netherland-dwarf.jpg" alt="A small Netherland Dwarf rabbit">');
+
+add('j',7,"What do you use to help a black rabbit's coat shine?","Wat gebruik jy om 'n swart konyn se pels te laat blink?",
+  ["Sheep wool","Maizena","Potato starch","Vinegar"],["Skaapwol","Maizena","Aartappelstysel","Asyn"],0,
+  "Sheep wool is used to bring out the shine in a black rabbit's coat.","Skaapwol word gebruik om die glans in 'n swart konyn se pels na vore te bring.");
+
+add('j',8,"How should you be dressed when showing your rabbit to the judge?","Hoe moet jy geklee wees wanneer jy jou konyn aan die beoordelaar wys?",
+  ["Competition shirt tucked in, long navy trousers/denim, closed shoes, and neat hair and nails","Casual clothes of your choice","A costume matching your rabbit's breed","School uniform, regardless of the show's dress code"],
+  ["Kompetisiehemp ingesteek, lang vlootblou broek/denim, toe skoene, en netjiese hare en naels","Casual klere van jou keuse","'n Kostuum wat by jou konyn se ras pas","Skooluniform, ongeag die skou se kleredragkode"],0,
+  "Exhibitors should be properly presented — competition shirt tucked in, long navy trousers or denim, closed shoes, and neat hair and nails.","Uitstallers moet behoorlik uitgevat wees — kompetisiehemp ingesteek, lang vlootblou broek of denim, toe skoene, en netjiese hare en naels.");
 
 /* ---------------- STATE ---------------- */
 let state = { division:null, questions:[], idx:0, score:0, answered:false, chapterScore:{} };
@@ -1734,7 +1959,51 @@ function selectAnswer(i){
   document.getElementById('fbBodyEN').textContent = currentLang==='en' ? q.ex.en : q.ex.af;
   document.getElementById('fbAfLine').textContent = '';
 
+  showReaction(correct);
+
   document.getElementById('nextBtn').style.display='inline-flex';
+}
+
+/* ---------------- REACTION POP-UP ---------------- */
+const REACT_CORRECT = [
+  {img:'bunny-dab.png', alt:'A rabbit doing a triumphant dab'},
+  {img:'bunny-proud.png', alt:'A proud, confident rabbit'}
+];
+const REACT_WRONG = [
+  {img:'bunny-facepalm.png', alt:'A rabbit covering its face'},
+  {img:'bunny-praying.png', alt:'A rabbit with paws together, hopeful'}
+];
+const REACT_PHRASES_CORRECT = {
+  en:["Nailed it! \ud83c\udf89","Ribbon-worthy answer!","You know your stuff!","Blue ribbon brain!","Too easy!"],
+  af:["Raak geskiet! \ud83c\udf89","'n Lint-waardige antwoord!","Jy ken jou goed!","Bloulint-brein!","Te maklik!"]
+};
+const REACT_PHRASES_WRONG = {
+  en:["So close! Try the next one.","Not quite \u2014 but good thinking!","Almost! Check the handbook for this one.","Nice try \u2014 you'll get the next one!","That's okay, keep going!"],
+  af:["So naby! Probeer die volgende een.","Nie heeltemal nie \u2014 maar goeie denke!","Amper! Gaan kyk gerus in die handleiding.","Mooi probeer \u2014 jy kry die volgende een!","Dis reg, hou aan!"]
+};
+
+let reactionTimer = null;
+function showReaction(correct){
+  const pool = correct ? REACT_CORRECT : REACT_WRONG;
+  const phrases = correct ? REACT_PHRASES_CORRECT : REACT_PHRASES_WRONG;
+  const pick = pool[Math.floor(Math.random()*pool.length)];
+  const phraseList = phrases[currentLang] || phrases.en;
+  const phrase = phraseList[Math.floor(Math.random()*phraseList.length)];
+
+  const pop = document.getElementById('reactionPop');
+  const img = document.getElementById('reactionImg');
+  const txt = document.getElementById('reactionText');
+
+  img.src = pick.img;
+  img.alt = pick.alt;
+  txt.textContent = phrase;
+
+  pop.classList.remove('show');
+  void pop.offsetWidth; // restart animation from scratch
+  pop.classList.add('show');
+
+  if(reactionTimer) clearTimeout(reactionTimer);
+  reactionTimer = setTimeout(()=>{ pop.classList.remove('show'); }, 2200);
 }
 
 document.getElementById('nextBtn').addEventListener('click', ()=>{
